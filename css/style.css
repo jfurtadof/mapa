@@ -1,0 +1,22 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;xq
+}
+
+nav{
+  height:80px;
+}
+
+nav a{
+  padding-left: 12px;
+}
+
+nav img{
+  background-color: black;
+  width: 80px;
+  height: 80px;
+}
