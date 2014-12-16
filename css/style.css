@@ -4,18 +4,26 @@ html, body{
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;xq
+  vertical-align: baseline;
+  background-color: #ECECEC;
+  width: 1280px;
+  height: 1024px;
 }
 
-nav{
+#nav{
+  display: block;
   height:80px;
+  text-align: center;
+  bottom: 0px;
 }
 
-nav a{
+.nav-a{
   padding-left: 12px;
+  display: inline;
 }
 
-nav img{
+.nav-a-img{
+  display: inline-block;
   background-color: black;
   width: 80px;
   height: 80px;
