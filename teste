@@ -14,11 +14,26 @@
     <a class="nav-a" id="offBtn" href="#"><img class="nav-a-img" src="img/off.png"></a>
   </nav>
 
-<!--  <div id="map">
-    <img id="map-image" src="img/piso4.png"></div>
+  <div id="map">
+    <?php
+    $query=mysql_query("SELECT * FROM `salas` WHERE `sala_name` = 'maquina'");
+    $result=mysql_num_rows($query);
+    $fetch = mysql_fetch_object($query);
+
+    if ($result == 1){
+      echo "encontrou maquina";
+      $xPos = $fetch->sala_x;
+      $yPos = $fetch->sala_y;
+    } else {
+      echo "não encontrou";
+    }
+    ?>
+
+  <div id="map-image">
+    sdsd
   </div>
 
-  <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script>
   exp = document.getElementById('map-image'),
   setBtn = document.getElementById('setBtn');
@@ -31,6 +46,6 @@
     $(img).animate({left: xPos, top: yPos});
   }
 
-  </script>-->
+</script>
 </body>
 </html>

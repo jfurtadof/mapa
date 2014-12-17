@@ -14,23 +14,12 @@
     <a class="nav-a" id="offBtn" href="#"><img class="nav-a-img" src="img/off.png"></a>
   </nav>
 
-<!--  <div id="map">
-    <img id="map-image" src="img/piso4.png"></div>
-  </div>
+<script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+<link href="styleTeste.css" rel="stylesheet" type="text/css">
 
-  <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
-  <script>
-  exp = document.getElementById('map-image'),
-  setBtn = document.getElementById('setBtn');
 
-  $(setBtn).click(function(){
-    $('.nav-a').css("background-color", "red");
-  });
-
-  function changePosition(img, xPos, yPos){
-    $(img).animate({left: xPos, top: yPos});
-  }
-
-  </script>-->
-</body>
-</html>
+<h3>Pure Javascript</h3>
+<div class="zoomPic"></div>
+<button class='zoom'>Zoom</button>
+<button class='pause'>Pause</button>
+<button class='zoomout'>Zoom Out</button>
