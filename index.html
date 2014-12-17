@@ -7,9 +7,34 @@
 </head>
 <body>
   <nav id="nav">
-    <a class="nav-a" href="#"><img class="nav-a-img" src="img/seta.png"></a>
-    <a class="nav-a" href="#"><img class="nav-a-img" src="img/cmd.png"></a>
-    <a class="nav-a" href="#"><img class="nav-a-img" src="img/off.png"></a>
+    <a class="nav-a" id="setBtn" href="#"><img class="nav-a-img" src="img/seta.png"></a>
+    <a class="nav-a" id="cmdBtn" href="#"><img class="nav-a-img" src="img/cmd.png"></a>
+    <a class="nav-a" id="offBtn" href="#"><img class="nav-a-img" src="img/off.png"></a>
   </nav>
+
+  <!--<div id="map">
+  <img id="map-image" src="img/piso2.png">
+</div>-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script>
+piso1 = document.getElementById('map-image');
+/*cmdBtn = document.getElementById('cmdBtn');*/
+
+$(document).ready(function(){
+  $(cmdBtn).click(function(){
+    $('.nav-a-img').css("background-color", "red");
+  });
+});
+
+
+/*function changePosition(img, xPos, yPos){
+img.style.position = "absolute";
+img.style.top = xPos+"px";
+img.style.left = yPos+"px";
+}*/
+
+</script>
 </body>
 </html>

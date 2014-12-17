@@ -5,16 +5,15 @@ html, body{
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  background-color: #ECECEC;
   width: 1280px;
   height: 1024px;
 }
 
 #nav{
   display: block;
+  background-position: white;
   height:80px;
   text-align: center;
-  bottom: 0px;
 }
 
 .nav-a{
