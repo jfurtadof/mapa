@@ -11,8 +11,9 @@ html, body{
 
 #nav{
   display: block;
-  background-position: white;
+  background-position: red;
   height:80px;
+  width: 100%;
   text-align: center;
 }
 
@@ -30,6 +31,6 @@ html, body{
 
 #map-image{
   position:absolute;
-  top: 10px;
-  left: 100px;
+  top: 80px;
+  left: 100px;*/
 }
