@@ -1,3 +1,5 @@
+<?php include('connect.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -13,7 +15,22 @@
   </nav>
 
   <div id="map">
-    <img id="map-image" src="img/piso3.png">
+    <?php
+    $query=mysql_query("SELECT * FROM `salas` WHERE `sala_name` = 'maquina'");
+    $result=mysql_num_rows($query);
+    $fetch = mysql_fetch_object($query);
+
+    if ($result == 1){
+      echo "encontrou";
+      $xPos = $fetch->sala_x;
+      $yPos = $fetch->sala_y;
+      echo "$yPos";
+    } else {
+      echo "não encontrou";
+    }
+    ?>
+
+    <img id="map-image" style="top: <?php echo "$yPos"; ?>" src="img/piso1.png">
   </div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
