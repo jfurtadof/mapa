@@ -7,10 +7,13 @@ html, body{
   vertical-align: baseline;
   width: 1280px;
   height: 1024px;
+  overflow: hidden;
 }
 
 #nav{
   display: block;
+  position: absolute;
+  z-index: 1000;
   background-position: red;
   height:80px;
   width: 100%;
@@ -31,6 +34,6 @@ html, body{
 
 #map-image{
   position:absolute;
-  top: 80px;
-  left: 100px;*/
+  top: -2400px;
+  left: 0px;
 }
