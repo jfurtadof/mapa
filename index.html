@@ -8,32 +8,26 @@
 <body>
   <nav id="nav">
     <a class="nav-a" id="setBtn" href="#"><img class="nav-a-img" src="img/seta.png"></a>
-    <a class="nav-a" id="cmdBtn" href="#"><img class="nav-a-img" src="img/cmd.png"></a>
-    <a class="nav-a" id="offBtn" href="#"><img class="nav-a-img" src="img/off.png"></a>
+    <!--<a class="nav-a" id="cmdBtn" href="#"><img class="nav-a-img" src="img/cmd.png"></a>
+    <a class="nav-a" id="offBtn" href="#"><img class="nav-a-img" src="img/off.png"></a>-->
   </nav>
 
-  <!--<div id="map">
-  <img id="map-image" src="img/piso2.png">
-</div>-->
+  <div id="map">
+    <img id="map-image" src="img/seta.png">
+  </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>
+  exp = document.getElementById('map-image'),
+  setBtn = document.getElementById('setBtn');
 
-<script>
-piso1 = document.getElementById('map-image');
-/*cmdBtn = document.getElementById('cmdBtn');*/
-
-$(document).ready(function(){
-  $(cmdBtn).click(function(){
-    $('.nav-a-img').css("background-color", "red");
+  $(setBtn).click(function(){
+    changePosition(exp, 1000, 10);
   });
-});
 
-
-/*function changePosition(img, xPos, yPos){
-img.style.position = "absolute";
-img.style.top = xPos+"px";
-img.style.left = yPos+"px";
-}*/
+  function changePosition(img, xPos, yPos){
+    $(img).animate({left: xPos, top: yPos}, 200);
+  }
 
 </script>
 </body>
