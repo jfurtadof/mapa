@@ -10,8 +10,8 @@
 <body>
   <nav id="nav">
     <a class="nav-a" id="setBtn"><img class="nav-a-img" src="img/seta.png"></a>
-    <a class="nav-a" id="cmdBtn" href="#"><img class="nav-a-img" src="img/cmd.png"></a>
-    <a class="nav-a" id="offBtn" href="#"><img class="nav-a-img" src="img/off.png"></a>
+    <a class="nav-a" id="cmdBtn"><img class="nav-a-img" src="img/cmd.png"></a>
+    <a class="nav-a" id="offBtn"><img class="nav-a-img" src="img/off.png"></a>
   </nav>
 
   <div id="map">
@@ -30,33 +30,72 @@
     }
     ?>
 
-    <img id="map-image" style="left: <?php echo $xPosLocation ?>; top: <?php echo $yPosLocation ?>; width: <?php echo $ZoomLocation ?>" src="img/piso4.png"></div>
+    <img id="map-image" src="img/piso7.png" style="left: <?php echo $xPosLocation ?>; top: <?php echo $yPosLocation ?>; width:<?php echo $ZoomLocation ?>;"></div>
   </div>
 
  <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
- <?php
- $query2=mysql_query("SELECT * FROM salas WHERE sala_name = 'secretaria'");
- $result2=mysql_num_rows($query2);
- $fetch2=mysql_fetch_object($query2);
-
- if ($result == 1){
-   $xPos = $fetch->sala_x;
-   $yPos = $fetch->sala_y;
-   $Zoom = $fetch->zoom;
-   echo "Secret Found";
- } else {
-   echo "Room not found";
- }
- ?>
 
   <script>
   exp = document.getElementById('map-image'),
   setBtn = document.getElementById('setBtn');
+  cmdBtn = document.getElementById('cmdBtn');
+  offBtn = document.getElementById('offBtn');
 
   $(setBtn).click(function(){
-//    var xPos = "<?php echo $xPos ?>";
-//    var yPos = "<?php echo $yPos ?>";
-    changePosition(exp, "-1300px", "-4500px");
+    <?php
+    $queryR=mysql_query("SELECT * FROM salas WHERE sala_name = 'secretaria'");
+    $resultR=mysql_num_rows($queryR);
+    $fetchR=mysql_fetch_object($queryR);
+
+    if ($result == 1){
+      $xPos = $fetchR->sala_x;
+      $yPos = $fetchR->sala_y;
+      $Zoom = $fetchR->zoom;
+    } else {
+      echo "Room not found";
+    }
+    ?>
+    var xPos = "<?php echo $xPos ?>";
+    var yPos = "<?php echo $yPos ?>";
+    changePosition(exp, xPos, yPos);
+  });
+
+  $(cmdBtn).click(function(){
+    <?php
+    $queryR=mysql_query("SELECT * FROM salas WHERE sala_name = 'gab'");
+    $resultR=mysql_num_rows($queryR);
+    $fetchR=mysql_fetch_object($queryR);
+
+    if ($result == 1){
+      $xPos = $fetchR->sala_x;
+      $yPos = $fetchR->sala_y;
+      $Zoom = $fetchR->zoom;
+    } else {
+      echo "Room not found";
+    }
+    ?>
+    var xPos = "<?php echo $xPos ?>";
+    var yPos = "<?php echo $yPos ?>";
+    changePosition(exp, xPos, yPos);
+  });
+
+  $(offBtn).click(function(){
+    <?php
+    $queryR=mysql_query("SELECT * FROM salas WHERE sala_name = 'cisuc'");
+    $resultR=mysql_num_rows($queryR);
+    $fetchR=mysql_fetch_object($queryR);
+
+    if ($result == 1){
+      $xPos = $fetchR->sala_x;
+      $yPos = $fetchR->sala_y;
+      $Zoom = $fetchR->zoom;
+    } else {
+      echo "Room not found";
+    }
+    ?>
+    var xPos = "<?php echo $xPos ?>";
+    var yPos = "<?php echo $yPos ?>";
+    changePosition(exp, xPos, yPos);
   });
 
   function changePosition(i, x, y){
