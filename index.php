@@ -41,6 +41,8 @@
   cmdBtn = document.getElementById('cmdBtn');
   offBtn = document.getElementById('offBtn');
 
+  changeImgSource("img/cisuc.png");
+
   $(setBtn).click(function(){
     <?php
     $queryR=mysql_query("SELECT * FROM salas WHERE sala_name = 'secretaria'");
@@ -100,6 +102,10 @@
 
   function changePosition(i, x, y){
     $(i).animate({left: x, top: y});
+  }
+
+  function changeImgSource(newsrc){
+    $(exp).src = newsrc;
   }
 
   </script>

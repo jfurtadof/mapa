@@ -37,7 +37,6 @@ html, body{
 #map{
   width: 1280px;
   height: 1024px;
-  background-color: gray;
 }
 
 #map-image{
