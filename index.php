@@ -1,112 +1,134 @@
-<?php include('connect.php'); ?>
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <title>Mapa do DEI</title>
   <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
   <nav id="nav">
-    <a class="nav-a" id="setBtn"><img class="nav-a-img" src="img/seta.png"></a>
-    <a class="nav-a" id="cmdBtn"><img class="nav-a-img" src="img/cmd.png"></a>
-    <a class="nav-a" id="offBtn"><img class="nav-a-img" src="img/off.png"></a>
+    <span class="level-one">
+    <a class="nav-a"><img class="nav-a-img one" id="searchBtn" src="img/search.png"></a>
+    <span id="searchDiv" style="display:none" class="more-levels level-two">
+      <a class="nav-a"><img class="nav-a-img two" id="roomBtn" src="img/cpu.png"></a>
+      <span id="roomDiv" class="more-levels level-three">
+        SALAS
+      </span>
+      <a class="nav-a"><img class="nav-a-img two" id="servBtn" src="img/motherboard.png"></a>
+      <span id="servDiv" class="more-levels">
+        SERVIÇOS
+      </span>
+      <a class="nav-a"><img class="nav-a-img two" id="profBtn" src="img/mouse.png"></a>
+      <span id="profDiv" class="more-levels">
+        PROFS
+      </span>
+      <a class="nav-a"><img class="nav-a-img two" id="officeBtn" src="img/monitor.png"></a>
+      <span id="officeDiv" class="more-levels">
+        OFFICE
+      </span>
+      <a class="nav-a"><img class="nav-a-img two" id="eventsBtn" src="img/controller.png"></a>
+      <span id="eventsDiv" class="more-levels">
+        EVENTS
+      </span>
+    </span>
+    <a class="nav-a"><img class="nav-a-img one" id="mapBtn" src="img/keyboard.png"></a>
+    <a class="nav-a"><img class="nav-a-img one" id="quickBtn" src="img/cmd.png"></a>
+  </span>
   </nav>
 
   <div id="map">
-    <?php
-    $query=mysql_query("SELECT * FROM salas WHERE sala_name = 'maquina'");
-    $result=mysql_num_rows($query);
-    $fetch=mysql_fetch_object($query);
-
-    if ($result == 1){
-      $xPosLocation = $fetch->sala_x;
-      $yPosLocation = $fetch->sala_y;
-      $ZoomLocation = $fetch->zoom;
-      echo "Location found";
-    } else {
-      echo "Room not found";
-    }
-    ?>
-
-    <img id="map-image" src="img/piso7.png" style="left: <?php echo $xPosLocation ?>; top: <?php echo $yPosLocation ?>; width:<?php echo $ZoomLocation ?>;"></div>
+    <img id="map-image" src="img/piso7.png"></div>
   </div>
 
- <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
 
   <script>
-  exp = document.getElementById('map-image'),
-  setBtn = document.getElementById('setBtn');
-  cmdBtn = document.getElementById('cmdBtn');
-  offBtn = document.getElementById('offBtn');
 
-  changeImgSource("img/cisuc.png");
-
-  $(setBtn).click(function(){
-    <?php
-    $queryR=mysql_query("SELECT * FROM salas WHERE sala_name = 'secretaria'");
-    $resultR=mysql_num_rows($queryR);
-    $fetchR=mysql_fetch_object($queryR);
-
-    if ($result == 1){
-      $xPos = $fetchR->sala_x;
-      $yPos = $fetchR->sala_y;
-      $Zoom = $fetchR->zoom;
-    } else {
-      echo "Room not found";
-    }
-    ?>
-    var xPos = "<?php echo $xPos ?>";
-    var yPos = "<?php echo $yPos ?>";
-    changePosition(exp, xPos, yPos);
+  $('#searchBtn').click(function(){
+    toggleOne('searchBtn','searchDiv', 'mapBtn');
   });
 
-  $(cmdBtn).click(function(){
-    <?php
-    $queryR=mysql_query("SELECT * FROM salas WHERE sala_name = 'gab'");
-    $resultR=mysql_num_rows($queryR);
-    $fetchR=mysql_fetch_object($queryR);
-
-    if ($result == 1){
-      $xPos = $fetchR->sala_x;
-      $yPos = $fetchR->sala_y;
-      $Zoom = $fetchR->zoom;
-    } else {
-      echo "Room not found";
-    }
-    ?>
-    var xPos = "<?php echo $xPos ?>";
-    var yPos = "<?php echo $yPos ?>";
-    changePosition(exp, xPos, yPos);
+  $('#mapBtn').click(function(){
+    toggleOne('mapBtn','searchDiv', 'quickBtn');
   });
 
-  $(offBtn).click(function(){
-    <?php
-    $queryR=mysql_query("SELECT * FROM salas WHERE sala_name = 'cisuc'");
-    $resultR=mysql_num_rows($queryR);
-    $fetchR=mysql_fetch_object($queryR);
+  function toggleOne(id, id2, id3){
+    var i = document.getElementById(id);
+    var iPos = $(i).offset();
+    var iWidth = iPos.left;
+    var i2 = document.getElementById(id2);
+    var i3 = document.getElementById(id3);
 
-    if ($result == 1){
-      $xPos = $fetchR->sala_x;
-      $yPos = $fetchR->sala_y;
-      $Zoom = $fetchR->zoom;
+    alert(iWidth);
+
+    if (i2.style.display != "none"){
+      $(i2).fadeOut(170);
+      $(i2).animate({left: "0px"}, 200);
+      $(i3).animate({marginLeft: "0px"}, 200);
     } else {
-      echo "Room not found";
+      $(i2).animate({left: iWidth-152+"px"}, 200);
+      $(i2).fadeIn(170);
+      $(i3).animate({marginLeft: "503px"}, 200);
     }
-    ?>
-    var xPos = "<?php echo $xPos ?>";
-    var yPos = "<?php echo $yPos ?>";
-    changePosition(exp, xPos, yPos);
-  });
-
-  function changePosition(i, x, y){
-    $(i).animate({left: x, top: y});
   }
 
-  function changeImgSource(newsrc){
-    $(exp).src = newsrc;
+
+
+
+
+/*  $('#roomBtn').click(function(){
+    $('#roomBtn').css("background-color", "red");
+    toggleTwo('roomDiv', 'servBtn', 'mapBtn');
+  });
+
+  $('#servBtn').click(function(){
+    $('#servBtn').css("background-color", "red");
+    toggleTwo('servDiv', 'profBtn', 'mapBtn');
+  });*/
+
+
+/*
+function toggleTwo(id, id2, id3){
+  var i = document.getElementById(id);
+  var i2 = document.getElementById(id2);
+  var i3 = document.getElementById(id3);
+
+  if (i.style.display == "inline-block"){
+    $(i).fadeOut(170);
+    $(i).animate({left: "103px"}, 200);
+    $(i2).animate({marginLeft: "0px"}, 200);
+    $(i3).animate({marginLeft: "505px"}, 200);
+  } else {
+    $(i).animate({left: "103px" + "103px"}, 200);
+    $(i).fadeIn(170);
+    $(i2).animate({marginLeft: "97px"}, 200);
+    $(i3).animate({marginLeft: "603px"}, 200);
   }
+}
+
+
+/*
+$('#roomBtn').click(function(){
+  //  toggleDi('roomDiv', 'two');
+  //    $('.two').not('#roomBtn').css("opacity", "0.7");
+  });
+
+
+
+  function toggleDisabled(id, btn, cl){
+    var i = document.getElementById(id);
+    var b = document.getElementById(btn);
+    var c = document.getElementsByClassName(cl);
+    if (i.style.display == 'inline-block'){
+      $(i).fadeOut(200);
+      $(c).not(b).css("opacity", "1");
+    } else {
+      $(i).fadeIn(200);
+      i.style.display = 'inline-block';
+      $(c).not(b).css("opacity", "0.7");
+    }
+  }
+  */
 
   </script>
 </body>

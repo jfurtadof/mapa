@@ -8,31 +8,55 @@ html, body{
   width: 1280px;
   height: 1024px;
   border: 1px solid black;
+  font-size: 10px;
+  font-family: Uni;
 }
 
+@font-face{
+  font-family: Uni;
+  src: url('../fonts/Unibody8Pro-Bold.otf');
+}
 
 #nav{
   position: absolute;
-  top: 945px;
-  display: block;
+  top: 940px;
+  display: inline-block;
   z-index: 1000;
-  height:80px;
+  height:85px;
   width: 1280px;
-  text-align: center;
+  text-align:center;
+
 }
 
 .nav-a{
-  padding-left: 12px;
-  display: inline;
+  padding-right: 12px;
+  display: inline-block;
 }
 
 .nav-a-img{
   display: inline-block;
-  background-color: black;
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
 }
 
+.one{
+  background-color: #022440;
+}
+
+.two{
+  background-color: #074087;
+}
+
+.more-levels{
+  left:0px;
+  position:absolute;
+  top:0px;
+  z-index: -1000;
+}
+
+.level-one{
+  z-index:1000;
+}
 
 #map{
   width: 1280px;
