@@ -53,6 +53,7 @@ html, body{
 
 .level-one{
   z-index:1;
+  background-color: white;
 }
 
 .level-two{
@@ -60,7 +61,7 @@ html, body{
 }
 
 .level-three{
-  z-index:0;
+  z-index:3;
 }
 
 .more-levels{

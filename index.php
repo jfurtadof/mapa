@@ -11,15 +11,15 @@
     <span class="level-one">
       <a class="nav-a"><img class="nav-a-img one" id="searchBtn" src="img/search.png"></a>
       <span id="searchDiv" class="more-levels level-two" style="display:none; margin-left: 383px;">
-        <a class="nav-a"><img class="nav-a-img two" id="roomBtn" src="img/cpu.png"></a>
-        <span id="roomDiv" class="more-levels level-three" style="display:none; margin-left: 383px;">
+        <a class="nav-a two"><img class="nav-a-img two" id="roomBtn" src="img/cpu.png"></a>
+        <span id="roomDiv" class="more-levels level-three" style="display:none; margin-left: 0px;">
           <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
           <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
           <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
         </span>
-        <a class="nav-a"><img class="nav-a-img two" id="servBtn" src="img/motherboard.png"></a>
-        <a class="nav-a"><img class="nav-a-img two" id="profBtn" src="img/mouse.png"></a>
-        <a class="nav-a"><img class="nav-a-img two" id="eventsBtn" src="img/controller.png"></a>
+        <a class="nav-a two"><img class="nav-a-img two" id="servBtn" src="img/motherboard.png"></a>
+        <a class="nav-a two"><img class="nav-a-img two" id="profBtn" src="img/mouse.png"></a>
+        <a class="nav-a two"><img class="nav-a-img two" id="eventsBtn" src="img/controller.png"></a>
       </span>
       <a class="nav-a"><img class="nav-a-img one" id="quickBtn" src="img/cmd.png"></a>
     </span>
@@ -40,7 +40,7 @@
 
   $('#roomBtn').click(function(){
     alert("cenas");
-    $('#roomBtn').css("background-color", "red");
+    toggleTwo('roomBtn', 'roomDiv', 'two', 'quickBtn');
   });
 
   function toggleOne(id, id2, id3){
@@ -59,22 +59,26 @@
       i2.style.display = "block";
     }
   }
-/*
+
   function toggleTwo(id, id2, id3, id4){
     var i = document.getElementById(id);
     var iPos = $(i).offset();
     var iWidth = iPos.left;
     var i2 = document.getElementById(id2);
-    var i3 = document.getElementById(id3);
-    var i4 = document.getElementById(id3);
+    var i3 = document.getElementsByClassName(id3);
+    var i4 = document.getElementById(id4);
 
     if (i2.style.display != 'none'){
-      $(i4).animate({marginLeft: "0px"}, 200);
-      $(i2).fadeOut(170);
+    //  $(i4).animate({marginLeft: "0px"}, 200);
+      $(i3).css("background-color","red");
+      $(i3).fadeIn(200);
+      $(i2).fadeOut(200);
       //  $(i2).animate({marginLeft: iWidth+"px"}, 200);
     } else {
-      $(i4).animate({marginLeft: iWidth+7+"px"}, 200);
-      $(i2).fadeIn(200);
+    //  $(i4).animate({marginLeft: iWidth+7+"px"}, 200);
+    //  $(i3).fadeOut(170);
+    $(i3).css("background-color","white");
+    $(i2).fadeIn(200);
       //  $(i2).animate({marginLeft: iWidth-132+"px"}, 200);
       i2.style.display = "block";
     }
