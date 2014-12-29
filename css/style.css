@@ -52,19 +52,26 @@ html, body{
 }
 
 .level-one{
+  z-index:1;
+}
+
+.level-two{
+  z-index:2;
+}
+
+.level-three{
   z-index:0;
 }
 
 .more-levels{
-//  left:0px;
+  //  left:0px;
   position:absolute;
   top:0px;
 
-  z-index: -1;
-//  -webkit-transition: opacity .5s ease-in-out;
-//  -moz-transition: opacity .5s ease-in-out;
-//  -o-transition: opacity .5s ease-in-out;
-//  transition: opacity .5s ease-in-out;
+  //  -webkit-transition: opacity .5s ease-in-out;
+  //  -moz-transition: opacity .5s ease-in-out;
+  //  -o-transition: opacity .5s ease-in-out;
+  //  transition: opacity .5s ease-in-out;
 }
 
 #map{
@@ -74,7 +81,7 @@ html, body{
 
 #map-image{
   position: absolute;
-//  left: -1300px;
-//  top: -4500px;
-//  width: 100%;
+  //  left: -1300px;
+  //  top: -4500px;
+  //  width: 100%;
 }

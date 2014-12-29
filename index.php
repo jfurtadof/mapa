@@ -10,9 +10,9 @@
   <nav id="nav">
     <span class="level-one">
       <a class="nav-a"><img class="nav-a-img one" id="searchBtn" src="img/search.png"></a>
-      <span id="searchDiv" class="more-levels level-two" style="display:none; margin-left: 383px;" >
+      <span id="searchDiv" class="more-levels level-two" style="display:none; margin-left: 383px;">
         <a class="nav-a"><img class="nav-a-img two" id="roomBtn" src="img/cpu.png"></a>
-        <span id="roomDiv" class="more-levels level-three">
+        <span id="roomDiv" class="more-levels level-three" style="display:none; margin-left: 383px;">
           <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
           <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
           <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
@@ -34,10 +34,14 @@
     toggleOne('searchBtn','searchDiv', 'quickBtn');
   });
 
-  $('#quickBtn').click(function(){
+/*  $('#quickBtn').click(function(){
     toggleOne('quickBtn','searchDiv', 'quickBtn');
-  });
+  });*/
 
+  $('#roomBtn').click(function(){
+    alert("cenas");
+    $('#roomBtn').css("background-color", "red");
+  });
 
   function toggleOne(id, id2, id3){
     var i = document.getElementById(id);
@@ -46,19 +50,37 @@
     var i2 = document.getElementById(id2);
     var i3 = document.getElementById(id3);
 
-    //alert(iWidth);
-
     if (i2.style.display != 'none'){
       $(i3).animate({marginLeft: "0px"}, 200);
       $(i2).fadeOut(170);
-    //  $(i2).animate({marginLeft: iWidth+"px"}, 200);
     } else {
       $(i3).animate({marginLeft: iWidth+7+"px"}, 200);
       $(i2).fadeIn(200);
-    //  $(i2).animate({marginLeft: iWidth-132+"px"}, 200);
       i2.style.display = "block";
     }
   }
+/*
+  function toggleTwo(id, id2, id3, id4){
+    var i = document.getElementById(id);
+    var iPos = $(i).offset();
+    var iWidth = iPos.left;
+    var i2 = document.getElementById(id2);
+    var i3 = document.getElementById(id3);
+    var i4 = document.getElementById(id3);
+
+    if (i2.style.display != 'none'){
+      $(i4).animate({marginLeft: "0px"}, 200);
+      $(i2).fadeOut(170);
+      //  $(i2).animate({marginLeft: iWidth+"px"}, 200);
+    } else {
+      $(i4).animate({marginLeft: iWidth+7+"px"}, 200);
+      $(i2).fadeIn(200);
+      //  $(i2).animate({marginLeft: iWidth-132+"px"}, 200);
+      i2.style.display = "block";
+    }
+  }
+
+
 /*
   function toggleTwo(id, id2, id3, id4){
     var i = document.getElementById(id);
