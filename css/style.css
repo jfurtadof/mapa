@@ -52,8 +52,7 @@ html, body{
 }
 
 .level-one{
-  z-index:1;
-  background-color: white;
+  z-index:4;
 }
 
 .level-two{
