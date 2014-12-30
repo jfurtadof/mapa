@@ -52,8 +52,7 @@ html, body{
 }
 
 .level-one{
-  z-index:1;
-  background-color: white;
+  z-index:3;
 }
 
 .level-two{
@@ -61,18 +60,12 @@ html, body{
 }
 
 .level-three{
-  z-index:3;
+  z-index:1;
 }
 
 .more-levels{
-  //  left:0px;
   position:absolute;
   top:0px;
-
-  //  -webkit-transition: opacity .5s ease-in-out;
-  //  -moz-transition: opacity .5s ease-in-out;
-  //  -o-transition: opacity .5s ease-in-out;
-  //  transition: opacity .5s ease-in-out;
 }
 
 #map{
