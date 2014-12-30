@@ -12,17 +12,41 @@
       <a class="nav-a"><img class="nav-a-img one" id="searchBtn" src="img/search.png"></a>
       <a class="nav-a"><img class="nav-a-img one" id="quickBtn" src="img/cmd.png"></a>
     </span>
+
+
     <span id="searchDiv" class="more-levels level-two" style="display:none; margin-left: 383px;">
       <a class="nav-a"><img class="nav-a-img two" id="roomBtn" src="img/cpu.png"></a>
       <a class="nav-a"><img class="nav-a-img two" id="servBtn" src="img/motherboard.png"></a>
       <a class="nav-a"><img class="nav-a-img two" id="profBtn" src="img/mouse.png"></a>
       <a class="nav-a"><img class="nav-a-img two" id="eventsBtn" src="img/controller.png"></a>
     </span>
-    <span id="roomDiv" class="more-levels level-three" style="display:none; margin-left: 510px;">
+
+    <span id="roomDiv" class="more-levels level-three" style="display:none; margin-left: 513px;">
       <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
       <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
       <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
     </span>
+    <span id="servDiv" class="more-levels level-three" style="display:none; margin-left: 313px;">
+      <a class="nav-a"><img class="nav-a-img three" id="secrBtn" src="img/file.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="barBtn" src="img/plug.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="helpBtn" src="img/router.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="cisucBtn" src="img/usb.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="gapiBtn" src="img/flip.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="neiBtn" src="img/controller.png"></a>
+    </span>
+    <span id="profDiv" class="more-levels level-three" style="display:none; margin-left: 513px;">
+      <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
+    </span>
+    <span id="eventsDiv" class="more-levels level-three" style="display:none; margin-left: 513px;">
+      <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
+    </span>
+
+
+
   </nav>
 
   <div id="map">
@@ -36,6 +60,10 @@
   roomDiv = document.getElementById('roomDiv');
   servBtn = document.getElementById('servBtn');
   servDiv = document.getElementById('servDiv');
+  profBtn = document.getElementById('profBtn');
+  profDiv = document.getElementById('profDiv');
+  eventsBtn = document.getElementById('eventsBtn');
+  eventsDiv = document.getElementById('eventsDiv');
 
   quickBtn = document.getElementById('quickBtn');
 
@@ -45,8 +73,17 @@
   $(searchBtn).click(function(){
     if (searchDiv.style.display != 'none'){
       $(quickBtn).animate({marginLeft: "0px"}, 200);
+
+      /************ CONFIGS BOTÃO ROOM ***************/
+
       $(searchDiv).fadeOut(170);
       $(levelThree).fadeOut(170);
+
+      /************ CONFIGS BOTÃO SERV ***************/
+      $(servBtn).css("margin-left", "0px");
+      $(roomBtn).css("visibility", "visible");
+      $(profBtn).css("visibility", "visible");
+      $(eventsBtn).css("visibility", "visible");
     } else {
       $(quickBtn).animate({marginLeft: $(searchBtn).offset().left + "px"}, 200);
       $(searchDiv).fadeIn(200);
@@ -65,15 +102,21 @@
   });
 
   $(servBtn).click(function(){
-    $(servBtn).css("background-color", "yellow");
-    if (roomDiv.style.display != 'none'){
-    //  $(servBtn).animate({marginLeft: "0px"}, 200);
-      $(roomDiv).fadeOut(170);
+    if (servDiv.style.display != 'none'){
+      $(servDiv).fadeOut(170);
+      $(quickBtn).animate({marginLeft: "513px"}, 200);
+      $(servBtn).css("margin-left", "0px");
+      $(roomBtn).css("visibility", "visible");
+      $(profBtn).css("visibility", "visible");
+      $(eventsBtn).css("visibility", "visible");
     } else {
-    //  $(servBtn).css("margin-left", "-151px");
-    $(roomDiv).fadeIn(200);
-    $(levelTwo).not(servBtn).css("visibility", "hidden");
-    roomDiv.style.display = "block";
+      $(servBtn).css("margin-left", "-540px");
+      $(quickBtn).animate({marginLeft: $(servBtn).offset().left + 713 +"px"}, 200);
+      $(roomBtn).css("visibility", "hidden");
+      $(profBtn).css("visibility", "hidden");
+      $(eventsBtn).css("visibility", "hidden");
+      $(servDiv).fadeIn(200);
+      servDiv.style.display = "block";
     }
   });
 

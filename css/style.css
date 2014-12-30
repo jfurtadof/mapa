@@ -52,7 +52,7 @@ html, body{
 }
 
 .level-one{
-  z-index:3;
+  z-index:1;
 }
 
 .level-two{
@@ -60,7 +60,7 @@ html, body{
 }
 
 .level-three{
-  z-index:1;
+  z-index:3;
 }
 
 .more-levels{
