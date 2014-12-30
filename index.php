@@ -34,10 +34,9 @@
       <a class="nav-a"><img class="nav-a-img three" id="gapiBtn" src="img/flip.png"></a>
       <a class="nav-a"><img class="nav-a-img three" id="neiBtn" src="img/controller.png"></a>
     </span>
-    <span id="profDiv" class="more-levels level-three" style="display:none; margin-left: 513px;">
-      <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
-      <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
-      <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
+    <span id="profDiv" class="more-levels level-three" style="display:none; margin-left: 577px;">
+      <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/design.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/informatics.png"></a>
     </span>
     <span id="eventsDiv" class="more-levels level-three" style="display:none; margin-left: 513px;">
       <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
@@ -104,7 +103,7 @@
   $(servBtn).click(function(){
     if (servDiv.style.display != 'none'){
       $(servDiv).fadeOut(170);
-      $(quickBtn).animate({marginLeft: "513px"}, 200);
+      $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
       $(servBtn).css("margin-left", "0px");
       $(roomBtn).css("visibility", "visible");
       $(profBtn).css("visibility", "visible");
@@ -117,6 +116,25 @@
       $(eventsBtn).css("visibility", "hidden");
       $(servDiv).fadeIn(200);
       servDiv.style.display = "block";
+    }
+  });
+
+  $(profBtn).click(function(){
+    if (profDiv.style.display != 'none'){
+      $(profBtn).css("margin-left", "0px");
+      $(profDiv).fadeOut(170);
+      $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
+      $(roomBtn).css("visibility", "visible");
+      $(servBtn).css("visibility", "visible");
+      $(eventsBtn).css("visibility", "visible");
+    } else {
+      $(profBtn).css("margin-left", "-283px");
+      $(quickBtn).animate({marginLeft: 390 +"px"}, 200);
+      $(roomBtn).css("visibility", "hidden");
+      $(servBtn).css("visibility", "hidden");
+      $(eventsBtn).css("visibility", "hidden");
+      $(profDiv).fadeIn(200);
+      profDiv.style.display = "block";
     }
   });
 
