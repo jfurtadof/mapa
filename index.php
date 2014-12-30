@@ -18,11 +18,11 @@
       <a class="nav-a"><img class="nav-a-img two" id="roomBtn" src="img/cpu.png"></a>
       <a class="nav-a"><img class="nav-a-img two" id="servBtn" src="img/motherboard.png"></a>
       <a class="nav-a"><img class="nav-a-img two" id="profBtn" src="img/mouse.png"></a>
-      <a class="nav-a"><img class="nav-a-img two" id="eventsBtn" src="img/controller.png"></a>
+      <a class="nav-a"><img class="nav-a-img two" id="eventsBtn" src="img/bin.png"></a>
     </span>
 
     <span id="roomDiv" class="more-levels level-three" style="display:none; margin-left: 513px;">
-      <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpuIn.png"></a>
       <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
       <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
     </span>
@@ -35,13 +35,12 @@
       <a class="nav-a"><img class="nav-a-img three" id="neiBtn" src="img/controller.png"></a>
     </span>
     <span id="profDiv" class="more-levels level-three" style="display:none; margin-left: 577px;">
-      <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/design.png"></a>
-      <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/informatics.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="profDesBtn" src="img/design.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="profInfBtn" src="img/informatics.png"></a>
     </span>
-    <span id="eventsDiv" class="more-levels level-three" style="display:none; margin-left: 513px;">
-      <a class="nav-a"><img class="nav-a-img three" id="roomBtnIn" src="img/cpu.png"></a>
-      <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
-      <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
+    <span id="eventsDiv" class="more-levels level-three" style="display:none; margin-left: 577px;">
+      <a class="nav-a"><img class="nav-a-img three" id="evDesBtn" src="img/design.png"></a>
+      <a class="nav-a"><img class="nav-a-img three" id="evInfBtn" src="img/informatics.png"></a>
     </span>
 
 
@@ -73,14 +72,17 @@
     if (searchDiv.style.display != 'none'){
       $(quickBtn).animate({marginLeft: "0px"}, 200);
 
-      /************ CONFIGS BOTÃO ROOM ***************/
+      /************ CONFIGS VOLTAM AO INICIO  ***************/
 
       $(searchDiv).fadeOut(170);
       $(levelThree).fadeOut(170);
 
-      /************ CONFIGS BOTÃO SERV ***************/
       $(servBtn).css("margin-left", "0px");
+      $(profBtn).css("margin-left", "0px");
+      $(eventsBtn).css("margin-left", "0px");
+
       $(roomBtn).css("visibility", "visible");
+      $(servBtn).css("visibility", "visible");
       $(profBtn).css("visibility", "visible");
       $(eventsBtn).css("visibility", "visible");
     } else {
@@ -137,6 +139,26 @@
       profDiv.style.display = "block";
     }
   });
+
+  $(eventsBtn).click(function(){
+    if (eventsDiv.style.display != 'none'){
+      $(eventsBtn).css("margin-left", "0px");
+      $(eventsDiv).fadeOut(170);
+      $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
+      $(roomBtn).css("visibility", "visible");
+      $(servBtn).css("visibility", "visible");
+      $(profBtn).css("visibility", "visible");
+    } else {
+      $(eventsBtn).css("margin-left", "-543px");
+      $(quickBtn).animate({marginLeft: 390 +"px"}, 200);
+      $(roomBtn).css("visibility", "hidden");
+      $(servBtn).css("visibility", "hidden");
+      $(profBtn).css("visibility", "hidden");
+      $(eventsDiv).fadeIn(200);
+      eventsDiv.style.display = "block";
+    }
+  });
+
 
 /*  $('#searchBtn').click(function(){
     toggleOne('searchBtn','searchDiv', 'quickBtn');
