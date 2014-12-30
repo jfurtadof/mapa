@@ -68,6 +68,46 @@ html, body{
   top:0px;
 }
 
+#pop{
+  position: absolute;
+  left: 777.6px;
+  top: 131px;
+  background-color: #0B66FE;
+  width: 372.8px;
+  height: 553px;
+  z-index: 4;
+}
+
+#pop-search{
+  margin: 15px;
+  width: 339.557px;
+  height: 30px;
+  background-color: white;
+}
+
+#pop-result{
+  margin: 0px 15px 15px;
+  width: 339.557px;
+  height: 350px;
+  background-color: white;
+}
+
+#pop-buttons{
+  margin: 0px 15px 15px;
+  width: 339.557px;
+  height: 110px;
+  color:white;
+}
+
+.pop-titles{
+  line-height:5px;
+}
+.pop-choose{
+  font-size:24px;
+  margin: 0px 15px 15px 0px;
+
+}
+
 #map{
   width: 1280px;
   height: 1024px;
