@@ -8,8 +8,7 @@ require('core.php');
   <meta charset="UTF-8" />
   <title>Mapa do DEI</title>
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-</head>
+  <script language="JavaScript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script></head>
 <body>
   <nav id="nav">
     <span class="level-one">
@@ -475,26 +474,20 @@ require('core.php');
 
   function getTorre(torreValue){
 
-
-
-
-
-
-    /*<?php
-    //$string = "SELECT * FROM rooms WHERE typology = 'classroom'";
-    //$query = mysql_query($string);
-
-    ?>
     alert("ENTROU NA FUNÇÃO");
-    <?php
-    //while($r = mysql_fetch_assoc($query)){
-      ?>
+
       $(popResult).html('');
-      $(popResult).append('<p>' + torreValue +'</p>');
-      <?php
-    }
-    ?>
-    alert("SAIU DA FUNÇÃO");*/
+
+      $.ajax({
+        type:"post",
+        url:"getTorre.php",
+        data: { torreValue:torreValue },
+        success:function(data){
+          alert("SUCCESS");
+          //$(popResult).html(data);
+        });
+
+    alert("SAIU DA FUNÇÃO");
   }
   </script>
 </body>
