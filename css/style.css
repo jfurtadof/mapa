@@ -90,6 +90,7 @@ html, body{
   width: 339.557px;
   height: 350px;
   background-color: white;
+  overflow: scroll;
 }
 
 #pop-buttons{

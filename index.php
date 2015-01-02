@@ -1,3 +1,7 @@
+<?php
+require('core.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -53,7 +57,11 @@
   </div>
 
   <div id="map">
-    <img id="map-image" src="img/mapapiso7.png"></div>
+     <?php
+    require('./svg.php');
+    ?>
+
+    <img id="map-image" src="img/design.png"></div>
   </div>
 
   <script>
@@ -82,6 +90,7 @@
   popSearch = document.getElementById('pop-search');
   popResult = document.getElementById('pop-result');
   popButtons = document.getElementById('pop-buttons');
+  popChoose = document.getElementsByClassName('pop-choose');
 
 
   levelTwo = document.getElementsByClassName('level-two');
@@ -185,6 +194,11 @@
   /************ LEVEL-THREE BTNS  ***************/
 
   $(roomInBtn).click(function(){
+    <?php
+    $q = "SELECT * FROM rooms WHERE typology = 'classroom'";
+    $s = mysql_query($q);
+
+    ?>
     if (pop.style.display != 'none'){
       $(pop).fadeOut(200);
       $(popResult).find('p:contains(ROOM)').remove();
@@ -205,14 +219,30 @@
       $(popButtons).find('span:contains(5)').remove();
       $(popButtons).find('span:contains(6)').remove();
       $(roomInBtn).css("background-color", "yellow");
+      $(popResult).html('');
     } else {
       $(roomInBtn).css("background-color", "pink");
       $(pop).fadeIn(200);
       pop.style.display = "block";
-      $(popResult).append('<p>ROOM</p>');
-      $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose">A</span><span class="pop-choose">B</span><span class="pop-choose">C</span><span class="pop-choose">D</span><span class="pop-choose">E</span><span class="pop-choose">F</span><span class="pop-choose">G</span>');
-      $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose">0</span><span class="pop-choose">1</span><span class="pop-choose">2</span><span class="pop-choose">3</span><span class="pop-choose">4</span><span class="pop-choose">5</span><span class="pop-choose">6</span>');
+
+      <?php
+      while($r = mysql_fetch_assoc($s)){
+        ?>
+        $(popResult).append('<p><?php echo $r["room"] ?></p>');
+        <?php
+      }
+      ?>
+
+      $(popResult).append('<p>ACABOU</p>');
+      $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose torre" style="cursor:pointer">A</span><span class="pop-choose torre" style="cursor:pointer">B</span><span class="pop-choose torre" style="cursor:pointer">C</span><span class="pop-choose torre" style="cursor:pointer">D</span><span class="pop-choose torre" style="cursor:pointer">E</span><span class="pop-choose torre" style="cursor:pointer">F</span><span class="pop-choose torre" style="cursor:pointer">G</span>');
+      $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose" style="cursor:pointer">0</span><span class="pop-choose" style="cursor:pointer">1</span><span class="pop-choose" style="cursor:pointer">2</span><span class="pop-choose" style="cursor:pointer">3</span><span class="pop-choose" style="cursor:pointer">4</span><span class="pop-choose" style="cursor:pointer">5</span><span class="pop-choose" style="cursor:pointer">6</span>');
     }
+
+    $('.torre').click(function(){
+      var torreValue = $(this).text();
+      alert("ENTROU NO CLICK");
+      getTorre(torreValue);
+    });
   });
 
   $(audBtn).click(function(){
@@ -241,8 +271,8 @@
       $(pop).fadeIn(200);
       pop.style.display = "block";
       $(popResult).append('<p>AUD</p>');
-      $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose">A</span><span class="pop-choose">B</span><span class="pop-choose">C</span><span class="pop-choose">D</span><span class="pop-choose">E</span><span class="pop-choose">F</span><span class="pop-choose">G</span>');
-      $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose">0</span><span class="pop-choose">1</span><span class="pop-choose">2</span><span class="pop-choose">3</span><span class="pop-choose">4</span><span class="pop-choose">5</span><span class="pop-choose">6</span>');
+      $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span>');
+      $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose" style="cursor:pointer">0</span><span class="pop-choose" style="cursor:pointer">1</span><span class="pop-choose" style="cursor:pointer">2</span><span class="pop-choose" style="cursor:pointer">3</span><span class="pop-choose" style="cursor:pointer">4</span><span class="pop-choose" style="cursor:pointer">5</span><span class="pop-choose" style="cursor:pointer">6</span>');
     }
   });
 
@@ -272,8 +302,8 @@
       $(pop).fadeIn(200);
       pop.style.display = "block";
       $(popResult).append('<p>LAB</p>');
-      $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose">A</span><span class="pop-choose">B</span><span class="pop-choose">C</span><span class="pop-choose">D</span><span class="pop-choose">E</span><span class="pop-choose">F</span><span class="pop-choose">G</span>');
-      $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose">0</span><span class="pop-choose">1</span><span class="pop-choose">2</span><span class="pop-choose">3</span><span class="pop-choose">4</span><span class="pop-choose">5</span><span class="pop-choose">6</span>');
+      $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span>');
+      $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose" style="cursor:pointer">0</span><span class="pop-choose" style="cursor:pointer">1</span><span class="pop-choose" style="cursor:pointer">2</span><span class="pop-choose" style="cursor:pointer">3</span><span class="pop-choose" style="cursor:pointer">4</span><span class="pop-choose" style="cursor:pointer">5</span><span class="pop-choose" style="cursor:pointer">6</span>');
     }
   });
 
@@ -314,7 +344,7 @@
       $(pop).fadeIn(200);
       pop.style.display = "block";
       $(popResult).append('<p>PROFDES</p>');
-      $(popButtons).append('<span class="pop-choose">A</span><span class="pop-choose">B</span><span class="pop-choose">C</span><span class="pop-choose">D</span><span class="pop-choose">E</span><span class="pop-choose">F</span><span class="pop-choose">G</span><span class="pop-choose">H</span><span class="pop-choose">I</span><br><span class="pop-choose">J</span><span class="pop-choose">K</span><span class="pop-choose">L</span><span class="pop-choose">M</span><span class="pop-choose">N</span><span class="pop-choose">O</span><span class="pop-choose">P</span><span class="pop-choose">Q</span><span class="pop-choose">R</span><br><span class="pop-choose">S</span><span class="pop-choose">T</span><span class="pop-choose">U</span><span class="pop-choose">V</span><span class="pop-choose">W</span><span class="pop-choose">X</span><span class="pop-choose">Y</span><span class="pop-choose">Z</span>');
+      $(popButtons).append('<span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span><span class="pop-choose" style="cursor:pointer">H</span><span class="pop-choose" style="cursor:pointer">I</span><br><span class="pop-choose" style="cursor:pointer">J</span><span class="pop-choose" style="cursor:pointer">K</span><span class="pop-choose" style="cursor:pointer">L</span><span class="pop-choose" style="cursor:pointer">M</span><span class="pop-choose" style="cursor:pointer">N</span><span class="pop-choose" style="cursor:pointer">O</span><span class="pop-choose" style="cursor:pointer">P</span><span class="pop-choose" style="cursor:pointer">Q</span><span class="pop-choose" style="cursor:pointer">R</span><br><span class="pop-choose" style="cursor:pointer">S</span><span class="pop-choose" style="cursor:pointer">T</span><span class="pop-choose" style="cursor:pointer">U</span><span class="pop-choose" style="cursor:pointer">V</span><span class="pop-choose" style="cursor:pointer">W</span><span class="pop-choose" style="cursor:pointer">X</span><span class="pop-choose" style="cursor:pointer">Y</span><span class="pop-choose" style="cursor:pointer">Z</span>');
 
     }
   });
@@ -356,7 +386,7 @@
       $(pop).fadeIn(200);
       pop.style.display = "block";
       $(popResult).append('<p>PROFINF</p>');
-      $(popButtons).append('<span class="pop-choose">A</span><span class="pop-choose">B</span><span class="pop-choose">C</span><span class="pop-choose">D</span><span class="pop-choose">E</span><span class="pop-choose">F</span><span class="pop-choose">G</span><span class="pop-choose">H</span><span class="pop-choose">I</span><br><span class="pop-choose">J</span><span class="pop-choose">K</span><span class="pop-choose">L</span><span class="pop-choose">M</span><span class="pop-choose">N</span><span class="pop-choose">O</span><span class="pop-choose">P</span><span class="pop-choose">Q</span><span class="pop-choose">R</span><br><span class="pop-choose">S</span><span class="pop-choose">T</span><span class="pop-choose">U</span><span class="pop-choose">V</span><span class="pop-choose">W</span><span class="pop-choose">X</span><span class="pop-choose">Y</span><span class="pop-choose">Z</span>');
+      $(popButtons).append('<span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span><span class="pop-choose" style="cursor:pointer">H</span><span class="pop-choose" style="cursor:pointer">I</span><br><span class="pop-choose" style="cursor:pointer">J</span><span class="pop-choose" style="cursor:pointer">K</span><span class="pop-choose" style="cursor:pointer">L</span><span class="pop-choose" style="cursor:pointer">M</span><span class="pop-choose" style="cursor:pointer">N</span><span class="pop-choose" style="cursor:pointer">O</span><span class="pop-choose" style="cursor:pointer">P</span><span class="pop-choose" style="cursor:pointer">Q</span><span class="pop-choose" style="cursor:pointer">R</span><br><span class="pop-choose" style="cursor:pointer">S</span><span class="pop-choose" style="cursor:pointer">T</span><span class="pop-choose" style="cursor:pointer">U</span><span class="pop-choose" style="cursor:pointer">V</span><span class="pop-choose" style="cursor:pointer">W</span><span class="pop-choose" style="cursor:pointer">X</span><span class="pop-choose" style="cursor:pointer">Y</span><span class="pop-choose" style="cursor:pointer">Z</span>');
     }
   });
 
@@ -397,7 +427,7 @@
       $(pop).fadeIn(200);
       pop.style.display = "block";
       $(popResult).append('<p>EVDES</p>');
-      $(popButtons).append('<span class="pop-choose">A</span><span class="pop-choose">B</span><span class="pop-choose">C</span><span class="pop-choose">D</span><span class="pop-choose">E</span><span class="pop-choose">F</span><span class="pop-choose">G</span><span class="pop-choose">H</span><span class="pop-choose">I</span><br><span class="pop-choose">J</span><span class="pop-choose">K</span><span class="pop-choose">L</span><span class="pop-choose">M</span><span class="pop-choose">N</span><span class="pop-choose">O</span><span class="pop-choose">P</span><span class="pop-choose">Q</span><span class="pop-choose">R</span><br><span class="pop-choose">S</span><span class="pop-choose">T</span><span class="pop-choose">U</span><span class="pop-choose">V</span><span class="pop-choose">W</span><span class="pop-choose">X</span><span class="pop-choose">Y</span><span class="pop-choose">Z</span>');
+      $(popButtons).append('<span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span><span class="pop-choose" style="cursor:pointer">H</span><span class="pop-choose" style="cursor:pointer">I</span><br><span class="pop-choose" style="cursor:pointer">J</span><span class="pop-choose" style="cursor:pointer">K</span><span class="pop-choose" style="cursor:pointer">L</span><span class="pop-choose" style="cursor:pointer">M</span><span class="pop-choose" style="cursor:pointer">N</span><span class="pop-choose" style="cursor:pointer">O</span><span class="pop-choose" style="cursor:pointer">P</span><span class="pop-choose" style="cursor:pointer">Q</span><span class="pop-choose" style="cursor:pointer">R</span><br><span class="pop-choose" style="cursor:pointer">S</span><span class="pop-choose" style="cursor:pointer">T</span><span class="pop-choose" style="cursor:pointer">U</span><span class="pop-choose" style="cursor:pointer">V</span><span class="pop-choose" style="cursor:pointer">W</span><span class="pop-choose" style="cursor:pointer">X</span><span class="pop-choose" style="cursor:pointer">Y</span><span class="pop-choose" style="cursor:pointer">Z</span>');
     }
   });
 
@@ -438,9 +468,34 @@
       $(pop).fadeIn(200);
       pop.style.display = "block";
       $(popResult).append('<p>EVINF</p>');
-      $(popButtons).append('<span class="pop-choose">A</span><span class="pop-choose">B</span><span class="pop-choose">C</span><span class="pop-choose">D</span><span class="pop-choose">E</span><span class="pop-choose">F</span><span class="pop-choose">G</span><span class="pop-choose">H</span><span class="pop-choose">I</span><br><span class="pop-choose">J</span><span class="pop-choose">K</span><span class="pop-choose">L</span><span class="pop-choose">M</span><span class="pop-choose">N</span><span class="pop-choose">O</span><span class="pop-choose">P</span><span class="pop-choose">Q</span><span class="pop-choose">R</span><br><span class="pop-choose">S</span><span class="pop-choose">T</span><span class="pop-choose">U</span><span class="pop-choose">V</span><span class="pop-choose">W</span><span class="pop-choose">X</span><span class="pop-choose">Y</span><span class="pop-choose">Z</span>');
+      $(popButtons).append('<span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span><span class="pop-choose" style="cursor:pointer">H</span><span class="pop-choose" style="cursor:pointer">I</span><br><span class="pop-choose" style="cursor:pointer">J</span><span class="pop-choose" style="cursor:pointer">K</span><span class="pop-choose" style="cursor:pointer">L</span><span class="pop-choose" style="cursor:pointer">M</span><span class="pop-choose" style="cursor:pointer">N</span><span class="pop-choose" style="cursor:pointer">O</span><span class="pop-choose" style="cursor:pointer">P</span><span class="pop-choose" style="cursor:pointer">Q</span><span class="pop-choose" style="cursor:pointer">R</span><br><span class="pop-choose" style="cursor:pointer">S</span><span class="pop-choose" style="cursor:pointer">T</span><span class="pop-choose" style="cursor:pointer">U</span><span class="pop-choose" style="cursor:pointer">V</span><span class="pop-choose" style="cursor:pointer">W</span><span class="pop-choose" style="cursor:pointer">X</span><span class="pop-choose" style="cursor:pointer">Y</span><span class="pop-choose" style="cursor:pointer">Z</span>');
     }
   });
+
+
+  function getTorre(torreValue){
+
+
+
+
+
+
+    /*<?php
+    //$string = "SELECT * FROM rooms WHERE typology = 'classroom'";
+    //$query = mysql_query($string);
+
+    ?>
+    alert("ENTROU NA FUNÇÃO");
+    <?php
+    //while($r = mysql_fetch_assoc($query)){
+      ?>
+      $(popResult).html('');
+      $(popResult).append('<p>' + torreValue +'</p>');
+      <?php
+    }
+    ?>
+    alert("SAIU DA FUNÇÃO");*/
+  }
   </script>
 </body>
 </html>
