@@ -68,21 +68,21 @@ require('core.php');
       </div>
       <div class="pop-buttons">
         <p class="pop-titles-room">TORRE</p>
-        <span class="pop-choose torre" style="cursor:pointer">A</span>
-        <span class="pop-choose torre" style="cursor:pointer">B</span>
-        <span class="pop-choose torre" style="cursor:pointer">C</span>
-        <span class="pop-choose torre" style="cursor:pointer">D</span>
-        <span class="pop-choose torre" style="cursor:pointer">E</span>
-        <span class="pop-choose torre" style="cursor:pointer">F</span>
-        <span class="pop-choose torre" style="cursor:pointer">G</span>
+        <span class="pop-choose tower" style="cursor:pointer">A</span>
+        <span class="pop-choose tower" style="cursor:pointer">B</span>
+        <span class="pop-choose tower" style="cursor:pointer">C</span>
+        <span class="pop-choose tower" style="cursor:pointer">D</span>
+        <span class="pop-choose tower" style="cursor:pointer">E</span>
+        <span class="pop-choose tower" style="cursor:pointer">F</span>
+        <span class="pop-choose tower" style="cursor:pointer">G</span>
         <p class="pop-titles-room">PISO</p>
-        <span class="pop-choose piso" style="cursor:pointer">0</span>
-        <span class="pop-choose piso" style="cursor:pointer">1</span>
-        <span class="pop-choose piso" style="cursor:pointer">2</span>
-        <span class="pop-choose piso" style="cursor:pointer">3</span>
-        <span class="pop-choose piso" style="cursor:pointer">4</span>
-        <span class="pop-choose piso" style="cursor:pointer">5</span>
-        <span class="pop-choose piso" style="cursor:pointer">6</span>
+        <span class="pop-choose floor" style="cursor:pointer">0</span>
+        <span class="pop-choose floor" style="cursor:pointer">1</span>
+        <span class="pop-choose floor" style="cursor:pointer">2</span>
+        <span class="pop-choose floor" style="cursor:pointer">3</span>
+        <span class="pop-choose floor" style="cursor:pointer">4</span>
+        <span class="pop-choose floor" style="cursor:pointer">5</span>
+        <span class="pop-choose floor" style="cursor:pointer">6</span>
       </div>
     </div>
 
@@ -106,21 +106,21 @@ require('core.php');
       </div>
       <div class="pop-buttons">
         <p class="pop-titles-room">TORRE</p>
-        <span class="pop-choose torre" style="cursor:pointer">A</span>
-        <span class="pop-choose torre" style="cursor:pointer">B</span>
-        <span class="pop-choose torre" style="cursor:pointer">C</span>
-        <span class="pop-choose torre" style="cursor:pointer">D</span>
-        <span class="pop-choose torre" style="cursor:pointer">E</span>
-        <span class="pop-choose torre" style="cursor:pointer">F</span>
-        <span class="pop-choose torre" style="cursor:pointer">G</span>
+        <span class="pop-choose tower" style="cursor:pointer">A</span>
+        <span class="pop-choose tower" style="cursor:pointer">B</span>
+        <span class="pop-choose tower" style="cursor:pointer">C</span>
+        <span class="pop-choose tower" style="cursor:pointer">D</span>
+        <span class="pop-choose tower" style="cursor:pointer">E</span>
+        <span class="pop-choose tower" style="cursor:pointer">F</span>
+        <span class="pop-choose tower" style="cursor:pointer">G</span>
         <p class="pop-titles-room">PISO</p>
-        <span class="pop-choose piso" style="cursor:pointer">0</span>
-        <span class="pop-choose piso" style="cursor:pointer">1</span>
-        <span class="pop-choose piso" style="cursor:pointer">2</span>
-        <span class="pop-choose piso" style="cursor:pointer">3</span>
-        <span class="pop-choose piso" style="cursor:pointer">4</span>
-        <span class="pop-choose piso" style="cursor:pointer">5</span>
-        <span class="pop-choose piso" style="cursor:pointer">6</span>
+        <span class="pop-choose floor" style="cursor:pointer">0</span>
+        <span class="pop-choose floor" style="cursor:pointer">1</span>
+        <span class="pop-choose floor" style="cursor:pointer">2</span>
+        <span class="pop-choose floor" style="cursor:pointer">3</span>
+        <span class="pop-choose floor" style="cursor:pointer">4</span>
+        <span class="pop-choose floor" style="cursor:pointer">5</span>
+        <span class="pop-choose floor" style="cursor:pointer">6</span>
       </div>
     </div>
 
@@ -144,21 +144,21 @@ require('core.php');
       </div>
       <div class="pop-buttons">
         <p class="pop-titles">TORRE</p>
-        <span class="pop-choose torre" style="cursor:pointer">A</span>
-        <span class="pop-choose torre" style="cursor:pointer">B</span>
-        <span class="pop-choose torre" style="cursor:pointer">C</span>
-        <span class="pop-choose torre" style="cursor:pointer">D</span>
-        <span class="pop-choose torre" style="cursor:pointer">E</span>
-        <span class="pop-choose torre" style="cursor:pointer">F</span>
-        <span class="pop-choose torre" style="cursor:pointer">G</span>
+        <span class="pop-choose tower" style="cursor:pointer">A</span>
+        <span class="pop-choose tower" style="cursor:pointer">B</span>
+        <span class="pop-choose tower" style="cursor:pointer">C</span>
+        <span class="pop-choose tower" style="cursor:pointer">D</span>
+        <span class="pop-choose tower" style="cursor:pointer">E</span>
+        <span class="pop-choose tower" style="cursor:pointer">F</span>
+        <span class="pop-choose tower" style="cursor:pointer">G</span>
         <p class="pop-titles">PISO</p>
-        <span class="pop-choose piso" style="cursor:pointer">0</span>
-        <span class="pop-choose piso" style="cursor:pointer">1</span>
-        <span class="pop-choose piso" style="cursor:pointer">2</span>
-        <span class="pop-choose piso" style="cursor:pointer">3</span>
-        <span class="pop-choose piso" style="cursor:pointer">4</span>
-        <span class="pop-choose piso" style="cursor:pointer">5</span>
-        <span class="pop-choose piso" style="cursor:pointer">6</span>
+        <span class="pop-choose floor" style="cursor:pointer">0</span>
+        <span class="pop-choose floor" style="cursor:pointer">1</span>
+        <span class="pop-choose floor" style="cursor:pointer">2</span>
+        <span class="pop-choose floor" style="cursor:pointer">3</span>
+        <span class="pop-choose floor" style="cursor:pointer">4</span>
+        <span class="pop-choose floor" style="cursor:pointer">5</span>
+        <span class="pop-choose floor" style="cursor:pointer">6</span>
       </div>
     </div>
 
@@ -182,21 +182,21 @@ require('core.php');
       </div>
       <div class="pop-buttons">
         <p class="pop-titles">TORRE</p>
-        <span class="pop-choose torre" style="cursor:pointer">A</span>
-        <span class="pop-choose torre" style="cursor:pointer">B</span>
-        <span class="pop-choose torre" style="cursor:pointer">C</span>
-        <span class="pop-choose torre" style="cursor:pointer">D</span>
-        <span class="pop-choose torre" style="cursor:pointer">E</span>
-        <span class="pop-choose torre" style="cursor:pointer">F</span>
-        <span class="pop-choose torre" style="cursor:pointer">G</span>
+        <span class="pop-choose tower" style="cursor:pointer">A</span>
+        <span class="pop-choose tower" style="cursor:pointer">B</span>
+        <span class="pop-choose tower" style="cursor:pointer">C</span>
+        <span class="pop-choose tower" style="cursor:pointer">D</span>
+        <span class="pop-choose tower" style="cursor:pointer">E</span>
+        <span class="pop-choose tower" style="cursor:pointer">F</span>
+        <span class="pop-choose tower" style="cursor:pointer">G</span>
         <p class="pop-titles">PISO</p>
-        <span class="pop-choose piso" style="cursor:pointer">0</span>
-        <span class="pop-choose piso" style="cursor:pointer">1</span>
-        <span class="pop-choose piso" style="cursor:pointer">2</span>
-        <span class="pop-choose piso" style="cursor:pointer">3</span>
-        <span class="pop-choose piso" style="cursor:pointer">4</span>
-        <span class="pop-choose piso" style="cursor:pointer">5</span>
-        <span class="pop-choose piso" style="cursor:pointer">6</span>
+        <span class="pop-choose floor" style="cursor:pointer">0</span>
+        <span class="pop-choose floor" style="cursor:pointer">1</span>
+        <span class="pop-choose floor" style="cursor:pointer">2</span>
+        <span class="pop-choose floor" style="cursor:pointer">3</span>
+        <span class="pop-choose floor" style="cursor:pointer">4</span>
+        <span class="pop-choose floor" style="cursor:pointer">5</span>
+        <span class="pop-choose floor" style="cursor:pointer">6</span>
       </div>
     </div>
 

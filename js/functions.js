@@ -225,13 +225,22 @@ $(document).ready(function () {
       popRoomClassroom.style.display = "block";
     }
 
-    $('.torre').click(function(){
+  /*  $('.tower').click(function(){
       var torreValue = $(this).text();
       var typology = "classroom";
       var sR = $(popSearchRoomClassroom).attr('id');
       var fR = $(popResultRoomClassroom).attr('id');
-      getTorre(torreValue, typology, sR, fR, popRoomClassroomEditable);
+      getTower(torreValue, typology, sR, fR, popRoomClassroomEditable);
+    });*/
+
+    $('.floor').click(function(){
+      var floorValue = $(this).text();
+      var typology = "classroom";
+      var sR = $(popSearchRoomClassroom).attr('id');
+      var fR = $(popResultRoomClassroom).attr('id');
+      getFloor(floorValue, typology, sR, fR, popRoomClassroomEditable);
     });
+
   });
 
   $(audBtn).click(function(){
@@ -255,12 +264,12 @@ $(document).ready(function () {
       popRoomAud.style.display = "block";
     }
 
-    $('.torre').click(function(){
+    $('.tower').click(function(){
       var torreValue = $(this).text();
       var typology = "amphitheater";
       var sR = $(popSearchRoomClassroom).attr('id');
       var fR = $(popResultRoomClassroom).attr('id');
-      getTorre(torreValue, typology, sR, fR, popRoomAudEditable);
+      getTower(torreValue, typology, sR, fR, popRoomAudEditable);
     });
   });
 
@@ -285,12 +294,12 @@ $(document).ready(function () {
       popRoomLab.style.display = "block";
     }
 
-    $('.torre').click(function(){
+    $('.tower').click(function(){
       var torreValue = $(this).text();
       var typology = "laboratory";
       var sR = $(popSearchRoomClassroom).attr('id');
       var fR = $(popResultRoomClassroom).attr('id');
-      getTorre(torreValue, typology, sR, fR, popRoomLabEditable);
+      getTower(torreValue, typology, sR, fR, popRoomLabEditable);
     });
   });
 
@@ -385,14 +394,26 @@ $(document).ready(function () {
   });
 
 
-  function getTorre(torreValue, typology, sR, fR, pD){
+  function getTower(torreValue, typology, sR, fR, pD){
     var rqst = $.ajax({
           type: "POST",
-          url: "./getTorre.php",
+          url: "./getTower.php",
           data: { torreValue: torreValue, typology: typology, sR: sR, fR: fR
           }
         }).done(function(msg) {
           $(pD).html(msg);
         });
       }
+
+  function getFloor(floorValue, typology, sR, fR, pD){
+        var rqst = $.ajax({
+          type: "POST",
+          url: "./getFloor.php",
+          data: { floorValue: floorValue, typology: typology, sR: sR, fR: fR
+          }
+        }).done(function(msg) {
+          $(pD).html(msg);
+        });
+      }
+
     });
