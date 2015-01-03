@@ -228,7 +228,7 @@ $(document).ready(function () {
       var torreValue = $(this).text();
       alert("ENTROU NO CLICK");
       alert(torreValue);
-      //  getTorre(torreValue);
+       getTorre(torreValue, popSearchRoomClassroom);
     });
   });
 
@@ -367,19 +367,30 @@ $(document).ready(function () {
   });
 
 
-  function getTorre(torreValue){
-
-    alert("ENTROU NA FUNÇÃO");
-
-    $.ajax({
-      type:"post",
-      url:"../getTorre.php",
-      data: { torreValue:torreValue },
-      success:function(data){
-        $("#pop-result-room-classroom").html(data);
+  function getTorre(torreValue, filterResult){
+    var rqst = $.ajax({
+          type: "POST",
+          url: "./getTorre.php",
+          data: { torreValue: torreValue}
+        }).done(function( s, f ) {
+        $(filterResult).html('<p>' + s + '</p>');
+        });
       }
     });
+    /*console.log ("dldkd");
+    $.ajax ({
 
-    alert("SAIU DA FUNÇÃO");
-  }
-});
+    });*/
+/*
+    $.ajax({
+      type:"post",
+      url:"../getTorre.php"
+    //  data: { torreValue:torreValue },
+    //  success:function(data){
+        //alert("FUNCIONANDO AJAX");
+    //    $("#pop-search-room-classroom").html("<p>DEU</p>");
+    //  }
+  }).done(function(){
+    alert("VAI");
+  });
+*/
