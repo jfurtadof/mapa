@@ -20,8 +20,6 @@ $(document).ready(function () {
   evDesBtn = document.getElementById('evDesBtn');
   evInfBtn = document.getElementById('evInfBtn');
 
-
-
   popRoom = document.getElementById('pop-room');
   popSearchRoom = document.getElementById('pop-search-room');
   popResultRoom = document.getElementById('pop-result-room');
@@ -226,9 +224,10 @@ $(document).ready(function () {
 
     $('.torre').click(function(){
       var torreValue = $(this).text();
-      alert("ENTROU NO CLICK");
-      alert(torreValue);
-       getTorre(torreValue, popSearchRoomClassroom);
+      var sR = $(popSearchRoomClassroom).attr('id');
+      var fR = $(popResultRoomClassroom).attr('id');
+
+      getTorre(torreValue, sR, fR, popRoomClassroom);
     });
   });
 
@@ -367,16 +366,18 @@ $(document).ready(function () {
   });
 
 
-  function getTorre(torreValue, filterResult){
+  function getTorre(torreValue, sR, fR, pD){
     var rqst = $.ajax({
           type: "POST",
           url: "./getTorre.php",
-          data: { torreValue: torreValue}
-        }).done(function( s, f ) {
-        $(filterResult).html('<p>' + s + '</p>');
+          data: { torreValue: torreValue, sR: sR, fR: fR
+          }
+        }).done(function(msg) {
+          $(pD).html(msg);
         });
       }
     });
+
     /*console.log ("dldkd");
     $.ajax ({
 
