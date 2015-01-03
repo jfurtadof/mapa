@@ -24,12 +24,15 @@ $(document).ready(function () {
   popSearchRoom = document.getElementById('pop-search-room');
   popResultRoom = document.getElementById('pop-result-room');
   popRoomClassroom = document.getElementById('pop-room-classroom');
+  popRoomClassroomEditable = document.getElementById('pop-room-classroom-editable');
   popSearchRoomClassroom = document.getElementById('pop-search-room-classroom');
   popResultRoomClassroom = document.getElementById('pop-result-room-classroom');
   popRoomAud = document.getElementById('pop-room-aud');
+  popRoomAudEditable = document.getElementById('pop-room-aud-editable');
   popSearchRoomAud = document.getElementById('pop-search-room-aud');
   popResultRoomAud = document.getElementById('pop-result-room-aud');
   popRoomLab = document.getElementById('pop-room-lab');
+  popRoomLabEditable = document.getElementById('pop-room-lab-editable');
   popSearchRoomLab = document.getElementById('pop-search-room-lab');
   popResultRoomLab = document.getElementById('pop-result-room-lab');
 
@@ -224,10 +227,10 @@ $(document).ready(function () {
 
     $('.torre').click(function(){
       var torreValue = $(this).text();
+      var typology = "classroom";
       var sR = $(popSearchRoomClassroom).attr('id');
       var fR = $(popResultRoomClassroom).attr('id');
-
-      getTorre(torreValue, sR, fR, popRoomClassroom);
+      getTorre(torreValue, typology, sR, fR, popRoomClassroomEditable);
     });
   });
 
@@ -251,6 +254,14 @@ $(document).ready(function () {
       $(popRoomLab).fadeOut(200);
       popRoomAud.style.display = "block";
     }
+
+    $('.torre').click(function(){
+      var torreValue = $(this).text();
+      var typology = "amphitheater";
+      var sR = $(popSearchRoomClassroom).attr('id');
+      var fR = $(popResultRoomClassroom).attr('id');
+      getTorre(torreValue, typology, sR, fR, popRoomAudEditable);
+    });
   });
 
   $(labBtn).click(function(){
@@ -273,6 +284,14 @@ $(document).ready(function () {
       $(popRoomAud).fadeOut(200);
       popRoomLab.style.display = "block";
     }
+
+    $('.torre').click(function(){
+      var torreValue = $(this).text();
+      var typology = "laboratory";
+      var sR = $(popSearchRoomClassroom).attr('id');
+      var fR = $(popResultRoomClassroom).attr('id');
+      getTorre(torreValue, typology, sR, fR, popRoomLabEditable);
+    });
   });
 
 
@@ -366,32 +385,14 @@ $(document).ready(function () {
   });
 
 
-  function getTorre(torreValue, sR, fR, pD){
+  function getTorre(torreValue, typology, sR, fR, pD){
     var rqst = $.ajax({
           type: "POST",
           url: "./getTorre.php",
-          data: { torreValue: torreValue, sR: sR, fR: fR
+          data: { torreValue: torreValue, typology: typology, sR: sR, fR: fR
           }
         }).done(function(msg) {
           $(pD).html(msg);
         });
       }
     });
-
-    /*console.log ("dldkd");
-    $.ajax ({
-
-    });*/
-/*
-    $.ajax({
-      type:"post",
-      url:"../getTorre.php"
-    //  data: { torreValue:torreValue },
-    //  success:function(data){
-        //alert("FUNCIONANDO AJAX");
-    //    $("#pop-search-room-classroom").html("<p>DEU</p>");
-    //  }
-  }).done(function(){
-    alert("VAI");
-  });
-*/

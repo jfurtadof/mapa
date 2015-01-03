@@ -50,19 +50,21 @@ require('core.php');
 
     <!--PROCURA POR 'ROOM' ALL-->
     <div id="pop-room" class="pop" style="display:none;">
-      <div id="pop-search-room" class="pop-search">
-      </div>
-      <div id="pop-result-room" class="pop-result">
-        <?php
-        $q = "SELECT * FROM rooms";
-        $s = mysql_query($q);
+      <div id="pop-room-editable">
+        <div id="pop-search-room" class="pop-search">
+        </div>
+        <div id="pop-result-room" class="pop-result">
+          <?php
+          $q = "SELECT * FROM rooms";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
-          echo $r["room"];
-          echo '</p>';
-        }
-        ?>
+          while($r = mysql_fetch_assoc($s)){
+            echo '<p>';
+            echo $r["room"];
+            echo '</p>';
+          }
+          ?>
+        </div>
       </div>
       <div class="pop-buttons">
         <p class="pop-titles-room">TORRE</p>
@@ -84,21 +86,23 @@ require('core.php');
       </div>
     </div>
 
-<!--PROCURA POR 'CLASSROOM'-->
+    <!--PROCURA POR 'CLASSROOM'-->
     <div id="pop-room-classroom" class="pop" style="display:none;">
-      <div id="pop-search-room-classroom" class="pop-search">
-      </div>
-      <div id="pop-result-room-classroom" class="pop-result">
-        <?php
-        $q = "SELECT * FROM rooms WHERE typology = 'classroom'";
-        $s = mysql_query($q);
+      <div id="pop-room-classroom-editable">
+        <div id="pop-search-room-classroom" class="pop-search">
+        </div>
+        <div id="pop-result-room-classroom" class="pop-result">
+          <?php
+          $q = "SELECT * FROM rooms WHERE typology = 'classroom'";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
-          echo $r["room"];
-          echo '</p>';
-        }
-        ?>
+          while($r = mysql_fetch_assoc($s)){
+            echo '<p>';
+            echo $r["room"];
+            echo '</p>';
+          }
+          ?>
+        </div>
       </div>
       <div class="pop-buttons">
         <p class="pop-titles-room">TORRE</p>
@@ -122,19 +126,21 @@ require('core.php');
 
     <!--PROCURA POR 'AMPHITHEATER'-->
     <div id="pop-room-aud" class="pop" style="display:none;">
-      <div id="pop-search-room-aud" class="pop-search">
-      </div>
-      <div id="pop-result-room-aud" class="pop-result">
-        <?php
-        $q = "SELECT * FROM rooms WHERE typology = 'amphitheater'";
-        $s = mysql_query($q);
+      <div id="pop-room-aud-editable">
+        <div id="pop-search-room-aud" class="pop-search">
+        </div>
+        <div id="pop-result-room-aud" class="pop-result">
+          <?php
+          $q = "SELECT * FROM rooms WHERE typology = 'amphitheater'";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
-          echo $r["room"];
-          echo '</p>';
-        }
-        ?>
+          while($r = mysql_fetch_assoc($s)){
+            echo '<p>';
+            echo $r["room"];
+            echo '</p>';
+          }
+          ?>
+        </div>
       </div>
       <div class="pop-buttons">
         <p class="pop-titles">TORRE</p>
@@ -158,19 +164,21 @@ require('core.php');
 
     <!--PROCURA POR 'LABORATORY'-->
     <div id="pop-room-lab" class="pop" style="display:none;">
-      <div id="pop-search-room-lab" class="pop-search">
-      </div>
-      <div id="pop-result-room-lab" class="pop-result">
-        <?php
-        $q = "SELECT * FROM rooms WHERE typology = 'laboratory'";
-        $s = mysql_query($q);
+      <div id="pop-room-lab-editable">
+        <div id="pop-search-room-lab" class="pop-search">
+        </div>
+        <div id="pop-result-room-lab" class="pop-result">
+          <?php
+          $q = "SELECT * FROM rooms WHERE typology = 'laboratory'";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
-          echo $r["room"];
-          echo '</p>';
-        }
-        ?>
+          while($r = mysql_fetch_assoc($s)){
+            echo '<p>';
+            echo $r["room"];
+            echo '</p>';
+          }
+          ?>
+        </div>
       </div>
       <div class="pop-buttons">
         <p class="pop-titles">TORRE</p>
@@ -292,7 +300,6 @@ require('core.php');
         <?php
         $q = "SELECT * FROM teachers WHERE teacher_course='1'";
         $s = mysql_query($q);
-
         while($r = mysql_fetch_assoc($s)){
           echo '<p>';
           echo $r["teacher_name"];
@@ -387,91 +394,91 @@ require('core.php');
 
         while($r = mysql_fetch_assoc($s)){
           echo '<p>';
-            echo $r["event_name"];
-            echo '</p>';
-          }
-          ?>
-        </div>
-        <div class="pop-buttons">
-          <span class="pop-choose alphabet" style="cursor:pointer">A</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">B</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">C</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">D</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">E</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">F</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">G</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">H</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">I</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">J</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">K</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">L</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">M</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">N</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">O</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">P</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">Q</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">R</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">S</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">T</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">U</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">V</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">W</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">X</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">Y</span>
-          <span class="pop-choose alphabet" style="cursor:pointer">Z</span>
-        </div>
+          echo $r["event_name"];
+          echo '</p>';
+        }
+        ?>
       </div>
-
-      <!--PROCURA POR 'PROFS' INFORMÁTICA-->
-      <div id="pop-events-inf" class="pop" style="display:none;">
-        <div id="pop-search-events-inf" class="pop-search">
-        </div>
-        <div id="pop-result-events-inf" class="pop-result">
-          <?php
-          $q = "SELECT * FROM events WHERE event_course='1'";
-          $s = mysql_query($q);
-
-          while($r = mysql_fetch_assoc($s)){
-            echo '<p>';
-              echo $r["event_name"];
-              echo '</p>';
-            }
-            ?>
-          </div>
-          <div class="pop-buttons">
-            <span class="pop-choose alphabet" style="cursor:pointer">A</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">B</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">C</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">D</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">E</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">F</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">G</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">H</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">I</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">J</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">K</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">L</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">M</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">N</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">O</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">P</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">Q</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">R</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">S</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">T</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">U</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">V</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">W</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">X</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">Y</span>
-            <span class="pop-choose alphabet" style="cursor:pointer">Z</span>
-          </div>
-        </div>
-
-  <div id="map">
-    <?php
-    require('./svg.php');
-    ?>
+      <div class="pop-buttons">
+        <span class="pop-choose alphabet" style="cursor:pointer">A</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">B</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">C</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">D</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">E</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">F</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">G</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">H</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">I</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">J</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">K</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">L</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">M</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">N</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">O</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">P</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">Q</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">R</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">S</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">T</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">U</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">V</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">W</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">X</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">Y</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">Z</span>
+      </div>
     </div>
-</body>
-</html>
+
+    <!--PROCURA POR 'PROFS' INFORMÁTICA-->
+    <div id="pop-events-inf" class="pop" style="display:none;">
+      <div id="pop-search-events-inf" class="pop-search">
+      </div>
+      <div id="pop-result-events-inf" class="pop-result">
+        <?php
+        $q = "SELECT * FROM events WHERE event_course='1'";
+        $s = mysql_query($q);
+
+        while($r = mysql_fetch_assoc($s)){
+          echo '<p>';
+          echo $r["event_name"];
+          echo '</p>';
+        }
+        ?>
+      </div>
+      <div class="pop-buttons">
+        <span class="pop-choose alphabet" style="cursor:pointer">A</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">B</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">C</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">D</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">E</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">F</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">G</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">H</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">I</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">J</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">K</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">L</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">M</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">N</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">O</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">P</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">Q</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">R</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">S</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">T</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">U</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">V</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">W</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">X</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">Y</span>
+        <span class="pop-choose alphabet" style="cursor:pointer">Z</span>
+      </div>
+    </div>
+
+    <div id="map">
+      <?php
+      require('./svg.php');
+      ?>
+    </div>
+  </body>
+  </html>
