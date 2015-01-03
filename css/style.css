@@ -68,7 +68,7 @@ html, body{
   top:0px;
 }
 
-#pop{
+.pop{
   position: absolute;
   left: 777.6px;
   top: 131px;
@@ -78,35 +78,39 @@ html, body{
   z-index: 4;
 }
 
-#pop-search{
+.pop-search{
   margin: 15px;
   width: 339.557px;
   height: 30px;
   background-color: white;
 }
 
-#pop-result{
+.pop-result{
   margin: 0px 15px 15px;
-  width: 339.557px;
+  width: 300px;
   height: 350px;
   background-color: white;
   overflow: scroll;
 }
 
-#pop-buttons{
+.pop-buttons{
   margin: 0px 15px 15px;
   width: 339.557px;
   height: 110px;
   color:white;
 }
 
-.pop-titles{
-  line-height:5px;
-}
 .pop-choose{
   font-size:24px;
   margin: 0px 15px 15px 0px;
+}
 
+.torre, .piso{
+  line-height: 24px;
+}
+
+.alphabet{
+  line-height: 32px;
 }
 
 #map{

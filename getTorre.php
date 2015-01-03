@@ -1,7 +1,9 @@
 <?php
 require('core.php');
 
-$torreValue=$_POST["torreValue"];
+if (isset($_POST['torreValue'])){
+
+$torreValue=$_POST['torreValue'];
 
 $result=mysql_query("SELECT * FROM rooms WHERE typology = 'classroom'AND torre = '$torreValue' ");
 
@@ -10,6 +12,9 @@ $dados=mysql_fetch_array($result);
 $nome=$dados[name];
 
 echo "<p>OK</p>";
+} else {
+  echo "<p>torreValue not sent</p>";
+}
 //echo "<div id='titulo'><p>$nome</p></div>";
 //echo "<div id='caixas'>"
         /*<p>Gabinete D.1.1<p>

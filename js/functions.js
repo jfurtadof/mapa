@@ -20,12 +20,41 @@ $(document).ready(function () {
   evDesBtn = document.getElementById('evDesBtn');
   evInfBtn = document.getElementById('evInfBtn');
 
-  pop = document.getElementById('pop');
-  popSearch = document.getElementById('pop-search');
-  popResult = document.getElementById('pop-result');
-  popButtons = document.getElementById('pop-buttons');
-  popChoose = document.getElementsByClassName('pop-choose');
 
+
+  popRoom = document.getElementById('pop-room');
+  popSearchRoom = document.getElementById('pop-search-room');
+  popResultRoom = document.getElementById('pop-result-room');
+  popRoomClassroom = document.getElementById('pop-room-classroom');
+  popSearchRoomClassroom = document.getElementById('pop-search-room-classroom');
+  popResultRoomClassroom = document.getElementById('pop-result-room-classroom');
+  popRoomAud = document.getElementById('pop-room-aud');
+  popSearchRoomAud = document.getElementById('pop-search-room-aud');
+  popResultRoomAud = document.getElementById('pop-result-room-aud');
+  popRoomLab = document.getElementById('pop-room-lab');
+  popSearchRoomLab = document.getElementById('pop-search-room-lab');
+  popResultRoomLab = document.getElementById('pop-result-room-lab');
+
+  popProf = document.getElementById('pop-prof');
+  popSearchProf = document.getElementById('pop-search-prof');
+  popResultProf = document.getElementById('pop-result-prof');
+  popProfDes = document.getElementById('pop-prof-des');
+  popSearchProfDes = document.getElementById('pop-search-prof-des');
+  popResultProfDes = document.getElementById('pop-result-prof-des');
+  popProfInf = document.getElementById('pop-prof-inf');
+  popSearchProfInf = document.getElementById('pop-search-prof-inf');
+  popResultProfInf = document.getElementById('pop-result-prof-inf');
+
+
+  popEvents = document.getElementById('pop-events');
+  popSearchEvents = document.getElementById('pop-search-events');
+  popResultEvents = document.getElementById('pop-result-events');
+  popEventsDes = document.getElementById('pop-events-des');
+  popSearchEventsDes = document.getElementById('pop-search-events-des');
+  popResultEventsDes = document.getElementById('pop-result-events-des');
+  popEventsInf = document.getElementById('pop-events-inf');
+  popSearchEventsInf = document.getElementById('pop-search-events-inf');
+  popResultEventsInf = document.getElementById('pop-result-events-inf');
 
   levelTwo = document.getElementsByClassName('level-two');
   levelThree = document.getElementsByClassName('level-three');
@@ -62,9 +91,24 @@ $(document).ready(function () {
     if (roomDiv.style.display != 'none'){
       $(servBtn).animate({marginLeft: "0px"}, 200);
       $(roomDiv).fadeOut(170);
+      $(popRoom).fadeOut(200);
+
     } else {
       $(roomDiv).fadeIn(200);
       roomDiv.style.display = "block";
+
+      $(popRoom).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      popRoom.style.display = "block";
+
     }
   });
 
@@ -95,7 +139,10 @@ $(document).ready(function () {
       $(roomBtn).css("visibility", "visible");
       $(servBtn).css("visibility", "visible");
       $(eventsBtn).css("visibility", "visible");
+
+      $(popProf).fadeOut(200);
     } else {
+
       $(profBtn).css("margin-left", "-283px");
       $(quickBtn).animate({marginLeft: 390 +"px"}, 200);
       $(roomBtn).css("visibility", "hidden");
@@ -103,6 +150,20 @@ $(document).ready(function () {
       $(eventsBtn).css("visibility", "hidden");
       $(profDiv).fadeIn(200);
       profDiv.style.display = "block";
+
+      $(popProf).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      popProf.style.display = "block";
+
     }
   });
 
@@ -114,6 +175,8 @@ $(document).ready(function () {
       $(roomBtn).css("visibility", "visible");
       $(servBtn).css("visibility", "visible");
       $(profBtn).css("visibility", "visible");
+
+      $(popEvents).fadeOut(200);
     } else {
       $(eventsBtn).css("margin-left", "-543px");
       $(quickBtn).animate({marginLeft: 390 +"px"}, 200);
@@ -122,284 +185,184 @@ $(document).ready(function () {
       $(profBtn).css("visibility", "hidden");
       $(eventsDiv).fadeIn(200);
       eventsDiv.style.display = "block";
+
+      $(popEvents).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      popEvents.style.display = "block";
     }
   });
 
   /************ LEVEL-THREE BTNS  ***************/
 
   $(roomInBtn).click(function(){
-      if (pop.style.display != 'none'){
-        $(pop).fadeOut(200);
-        $(popResult).find('p:contains(ROOM)').remove();
-        $(popButtons).find('p:contains(TORRE)').remove();
-        $(popButtons).find('span:contains(A)').remove();
-        $(popButtons).find('span:contains(B)').remove();
-        $(popButtons).find('span:contains(C)').remove();
-        $(popButtons).find('span:contains(D)').remove();
-        $(popButtons).find('span:contains(E)').remove();
-        $(popButtons).find('span:contains(F)').remove();
-        $(popButtons).find('span:contains(G)').remove();
-        $(popButtons).find('p:contains(PISO)').remove();
-        $(popButtons).find('span:contains(0)').remove();
-        $(popButtons).find('span:contains(1)').remove();
-        $(popButtons).find('span:contains(2)').remove();
-        $(popButtons).find('span:contains(3)').remove();
-        $(popButtons).find('span:contains(4)').remove();
-        $(popButtons).find('span:contains(5)').remove();
-        $(popButtons).find('span:contains(6)').remove();
-        $(roomInBtn).css("background-color", "yellow");
-        $(popResult).html('');
-      } else {
-        $(roomInBtn).css("background-color", "pink");
-        $(pop).fadeIn(200);
-        pop.style.display = "block";
+    if (popRoomClassroom.style.display != 'none'){
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoom).fadeIn(200);
+      $(roomInBtn).css("background-color", "yellow");
+    } else {
+      $(roomInBtn).css("background-color", "pink");
+      $(popRoomClassroom).fadeIn(200);
 
-        $.ajax({
-          type:"post",
-          url:"./getClassroom.php",
-          data: { classType:classType },
-          success:function(data){
-            alert(data);
-          });
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popRoomClassroom.style.display = "block";
+    }
 
-            //  $(popResult).html(data);
-
-        $(popResult).append('<p>ACABOU</p>');
-        $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose torre" style="cursor:pointer">A</span><span class="pop-choose torre" style="cursor:pointer">B</span><span class="pop-choose torre" style="cursor:pointer">C</span><span class="pop-choose torre" style="cursor:pointer">D</span><span class="pop-choose torre" style="cursor:pointer">E</span><span class="pop-choose torre" style="cursor:pointer">F</span><span class="pop-choose torre" style="cursor:pointer">G</span>');
-        $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose" style="cursor:pointer">0</span><span class="pop-choose" style="cursor:pointer">1</span><span class="pop-choose" style="cursor:pointer">2</span><span class="pop-choose" style="cursor:pointer">3</span><span class="pop-choose" style="cursor:pointer">4</span><span class="pop-choose" style="cursor:pointer">5</span><span class="pop-choose" style="cursor:pointer">6</span>');
-      }
-
-      /*   $('.torre').click(function(){
+    $('.torre').click(function(){
       var torreValue = $(this).text();
       alert("ENTROU NO CLICK");
-      getTorre(torreValue);
-    });*/
+      alert(torreValue);
+      //  getTorre(torreValue);
+    });
   });
 
   $(audBtn).click(function(){
-    if (pop.style.display != 'none'){
-      $(pop).fadeOut(200);
-      $(popResult).find('p:contains(AUD)').remove();
-      $(popButtons).find('p:contains(TORRE)').remove();
-      $(popButtons).find('span:contains(A)').remove();
-      $(popButtons).find('span:contains(B)').remove();
-      $(popButtons).find('span:contains(C)').remove();
-      $(popButtons).find('span:contains(D)').remove();
-      $(popButtons).find('span:contains(E)').remove();
-      $(popButtons).find('span:contains(F)').remove();
-      $(popButtons).find('span:contains(G)').remove();
-      $(popButtons).find('p:contains(PISO)').remove();
-      $(popButtons).find('span:contains(0)').remove();
-      $(popButtons).find('span:contains(1)').remove();
-      $(popButtons).find('span:contains(2)').remove();
-      $(popButtons).find('span:contains(3)').remove();
-      $(popButtons).find('span:contains(4)').remove();
-      $(popButtons).find('span:contains(5)').remove();
-      $(popButtons).find('span:contains(6)').remove();
+    if (popRoomAud.style.display != 'none'){
+      $(popRoomAud).fadeOut(200);
+      $(popRoom).fadeIn(200);
       $(audBtn).css("background-color", "yellow");
     } else {
       $(audBtn).css("background-color", "pink");
-      $(pop).fadeIn(200);
-      pop.style.display = "block";
-      $(popResult).append('<p>AUD</p>');
-      $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span>');
-      $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose" style="cursor:pointer">0</span><span class="pop-choose" style="cursor:pointer">1</span><span class="pop-choose" style="cursor:pointer">2</span><span class="pop-choose" style="cursor:pointer">3</span><span class="pop-choose" style="cursor:pointer">4</span><span class="pop-choose" style="cursor:pointer">5</span><span class="pop-choose" style="cursor:pointer">6</span>');
+      $(popRoomAud).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popRoomAud.style.display = "block";
     }
   });
 
   $(labBtn).click(function(){
-    if (pop.style.display != 'none'){
-      $(pop).fadeOut(200);
-      $(popResult).find('p:contains(LAB)').remove();
-      $(popButtons).find('p:contains(TORRE)').remove();
-      $(popButtons).find('span:contains(A)').remove();
-      $(popButtons).find('span:contains(B)').remove();
-      $(popButtons).find('span:contains(C)').remove();
-      $(popButtons).find('span:contains(D)').remove();
-      $(popButtons).find('span:contains(E)').remove();
-      $(popButtons).find('span:contains(F)').remove();
-      $(popButtons).find('span:contains(G)').remove();
-      $(popButtons).find('p:contains(PISO)').remove();
-      $(popButtons).find('span:contains(0)').remove();
-      $(popButtons).find('span:contains(1)').remove();
-      $(popButtons).find('span:contains(2)').remove();
-      $(popButtons).find('span:contains(3)').remove();
-      $(popButtons).find('span:contains(4)').remove();
-      $(popButtons).find('span:contains(5)').remove();
-      $(popButtons).find('span:contains(6)').remove();
+    if (popRoomLab.style.display != 'none'){
+      $(popRoomLab).fadeOut(200);
+      $(popRoom).fadeIn(200);
       $(labBtn).css("background-color", "yellow");
     } else {
       $(labBtn).css("background-color", "pink");
-      $(pop).fadeIn(200);
-      pop.style.display = "block";
-      $(popResult).append('<p>LAB</p>');
-      $(popButtons).append('<p class="pop-titles">TORRE</p><span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span>');
-      $(popButtons).append('<p class="pop-titles">PISO</p><span class="pop-choose" style="cursor:pointer">0</span><span class="pop-choose" style="cursor:pointer">1</span><span class="pop-choose" style="cursor:pointer">2</span><span class="pop-choose" style="cursor:pointer">3</span><span class="pop-choose" style="cursor:pointer">4</span><span class="pop-choose" style="cursor:pointer">5</span><span class="pop-choose" style="cursor:pointer">6</span>');
+      $(popRoomLab).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      popRoomLab.style.display = "block";
     }
   });
 
+
   $(profDesBtn).click(function(){
-    if (pop.style.display != 'none'){
-      $(pop).fadeOut(200);
-      $(popResult).find('p:contains(PROFDES)').remove();
-      $(popButtons).find('span:contains(A)').remove();
-      $(popButtons).find('span:contains(B)').remove();
-      $(popButtons).find('span:contains(C)').remove();
-      $(popButtons).find('span:contains(D)').remove();
-      $(popButtons).find('span:contains(E)').remove();
-      $(popButtons).find('span:contains(F)').remove();
-      $(popButtons).find('span:contains(G)').remove();
-      $(popButtons).find('span:contains(H)').remove();
-      $(popButtons).find('span:contains(I)').remove();
-      $(popButtons).find('span:contains(J)').remove();
-      $(popButtons).find('span:contains(K)').remove();
-      $(popButtons).find('span:contains(L)').remove();
-      $(popButtons).find('span:contains(M)').remove();
-      $(popButtons).find('span:contains(N)').remove();
-      $(popButtons).find('span:contains(O)').remove();
-      $(popButtons).find('span:contains(P)').remove();
-      $(popButtons).find('span:contains(Q)').remove();
-      $(popButtons).find('span:contains(R)').remove();
-      $(popButtons).find('span:contains(S)').remove();
-      $(popButtons).find('span:contains(T)').remove();
-      $(popButtons).find('span:contains(U)').remove();
-      $(popButtons).find('span:contains(V)').remove();
-      $(popButtons).find('span:contains(W)').remove();
-      $(popButtons).find('span:contains(X)').remove();
-      $(popButtons).find('span:contains(Y)').remove();
-      $(popButtons).find('span:contains(Z)').remove();
-      $(popButtons).find('br').remove();
+    if (popProfDes.style.display != 'none'){
+      $(popProfDes).fadeOut(200);
+      $(popProf).fadeIn(200);
       $(profDesBtn).css("background-color", "yellow");
     } else {
       $(profDesBtn).css("background-color", "pink");
-      $(pop).fadeIn(200);
-      pop.style.display = "block";
-      $(popResult).append('<p>PROFDES</p>');
-      $(popButtons).append('<span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span><span class="pop-choose" style="cursor:pointer">H</span><span class="pop-choose" style="cursor:pointer">I</span><br><span class="pop-choose" style="cursor:pointer">J</span><span class="pop-choose" style="cursor:pointer">K</span><span class="pop-choose" style="cursor:pointer">L</span><span class="pop-choose" style="cursor:pointer">M</span><span class="pop-choose" style="cursor:pointer">N</span><span class="pop-choose" style="cursor:pointer">O</span><span class="pop-choose" style="cursor:pointer">P</span><span class="pop-choose" style="cursor:pointer">Q</span><span class="pop-choose" style="cursor:pointer">R</span><br><span class="pop-choose" style="cursor:pointer">S</span><span class="pop-choose" style="cursor:pointer">T</span><span class="pop-choose" style="cursor:pointer">U</span><span class="pop-choose" style="cursor:pointer">V</span><span class="pop-choose" style="cursor:pointer">W</span><span class="pop-choose" style="cursor:pointer">X</span><span class="pop-choose" style="cursor:pointer">Y</span><span class="pop-choose" style="cursor:pointer">Z</span>');
+      $(popProfDes).fadeIn(200);
 
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popProfDes.style.display = "block";
     }
   });
 
+
   $(profInfBtn).click(function(){
-    if (pop.style.display != 'none'){
-      $(pop).fadeOut(200);
-      $(popResult).find('p:contains(PROFINF)').remove();
-      $(popButtons).find('span:contains(A)').remove();
-      $(popButtons).find('span:contains(B)').remove();
-      $(popButtons).find('span:contains(C)').remove();
-      $(popButtons).find('span:contains(D)').remove();
-      $(popButtons).find('span:contains(E)').remove();
-      $(popButtons).find('span:contains(F)').remove();
-      $(popButtons).find('span:contains(G)').remove();
-      $(popButtons).find('span:contains(H)').remove();
-      $(popButtons).find('span:contains(I)').remove();
-      $(popButtons).find('span:contains(J)').remove();
-      $(popButtons).find('span:contains(K)').remove();
-      $(popButtons).find('span:contains(L)').remove();
-      $(popButtons).find('span:contains(M)').remove();
-      $(popButtons).find('span:contains(N)').remove();
-      $(popButtons).find('span:contains(O)').remove();
-      $(popButtons).find('span:contains(P)').remove();
-      $(popButtons).find('span:contains(Q)').remove();
-      $(popButtons).find('span:contains(R)').remove();
-      $(popButtons).find('span:contains(S)').remove();
-      $(popButtons).find('span:contains(T)').remove();
-      $(popButtons).find('span:contains(U)').remove();
-      $(popButtons).find('span:contains(V)').remove();
-      $(popButtons).find('span:contains(W)').remove();
-      $(popButtons).find('span:contains(X)').remove();
-      $(popButtons).find('span:contains(Y)').remove();
-      $(popButtons).find('span:contains(Z)').remove();
-      $(popButtons).find('br').remove();
+    if (popProfInf.style.display != 'none'){
+      $(popProfInf).fadeOut(200);
+      $(popProf).fadeIn(200);
       $(profInfBtn).css("background-color", "yellow");
     } else {
       $(profInfBtn).css("background-color", "pink");
-      $(pop).fadeIn(200);
-      pop.style.display = "block";
-      $(popResult).append('<p>PROFINF</p>');
-      $(popButtons).append('<span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span><span class="pop-choose" style="cursor:pointer">H</span><span class="pop-choose" style="cursor:pointer">I</span><br><span class="pop-choose" style="cursor:pointer">J</span><span class="pop-choose" style="cursor:pointer">K</span><span class="pop-choose" style="cursor:pointer">L</span><span class="pop-choose" style="cursor:pointer">M</span><span class="pop-choose" style="cursor:pointer">N</span><span class="pop-choose" style="cursor:pointer">O</span><span class="pop-choose" style="cursor:pointer">P</span><span class="pop-choose" style="cursor:pointer">Q</span><span class="pop-choose" style="cursor:pointer">R</span><br><span class="pop-choose" style="cursor:pointer">S</span><span class="pop-choose" style="cursor:pointer">T</span><span class="pop-choose" style="cursor:pointer">U</span><span class="pop-choose" style="cursor:pointer">V</span><span class="pop-choose" style="cursor:pointer">W</span><span class="pop-choose" style="cursor:pointer">X</span><span class="pop-choose" style="cursor:pointer">Y</span><span class="pop-choose" style="cursor:pointer">Z</span>');
+      $(popProfInf).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popProfInf.style.display = "block";
     }
   });
 
+
   $(evDesBtn).click(function(){
-    if (pop.style.display != 'none'){
-      $(pop).fadeOut(200);
-      $(popResult).find('p:contains(EVDES)').remove();
-      $(popButtons).find('span:contains(A)').remove();
-      $(popButtons).find('span:contains(B)').remove();
-      $(popButtons).find('span:contains(C)').remove();
-      $(popButtons).find('span:contains(D)').remove();
-      $(popButtons).find('span:contains(E)').remove();
-      $(popButtons).find('span:contains(F)').remove();
-      $(popButtons).find('span:contains(G)').remove();
-      $(popButtons).find('span:contains(H)').remove();
-      $(popButtons).find('span:contains(I)').remove();
-      $(popButtons).find('span:contains(J)').remove();
-      $(popButtons).find('span:contains(K)').remove();
-      $(popButtons).find('span:contains(L)').remove();
-      $(popButtons).find('span:contains(M)').remove();
-      $(popButtons).find('span:contains(N)').remove();
-      $(popButtons).find('span:contains(O)').remove();
-      $(popButtons).find('span:contains(P)').remove();
-      $(popButtons).find('span:contains(Q)').remove();
-      $(popButtons).find('span:contains(R)').remove();
-      $(popButtons).find('span:contains(S)').remove();
-      $(popButtons).find('span:contains(T)').remove();
-      $(popButtons).find('span:contains(U)').remove();
-      $(popButtons).find('span:contains(V)').remove();
-      $(popButtons).find('span:contains(W)').remove();
-      $(popButtons).find('span:contains(X)').remove();
-      $(popButtons).find('span:contains(Y)').remove();
-      $(popButtons).find('span:contains(Z)').remove();
-      $(popButtons).find('br').remove();
+    if (popEventsDes.style.display != 'none'){
+      $(popEventsDes).fadeOut(200);
+      $(popEvents).fadeIn(200);
       $(evDesBtn).css("background-color", "yellow");
     } else {
       $(evDesBtn).css("background-color", "pink");
-      $(pop).fadeIn(200);
-      pop.style.display = "block";
-      $(popResult).append('<p>EVDES</p>');
-      $(popButtons).append('<span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span><span class="pop-choose" style="cursor:pointer">H</span><span class="pop-choose" style="cursor:pointer">I</span><br><span class="pop-choose" style="cursor:pointer">J</span><span class="pop-choose" style="cursor:pointer">K</span><span class="pop-choose" style="cursor:pointer">L</span><span class="pop-choose" style="cursor:pointer">M</span><span class="pop-choose" style="cursor:pointer">N</span><span class="pop-choose" style="cursor:pointer">O</span><span class="pop-choose" style="cursor:pointer">P</span><span class="pop-choose" style="cursor:pointer">Q</span><span class="pop-choose" style="cursor:pointer">R</span><br><span class="pop-choose" style="cursor:pointer">S</span><span class="pop-choose" style="cursor:pointer">T</span><span class="pop-choose" style="cursor:pointer">U</span><span class="pop-choose" style="cursor:pointer">V</span><span class="pop-choose" style="cursor:pointer">W</span><span class="pop-choose" style="cursor:pointer">X</span><span class="pop-choose" style="cursor:pointer">Y</span><span class="pop-choose" style="cursor:pointer">Z</span>');
+      $(popEventsDes).fadeIn(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popEventsDes.style.display = "block";
     }
   });
 
+
   $(evInfBtn).click(function(){
-    if (pop.style.display != 'none'){
-      $(pop).fadeOut(200);
-      $(popResult).find('p:contains(EVINF)').remove();
-      $(popButtons).find('span:contains(A)').remove();
-      $(popButtons).find('span:contains(B)').remove();
-      $(popButtons).find('span:contains(C)').remove();
-      $(popButtons).find('span:contains(D)').remove();
-      $(popButtons).find('span:contains(E)').remove();
-      $(popButtons).find('span:contains(F)').remove();
-      $(popButtons).find('span:contains(G)').remove();
-      $(popButtons).find('span:contains(H)').remove();
-      $(popButtons).find('span:contains(I)').remove();
-      $(popButtons).find('span:contains(J)').remove();
-      $(popButtons).find('span:contains(K)').remove();
-      $(popButtons).find('span:contains(L)').remove();
-      $(popButtons).find('span:contains(M)').remove();
-      $(popButtons).find('span:contains(N)').remove();
-      $(popButtons).find('span:contains(O)').remove();
-      $(popButtons).find('span:contains(P)').remove();
-      $(popButtons).find('span:contains(Q)').remove();
-      $(popButtons).find('span:contains(R)').remove();
-      $(popButtons).find('span:contains(S)').remove();
-      $(popButtons).find('span:contains(T)').remove();
-      $(popButtons).find('span:contains(U)').remove();
-      $(popButtons).find('span:contains(V)').remove();
-      $(popButtons).find('span:contains(W)').remove();
-      $(popButtons).find('span:contains(X)').remove();
-      $(popButtons).find('span:contains(Y)').remove();
-      $(popButtons).find('span:contains(Z)').remove();
-      $(popButtons).find('br').remove();
+    if (popEventsInf.style.display != 'none'){
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeIn(200);
       $(evInfBtn).css("background-color", "yellow");
     } else {
       $(evInfBtn).css("background-color", "pink");
-      $(pop).fadeIn(200);
-      pop.style.display = "block";
-      $(popResult).append('<p>EVINF</p>');
-      $(popButtons).append('<span class="pop-choose" style="cursor:pointer">A</span><span class="pop-choose" style="cursor:pointer">B</span><span class="pop-choose" style="cursor:pointer">C</span><span class="pop-choose" style="cursor:pointer">D</span><span class="pop-choose" style="cursor:pointer">E</span><span class="pop-choose" style="cursor:pointer">F</span><span class="pop-choose" style="cursor:pointer">G</span><span class="pop-choose" style="cursor:pointer">H</span><span class="pop-choose" style="cursor:pointer">I</span><br><span class="pop-choose" style="cursor:pointer">J</span><span class="pop-choose" style="cursor:pointer">K</span><span class="pop-choose" style="cursor:pointer">L</span><span class="pop-choose" style="cursor:pointer">M</span><span class="pop-choose" style="cursor:pointer">N</span><span class="pop-choose" style="cursor:pointer">O</span><span class="pop-choose" style="cursor:pointer">P</span><span class="pop-choose" style="cursor:pointer">Q</span><span class="pop-choose" style="cursor:pointer">R</span><br><span class="pop-choose" style="cursor:pointer">S</span><span class="pop-choose" style="cursor:pointer">T</span><span class="pop-choose" style="cursor:pointer">U</span><span class="pop-choose" style="cursor:pointer">V</span><span class="pop-choose" style="cursor:pointer">W</span><span class="pop-choose" style="cursor:pointer">X</span><span class="pop-choose" style="cursor:pointer">Y</span><span class="pop-choose" style="cursor:pointer">Z</span>');
+      $(popEventsInf).fadeIn(200);
+      $(popEventsDes).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popEventsInf.style.display = "block";
     }
   });
 
@@ -408,16 +371,14 @@ $(document).ready(function () {
 
     alert("ENTROU NA FUNÇÃO");
 
-    $(popResult).html('');
-
-    //$.ajax({
-    // type:"post",
-    //url:"getTorre.php",
-    //data: { torreValue:torreValue },
-    //success:function(data){
-    // alert("SUCCESS");
-    //$(popResult).html(data);
-    //});
+    $.ajax({
+      type:"post",
+      url:"../getTorre.php",
+      data: { torreValue:torreValue },
+      success:function(data){
+        $("#pop-result-room-classroom").html(data);
+      }
+    });
 
     alert("SAIU DA FUNÇÃO");
   }
