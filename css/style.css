@@ -28,6 +28,12 @@ html, body{
 
 }
 
+a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
 .nav-a{
   padding-right: 16px;
   display: inline-block;

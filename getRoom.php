@@ -44,17 +44,26 @@ echo "' class='pop-result'>";
 if ($r > 0){
   for ($i = 0; $i < $r; $i++){
       $dados[$i] = mysql_fetch_assoc($q);
-      $nome[$i] = $dados[$i]["room"];
+      $nome[$i] = $dados[$i]["name"];
+      $room[$i] = $dados[$i]["room"];
 
       if ($typology == 'classroom'){
-        echo "<p>";
-        echo $nome[$i];
-        echo "</p>";
+        echo "<p><a class='pop-room-";
+        echo $typology;
+        echo "' id='";
+        echo $room[$i];
+        echo "'href='#'>";
+        echo $room[$i];
+        echo "</a></p>";
       } else {
-        echo "<p>";
-        echo $nome[$i];
+        echo "<p><a class='pop-room-";
+        echo $typology;
+        echo "' id='";
+        echo $room[$i];
+        echo "'href='#'>";
+        echo $room[$i];
         echo " (";
-        echo $dados[$i]["name"];
+        echo $nome[$i];
         echo ")";
         echo "</p>";
       }

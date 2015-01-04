@@ -59,9 +59,11 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo '<p>';
+            echo "<p><a class='pop-room' id='";
             echo $r["room"];
-            echo '</p>';
+            echo "' href='#'>";
+            echo $r["room"];
+            echo '</a></p>';
           }
           ?>
         </div>
@@ -97,9 +99,11 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo '<p>';
+            echo "<p><a class='pop-room-classroom' id='";
             echo $r["room"];
-            echo '</p>';
+            echo "' href='#'>";
+            echo $r["room"];
+            echo '</a></p>';
           }
           ?>
         </div>
@@ -131,18 +135,18 @@ require('core.php');
         </div>
         <div id="pop-result-room-aud" class="pop-result">
           <?php
-          $s = "SELECT * FROM rooms WHERE typology = 'amphitheater'";
-          $q = mysql_query($s);
-          $r = mysql_num_rows($q);
-          for ($i = 0; $i < $r; $i++){
-            $dados[$i] = mysql_fetch_assoc($q);
-            $nome[$i] = $dados[$i]["room"];
-            echo "<p>";
-            echo $nome[$i];
+          $q = "SELECT * FROM rooms WHERE typology = 'amphitheater'";
+          $s = mysql_query($q);
+
+          while($r = mysql_fetch_assoc($s)){
+            echo "<p><a class='pop-room-aud' id='";
+            echo $r["room"];
+            echo "' href='#'>";
+            echo $r["room"];
             echo " (";
-            echo $dados[$i]["name"];
+            echo $r["name"];
             echo ")";
-            echo "</p>";
+            echo '</a></p>';
           }
           ?>
         </div>
@@ -174,18 +178,18 @@ require('core.php');
         </div>
         <div id="pop-result-room-lab" class="pop-result">
           <?php
-          $s = "SELECT * FROM rooms WHERE typology = 'laboratory'";
-          $q = mysql_query($s);
-          $r = mysql_num_rows($q);
-          for ($i = 0; $i < $r; $i++){
-            $dados[$i] = mysql_fetch_assoc($q);
-            $nome[$i] = $dados[$i]["room"];
-            echo "<p>";
-            echo $nome[$i];
+          $q = "SELECT * FROM rooms WHERE typology = 'laboratory'";
+          $s = mysql_query($q);
+
+          while($r = mysql_fetch_assoc($s)){
+            echo "<p><a class='pop-room-lab' id='";
+            echo $r["room"];
+            echo "' href='#'>";
+            echo $r["room"];
             echo " (";
-            echo $dados[$i]["name"];
+            echo $r["name"];
             echo ")";
-            echo "</p>";
+            echo '</a></p>';
           }
           ?>
         </div>
