@@ -24,11 +24,12 @@ require('core.php');
         <a class="nav-a"><img class="nav-a-img two" id="eventsBtn" src="img/bin.png"></a>
       </span>
 
-      <span id="roomDiv" class="more-levels level-three" style="display:none; margin-left: 513px;">
+      <span id="roomDiv" class="more-levels level-three" style="display:none; margin-left: 383px;">
         <a class="nav-a"><img class="nav-a-img three" id="roomInBtn" src="img/cpuIn.png"></a>
         <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
         <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
-        <a class="nav-a"><img class="nav-a-img three" id="estBtn" src="img/printer.png"></a>
+        <a class="nav-a"><img class="nav-a-img three" id="stdBtn" src="img/printer.png"></a>
+        <a class="nav-a"><img class="nav-a-img three" id="staffBtn" src="img/arrowkeys.png"></a>
       </span>
       <span id="servDiv" class="more-levels level-three" style="display:none; margin-left: 313px;">
         <a class="nav-a"><img class="nav-a-img three" id="secrBtn" src="img/file.png"></a>
@@ -37,7 +38,6 @@ require('core.php');
         <a class="nav-a"><img class="nav-a-img three" id="cisucBtn" src="img/usb.png"></a>
         <a class="nav-a"><img class="nav-a-img three" id="gapiBtn" src="img/flip.png"></a>
         <a class="nav-a"><img class="nav-a-img three" id="neiBtn" src="img/controller.png"></a>
-        <a class="nav-a"><img class="nav-a-img three" id="staffBtn" src="img/arrowkeys.png"></a>
       </span>
       <span id="profDiv" class="more-levels level-three" style="display:none; margin-left: 577px;">
         <a class="nav-a"><img class="nav-a-img three" id="profDesBtn" src="img/design.png"></a>
@@ -185,6 +185,93 @@ require('core.php');
 
           while($r = mysql_fetch_assoc($s)){
             echo "<p><a class='pop-room-lab' id='";
+            echo $r["room"];
+            echo "' href='#'>";
+            echo $r["room"];
+            echo " (";
+            echo $r["name"];
+            echo ")";
+            echo '</a></p>';
+          }
+          ?>
+        </div>
+      </div>
+      <div class="pop-buttons">
+        <p class="pop-titles">TORRE</p>
+        <span class="pop-choose tower" style="cursor:pointer">A</span>
+        <span class="pop-choose tower" style="cursor:pointer">B</span>
+        <span class="pop-choose tower" style="cursor:pointer">C</span>
+        <span class="pop-choose tower" style="cursor:pointer">D</span>
+        <span class="pop-choose tower" style="cursor:pointer">E</span>
+        <span class="pop-choose tower" style="cursor:pointer">F</span>
+        <span class="pop-choose tower" style="cursor:pointer">G</span>
+        <p class="pop-titles">PISO</p>
+        <span class="pop-choose floor" style="cursor:pointer">0</span>
+        <span class="pop-choose floor" style="cursor:pointer">1</span>
+        <span class="pop-choose floor" style="cursor:pointer">2</span>
+        <span class="pop-choose floor" style="cursor:pointer">3</span>
+        <span class="pop-choose floor" style="cursor:pointer">4</span>
+        <span class="pop-choose floor" style="cursor:pointer">5</span>
+        <span class="pop-choose floor" style="cursor:pointer">6</span>
+      </div>
+    </div>
+
+
+    <!--PROCURA POR 'STUDY'-->
+    <div id="pop-room-std" class="pop" style="display:none;">
+      <div id="pop-room-std-editable">
+        <div id="pop-search-room-std" class="pop-search">
+        </div>
+        <div id="pop-result-room-std" class="pop-result">
+          <?php
+          $q = "SELECT * FROM rooms WHERE typology = 'study room'";
+          $s = mysql_query($q);
+
+          while($r = mysql_fetch_assoc($s)){
+            echo "<p><a class='pop-room-std' id='";
+            echo $r["room"];
+            echo "' href='#'>";
+            echo $r["room"];
+            echo " (";
+            echo $r["name"];
+            echo ")";
+            echo '</a></p>';
+          }
+          ?>
+        </div>
+      </div>
+      <div class="pop-buttons">
+        <p class="pop-titles">TORRE</p>
+        <span class="pop-choose tower" style="cursor:pointer">A</span>
+        <span class="pop-choose tower" style="cursor:pointer">B</span>
+        <span class="pop-choose tower" style="cursor:pointer">C</span>
+        <span class="pop-choose tower" style="cursor:pointer">D</span>
+        <span class="pop-choose tower" style="cursor:pointer">E</span>
+        <span class="pop-choose tower" style="cursor:pointer">F</span>
+        <span class="pop-choose tower" style="cursor:pointer">G</span>
+        <p class="pop-titles">PISO</p>
+        <span class="pop-choose floor" style="cursor:pointer">0</span>
+        <span class="pop-choose floor" style="cursor:pointer">1</span>
+        <span class="pop-choose floor" style="cursor:pointer">2</span>
+        <span class="pop-choose floor" style="cursor:pointer">3</span>
+        <span class="pop-choose floor" style="cursor:pointer">4</span>
+        <span class="pop-choose floor" style="cursor:pointer">5</span>
+        <span class="pop-choose floor" style="cursor:pointer">6</span>
+      </div>
+    </div>
+
+    <!--PROCURA POR 'STAFF'-->
+    <div id="pop-room-staff" class="pop" style="display:none;">
+      <div id="pop-room-staff-editable">
+        <div id="pop-search-room-staff" class="pop-search">
+        </div>
+        <div id="pop-result-room-staff" class="pop-result">
+          <?php
+          $q = "SELECT * FROM rooms WHERE typology = 'staff'";
+          $s = mysql_query($q);
+
+          while($r = mysql_fetch_assoc($s)){
+            echo "<p><a class='pop-room-staff' id='";
             echo $r["room"];
             echo "' href='#'>";
             echo $r["room"];

@@ -15,6 +15,8 @@ $(document).ready(function () {
   roomInBtn = document.getElementById('roomInBtn');
   audBtn = document.getElementById('audBtn');
   labBtn = document.getElementById('labBtn');
+  stdBtn = document.getElementById('stdBtn');
+  staffBtn = document.getElementById('staffBtn');
   profDesBtn = document.getElementById('profDesBtn');
   profInfBtn = document.getElementById('profInfBtn');
   evDesBtn = document.getElementById('evDesBtn');
@@ -36,6 +38,14 @@ $(document).ready(function () {
   popRoomLabEditable = document.getElementById('pop-room-lab-editable');
   popSearchRoomLab = document.getElementById('pop-search-room-lab');
   popResultRoomLab = document.getElementById('pop-result-room-lab');
+  popRoomStd = document.getElementById('pop-room-std');
+  popRoomStdEditable = document.getElementById('pop-room-std-editable');
+  popSearchRoomStd = document.getElementById('pop-search-room-std');
+  popResultRoomStd = document.getElementById('pop-result-room-std');
+  popRoomStaff = document.getElementById('pop-room-staff');
+  popRoomStaffEditable = document.getElementById('pop-room-staff-editable');
+  popSearchRoomStaff = document.getElementById('pop-search-room-staff');
+  popResultRoomStaff = document.getElementById('pop-result-room-staff');
 
   popProf = document.getElementById('pop-prof');
   popProfEditable = document.getElementById('pop-prof-editable');
@@ -105,6 +115,12 @@ $(document).ready(function () {
       $(popRoomLab).fadeOut(200);
       $(popRoomAud).fadeOut(200);
     } else {
+      $(roomBtn).css("margin-left", "-150px");
+      $(quickBtn).animate({marginLeft: 788 +"px"}, 200);
+      $(profBtn).css("visibility", "hidden");
+      $(servBtn).css("visibility", "hidden");
+      $(eventsBtn).css("visibility", "hidden");
+
       $(roomDiv).fadeIn(200);
       roomDiv.style.display = "block";
 
@@ -117,6 +133,8 @@ $(document).ready(function () {
       $(popRoomClassroom).fadeOut(200);
       $(popRoomLab).fadeOut(200);
       $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
       popRoom.style.display = "block";
     }
 
@@ -191,6 +209,8 @@ $(document).ready(function () {
       $(popRoomClassroom).fadeOut(200);
       $(popRoomLab).fadeOut(200);
       $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
       popProf.style.display = "block";
     }
 
@@ -237,11 +257,15 @@ $(document).ready(function () {
       $(popRoomClassroom).fadeOut(200);
       $(popRoomLab).fadeOut(200);
       $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
       popEvents.style.display = "block";
     }
   });
 
   /************ LEVEL-THREE BTNS  ***************/
+
+        /************ ROOMIN BTNS  ***************/
 
   $(roomInBtn).click(function(){
     if (popRoomClassroom.style.display != 'none'){
@@ -261,6 +285,8 @@ $(document).ready(function () {
       $(popRoom).fadeOut(200);
       $(popRoomAud).fadeOut(200);
       $(popRoomLab).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
       popRoomClassroom.style.display = "block";
     }
 
@@ -285,6 +311,8 @@ $(document).ready(function () {
     });
   });
 
+  /************ AUD BTNS  ***************/
+
   $(audBtn).click(function(){
     if (popRoomAud.style.display != 'none'){
       $(popRoomAud).fadeOut(200);
@@ -303,6 +331,8 @@ $(document).ready(function () {
       $(popRoom).fadeOut(200);
       $(popRoomClassroom).fadeOut(200);
       $(popRoomLab).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
       popRoomAud.style.display = "block";
     }
 
@@ -327,6 +357,8 @@ $(document).ready(function () {
     });
   });
 
+  /************ LAB BTNS  ***************/
+
   $(labBtn).click(function(){
     if (popRoomLab.style.display != 'none'){
       $(popRoomLab).fadeOut(200);
@@ -345,6 +377,8 @@ $(document).ready(function () {
       $(popRoom).fadeOut(200);
       $(popRoomClassroom).fadeOut(200);
       $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
       popRoomLab.style.display = "block";
     }
 
@@ -369,6 +403,102 @@ $(document).ready(function () {
     });
 
   });
+
+
+  /************ STUDY BTNS  ***************/
+
+  $(stdBtn).click(function(){
+    if (popRoomStd.style.display != 'none'){
+      $(popRoomStd).fadeOut(200);
+      $(popRoom).fadeIn(200);
+      $(stdBtn).css("background-color", "yellow");
+    } else {
+      $(stdBtn).css("background-color", "pink");
+      $(popRoomStd).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      popRoomStd.style.display = "block";
+    }
+
+    var inputValue = '';
+    var inputTower = '';
+    var inputFloor = '';
+
+    $('.pop-choose').click(function(){
+      var typology = "laboratory";
+      var sR = $(popSearchRoomStd).attr('id');
+      var fR = $(popResultRoomStd).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStdEditable);
+    });
+
+  });
+
+  /************ STAFF BTNS  ***************/
+
+  $(staffBtn).click(function(){
+    if (popRoomStaff.style.display != 'none'){
+      $(popRoomStaff).fadeOut(200);
+      $(popRoom).fadeIn(200);
+      $(staffBtn).css("background-color", "yellow");
+    } else {
+      $(staffBtn).css("background-color", "pink");
+      $(popRoomStaff).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      popRoomStd.style.display = "block";
+    }
+
+    var inputValue = '';
+    var inputTower = '';
+    var inputFloor = '';
+
+    $('.pop-choose').click(function(){
+      var typology = "laboratory";
+      var sR = $(popSearchRoomStd).attr('id');
+      var fR = $(popResultRoomStd).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStdEditable);
+    });
+
+  });
+
+
+  /************ PROFDES BTNS  ***************/
 
 
   $(profDesBtn).click(function(){
@@ -406,6 +536,7 @@ $(document).ready(function () {
 
   });
 
+  /************ PROFINF BTNS  ***************/
 
   $(profInfBtn).click(function(){
     if (popProfInf.style.display != 'none'){
@@ -441,6 +572,7 @@ $(document).ready(function () {
     });
   });
 
+  /************ EVDES BTNS  ***************/
 
   $(evDesBtn).click(function(){
     if (popEventsDes.style.display != 'none'){
@@ -463,6 +595,7 @@ $(document).ready(function () {
     }
   });
 
+  /************ EVINF BTNS  ***************/
 
   $(evInfBtn).click(function(){
     if (popEventsInf.style.display != 'none'){
@@ -484,7 +617,6 @@ $(document).ready(function () {
       popEventsInf.style.display = "block";
     }
   });
-
 
   function getRoom(towerValue, floorValue, typology, sR, fR, pD){
     var rqst = $.ajax({
