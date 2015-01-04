@@ -28,6 +28,7 @@ require('core.php');
         <a class="nav-a"><img class="nav-a-img three" id="roomInBtn" src="img/cpuIn.png"></a>
         <a class="nav-a"><img class="nav-a-img three" id="audBtn" src="img/drive.png"></a>
         <a class="nav-a"><img class="nav-a-img three" id="labBtn" src="img/laptop.png"></a>
+        <a class="nav-a"><img class="nav-a-img three" id="estBtn" src="img/printer.png"></a>
       </span>
       <span id="servDiv" class="more-levels level-three" style="display:none; margin-left: 313px;">
         <a class="nav-a"><img class="nav-a-img three" id="secrBtn" src="img/file.png"></a>
@@ -36,6 +37,7 @@ require('core.php');
         <a class="nav-a"><img class="nav-a-img three" id="cisucBtn" src="img/usb.png"></a>
         <a class="nav-a"><img class="nav-a-img three" id="gapiBtn" src="img/flip.png"></a>
         <a class="nav-a"><img class="nav-a-img three" id="neiBtn" src="img/controller.png"></a>
+        <a class="nav-a"><img class="nav-a-img three" id="staffBtn" src="img/arrowkeys.png"></a>
       </span>
       <span id="profDiv" class="more-levels level-three" style="display:none; margin-left: 577px;">
         <a class="nav-a"><img class="nav-a-img three" id="profDesBtn" src="img/design.png"></a>
@@ -216,19 +218,21 @@ require('core.php');
 
     <!--PROCURA POR 'PROFS' ALL-->
     <div id="pop-prof" class="pop" style="display:none;">
-      <div id="pop-search-prof" class="pop-search">
-      </div>
-      <div id="pop-result-prof" class="pop-result">
-        <?php
-        $q = "SELECT * FROM teachers";
-        $s = mysql_query($q);
+      <div id="pop-prof-editable">
+        <div id="pop-search-prof" class="pop-search">
+        </div>
+        <div id="pop-result-prof" class="pop-result">
+          <?php
+          $q = "SELECT * FROM teachers";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
-          echo $r["teacher_name"];
-          echo '</p>';
-        }
-        ?>
+          while($r = mysql_fetch_assoc($s)){
+            echo '<p>';
+            echo $r["teacher_name"];
+            echo '</p>';
+          }
+          ?>
+        </div>
       </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
@@ -361,9 +365,23 @@ require('core.php');
         $s = mysql_query($q);
 
         while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
+          echo "<p><a class='pop-event-";
+          if ($r["event_course"] == '1'){
+            echo "inf";
+          } else if ($r["event_course"] == '2'){
+            echo "des";
+          } else if ($r["event_course"] == '3'){
+            echo "both";
+          } else{
+            echo "all";
+          }
+
+
+          echo "' id='event-";
+          echo $r["event_id"];
+          echo "'href='#'>";
           echo $r["event_name"];
-          echo '</p>';
+          echo "</a></p>";
         }
         ?>
       </div>
@@ -407,9 +425,22 @@ require('core.php');
         $s = mysql_query($q);
 
         while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
+          echo "<p><a class='pop-event-";
+          if ($r["event_course"] == '1'){
+            echo "inf";
+          } else if ($r["event_course"] == '2'){
+            echo "des";
+          } else if ($r["event_course"] == '3'){
+            echo "both";
+          } else{
+            echo "all";
+          }
+
+          echo "' id='event-";
+          echo $r["event_id"];
+          echo "'href='#'>";
           echo $r["event_name"];
-          echo '</p>';
+          echo "</a></p>";
         }
         ?>
       </div>
@@ -453,9 +484,22 @@ require('core.php');
         $s = mysql_query($q);
 
         while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
+          echo "<p><a class='pop-event-";
+          if ($r["event_course"] == '1'){
+            echo "inf";
+          } else if ($r["event_course"] == '2'){
+            echo "des";
+          } else if ($r["event_course"] == '3'){
+            echo "both";
+          } else{
+            echo "all";
+          }
+
+          echo "' id='event-";
+          echo $r["event_id"];
+          echo "'href='#'>";
           echo $r["event_name"];
-          echo '</p>';
+          echo "</a></p>";
         }
         ?>
       </div>

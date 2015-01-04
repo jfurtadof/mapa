@@ -38,6 +38,7 @@ $(document).ready(function () {
   popResultRoomLab = document.getElementById('pop-result-room-lab');
 
   popProf = document.getElementById('pop-prof');
+  popProfEditable = document.getElementById('pop-prof-editable');
   popSearchProf = document.getElementById('pop-search-prof');
   popResultProf = document.getElementById('pop-result-prof');
   popProfDes = document.getElementById('pop-prof-des');
@@ -191,8 +192,19 @@ $(document).ready(function () {
       $(popRoomLab).fadeOut(200);
       $(popRoomAud).fadeOut(200);
       popProf.style.display = "block";
-
     }
+
+    var profName = '';
+    var courseName = '';
+
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchProf).attr('id');
+      var fR = $(popResultProf).attr('id');
+
+      profName += $(this).text();
+      profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
+      getProf(profName, courseName, sR, fR, popProfEditable);
+    });
   });
 
   $(eventsBtn).click(function(){
@@ -379,6 +391,19 @@ $(document).ready(function () {
       $(popRoomLab).fadeOut(200);
       popProfDes.style.display = "block";
     }
+
+    var profName = '';
+    var courseName = '2';
+
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchProf).attr('id');
+      var fR = $(popResultProf).attr('id');
+
+      profName += $(this).text();
+      profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
+      getProf(profName, courseName, sR, fR, popProfEditable);
+    });
+
   });
 
 
@@ -402,6 +427,18 @@ $(document).ready(function () {
       $(popRoomLab).fadeOut(200);
       popProfInf.style.display = "block";
     }
+
+    var profName = '';
+    var courseName = '1';
+
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchProf).attr('id');
+      var fR = $(popResultProf).attr('id');
+
+      profName += $(this).text();
+      profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
+      getProf(profName, courseName, sR, fR, popProfEditable);
+    });
   });
 
 
@@ -454,6 +491,28 @@ $(document).ready(function () {
       type: "POST",
       url: "./getRoom.php",
       data: { towerValue: towerValue, floorValue: floorValue, typology: typology, sR: sR, fR: fR
+      }
+    }).done(function(msg) {
+      $(pD).html(msg);
+    });
+  }
+
+  function getProf(profName, courseName, sR, fR, pD){
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./getProf.php",
+      data: { profName: profName, courseName: courseName, sR: sR, fR: fR
+      }
+    }).done(function(msg) {
+      $(pD).html(msg);
+    });
+  }
+
+  function getEvent(eventName, eventCourse, sR, fR, pD){
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./getEvent.php",
+      data: { eventName: eventName, eventCourse: eventCourse, sR: sR, fR: fR
       }
     }).done(function(msg) {
       $(pD).html(msg);
