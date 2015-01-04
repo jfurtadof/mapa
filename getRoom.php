@@ -28,6 +28,14 @@ if ($towerValue != '' && $floorValue == '' && $typology == ''){
   $s = "SELECT * FROM rooms WHERE tower = '$towerValue'";
 }
 
+if ($towerValue == '' && $floorValue == '' && $typology == ''){
+  $s = "SELECT * FROM rooms";
+}
+
+if ($typology == ''){
+  $typology = 'all';
+}
+
 $q = mysql_query($s);
 $r = mysql_num_rows($q);
 

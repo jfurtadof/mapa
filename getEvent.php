@@ -7,12 +7,17 @@ $searchResult = $_POST["sR"];
 $filterResult = $_POST["fR"];
 
 if ($eventName != '' && $eventCourse == ''){
-  $s = "SELECT * FROM teachers WHERE teacher_name LIKE '%$eventName%'";
+  $s = "SELECT * FROM events WHERE event_name LIKE '%$eventName%'";
 }
 
 if ($eventName != '' && $eventCourse != ''){
-  $s = "SELECT * FROM teachers WHERE teacher_course = '$eventCourse' teacher_name LIKE '%$eventName%'";
+  $s = "SELECT * FROM events WHERE event_course = '$eventCourse' event_name LIKE '%$eventName%'";
 }
+
+if ($eventName == '' && $eventCourse == ''){
+  $s = "SELECT * FROM events";
+}
+
 
 $q = mysql_query($s);
 $r = mysql_num_rows($q);
@@ -41,8 +46,10 @@ if ($r > 0){
         echo "inf";
       } else if ($course[$i] == '2'){
         echo "des";
-      } else {
+      } else if ($couse[$i] == '3'){
         echo "both";
+      } else {
+        echo "all";
       }
       echo "' id='event-";
       echo $id[$i];

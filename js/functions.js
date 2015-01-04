@@ -22,6 +22,8 @@ $(document).ready(function () {
   evDesBtn = document.getElementById('evDesBtn');
   evInfBtn = document.getElementById('evInfBtn');
 
+  delBtn = document.getElementsByClassName('delBtn');
+
   popRoom = document.getElementById('pop-room');
   popRoomEditable = document.getElementById('pop-room-editable');
   popSearchRoom = document.getElementById('pop-search-room');
@@ -62,12 +64,15 @@ $(document).ready(function () {
 
 
   popEvents = document.getElementById('pop-events');
+  popEventsEditable = document.getElementById('pop-events-editable');
   popSearchEvents = document.getElementById('pop-search-events');
   popResultEvents = document.getElementById('pop-result-events');
   popEventsDes = document.getElementById('pop-events-des');
+  popEventsDesEditable = document.getElementById('pop-events-des-editable');
   popSearchEventsDes = document.getElementById('pop-search-events-des');
   popResultEventsDes = document.getElementById('pop-result-events-des');
   popEventsInf = document.getElementById('pop-events-inf');
+  popEventsInfEditable = document.getElementById('pop-events-inf-editable');
   popSearchEventsInf = document.getElementById('pop-search-events-inf');
   popResultEventsInf = document.getElementById('pop-result-events-inf');
 
@@ -105,9 +110,15 @@ $(document).ready(function () {
   $(roomBtn).click(function(){
     if (roomDiv.style.display != 'none'){
       $(servBtn).animate({marginLeft: "0px"}, 200);
+      $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
+      $(roomBtn).css("margin-left", "0px");
+      $(servBtn).css("visibility", "visible");
+      $(profBtn).css("visibility", "visible");
+      $(eventsBtn).css("visibility", "visible");
+
+
       $(roomDiv).fadeOut(170);
       $(popRoom).fadeOut(200);
-
       $(popEventsDes).fadeOut(200);
       $(popEventsInf).fadeOut(200);
       $(popEvents).fadeOut(200);
@@ -156,6 +167,16 @@ $(document).ready(function () {
       if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
         inputFloor = inputValue;
       }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomEditable);
+    });
+
+    $(delBtn).click(function(){
+      var typology = '';
+      var inputTower = '';
+      var inputFloor = '';
+      var sR = $(popSearchRoom).attr('id');
+      var fR = $(popResultRoom).attr('id');
 
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomEditable);
     });
@@ -227,6 +248,15 @@ $(document).ready(function () {
       profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
       getProf(profName, courseName, sR, fR, popProfEditable);
     });
+
+    $(delBtn).click(function(){
+      var profName = '';
+      var courseName = '';
+      var sR = $(popSearchProf).attr('id');
+      var fR = $(popResultProf).attr('id');
+
+      getProf(profName, courseName, sR, fR, popProfEditable);
+    });
   });
 
   $(eventsBtn).click(function(){
@@ -263,6 +293,30 @@ $(document).ready(function () {
       $(popRoomStd).fadeOut(200);
       popEvents.style.display = "block";
     }
+
+    var eventName = '';
+    var eventCourse = '';
+
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchEvents).attr('id');
+      var fR = $(popResultEvents).attr('id');
+
+      eventName += $(this).text();
+      eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditable);
+    });
+
+    $(delBtn).click(function(){
+      var eventName = '';
+      var eventCourse = '';
+      var sR = $(popSearchEvents).attr('id');
+      var fR = $(popResultEvents).attr('id');
+
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditable);
+      alert(eventName);
+      alert(eventName);
+    });
+
   });
 
   /************ LEVEL-THREE BTNS  ***************/
@@ -311,6 +365,17 @@ $(document).ready(function () {
 
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomClassroomEditable);
     });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomClassroom).attr('id');
+      var fR = $(popResultRoomClassroom).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomClassroomEditable);
+    });
+
   });
 
   /************ AUD BTNS  ***************/
@@ -357,6 +422,17 @@ $(document).ready(function () {
 
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomAudEditable);
     });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomAud).attr('id');
+      var fR = $(popResultRoomAud).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomAudEditable);
+    });
+
   });
 
   /************ LAB BTNS  ***************/
@@ -404,6 +480,16 @@ $(document).ready(function () {
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomLabEditable);
     });
 
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomLab).attr('id');
+      var fR = $(popResultRoomLab).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomLabEditable);
+    });
+
   });
 
 
@@ -436,7 +522,7 @@ $(document).ready(function () {
     var inputFloor = '';
 
     $('.pop-choose').click(function(){
-      var typology = "laboratory";
+      var typology = "study room";
       var sR = $(popSearchRoomStd).attr('id');
       var fR = $(popResultRoomStd).attr('id');
 
@@ -449,6 +535,16 @@ $(document).ready(function () {
       }
 
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStdEditable);
+    });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomStd).attr('id');
+      var fR = $(popResultRoomStd).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomStdEditable);
     });
 
   });
@@ -482,7 +578,7 @@ $(document).ready(function () {
     var inputFloor = '';
 
     $('.pop-choose').click(function(){
-      var typology = "laboratory";
+      var typology = "staff";
       var sR = $(popSearchRoomStaff).attr('id');
       var fR = $(popResultRoomStaff).attr('id');
 
@@ -495,6 +591,16 @@ $(document).ready(function () {
       }
 
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStaffEditable);
+    });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomStaff).attr('id');
+      var fR = $(popResultRoomStaff).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomStaffEditable);
     });
 
   });
@@ -528,11 +634,20 @@ $(document).ready(function () {
     var courseName = '2';
 
     $('.pop-choose').click(function(){
-      var sR = $(popSearchProf).attr('id');
-      var fR = $(popResultProf).attr('id');
+      var sR = $(popSearchProfDes).attr('id');
+      var fR = $(popResultProfDes).attr('id');
 
       profName += $(this).text();
       profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
+      getProf(profName, courseName, sR, fR, popProfDesEditable);
+    });
+
+    $(delBtn).click(function(){
+      var profName = '';
+      var courseName = '';
+      var sR = $(popSearchProfDes).attr('id');
+      var fR = $(popResultProfDes).attr('id');
+
       getProf(profName, courseName, sR, fR, popProfDesEditable);
     });
 
@@ -565,13 +680,23 @@ $(document).ready(function () {
     var courseName = '1';
 
     $('.pop-choose').click(function(){
-      var sR = $(popSearchProf).attr('id');
-      var fR = $(popResultProf).attr('id');
+      var sR = $(popSearchProfInf).attr('id');
+      var fR = $(popResultProfInf).attr('id');
 
       profName += $(this).text();
       profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
       getProf(profName, courseName, sR, fR, popProfInfEditable);
     });
+
+    $(delBtn).click(function(){
+      var profName = '';
+      var courseName = '';
+      var sR = $(popSearchProfInf).attr('id');
+      var fR = $(popResultProfInf).attr('id');
+
+      getProf(profName, courseName, sR, fR, popProfInfEditable);
+    });
+
   });
 
   /************ EVDES BTNS  ***************/
@@ -595,6 +720,28 @@ $(document).ready(function () {
       $(popRoomLab).fadeOut(200);
       popEventsDes.style.display = "block";
     }
+
+
+    var eventName = '';
+    var eventCourse = '2';
+
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchEventsDes).attr('id');
+      var fR = $(popResultEventsDes).attr('id');
+
+      eventName += $(this).text();
+      eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditableDes);
+    });
+
+    $(delBtn).click(function(){
+      var eventName = '';
+      var eventCourse = '';
+      var sR = $(popSearchEventsDes).attr('id');
+      var fR = $(popResultEventsDes).attr('id');
+
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditableDes);
+    });
   });
 
   /************ EVINF BTNS  ***************/
@@ -618,6 +765,29 @@ $(document).ready(function () {
       $(popRoomLab).fadeOut(200);
       popEventsInf.style.display = "block";
     }
+
+
+    var eventName = '';
+    var eventCourse = '1';
+
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchEventsInf).attr('id');
+      var fR = $(popResultEventsInf).attr('id');
+
+      eventName += $(this).text();
+      eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditableInf);
+    });
+
+    $(delBtn).click(function(){
+      var eventName = '';
+      var eventCourse = '';
+      var sR = $(popSearchEventsInf).attr('id');
+      var fR = $(popResultEventsInf).attr('id');
+
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditableInf);
+    });
+
   });
 
   function getRoom(towerValue, floorValue, typology, sR, fR, pD){

@@ -14,6 +14,10 @@ if ($profName != '' && $courseName != ''){
   $s = "SELECT * FROM teachers WHERE teacher_course = '$courseName' teacher_name LIKE '%$profName%'";
 }
 
+if ($profName == '' && $courseName == ''){
+  $s = "SELECT * FROM teachers";
+}
+
 $q = mysql_query($s);
 $r = mysql_num_rows($q);
 
