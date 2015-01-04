@@ -646,11 +646,10 @@ require('core.php');
 
     <!--PROCURA POR 'ROOM' ALL-->
     <div id="pop-info" class="pop" style="display:none;">
-      <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
       <div id="pop-info-editable">
-        <div id="pop-search-info" class="pop-search">
+        <div id="pop-search-info" style="width: 339px;"class="pop-search">
         </div>
-        <div id="pop-result-info" class="pop-result">
+        <div id="pop-result-info" style="width: 339px;" class="pop-result">
         </div>
       </div>
     </div>

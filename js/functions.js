@@ -88,6 +88,11 @@ $(document).ready(function () {
   popSearchEventsInf = document.getElementById('pop-search-events-inf');
   popResultEventsInf = document.getElementById('pop-result-events-inf');
 
+  popInfo = document.getElementById('pop-info');
+  popInfoEditable = document.getElementById('pop-info-editable');
+  popSearchInfo = document.getElementById('pop-search-info');
+  popResultInfo = document.getElementById('pop-result-info')
+
   levelTwo = document.getElementsByClassName('level-two');
   levelThree = document.getElementsByClassName('level-three');
 
@@ -631,10 +636,7 @@ $(staffBtn).click(function(){
 /************ INSIDE SERV BTN  ***************/
 
 $(secrBtn).click(function(){
-  if ($('.sala_D11').css('display') != 'none'){
-    $('.sala_D11').fadeOut(500);
-    $('.sala_D11').css('display', 'none');
-  } else {
+    //popInfo.style.display = "block";
     $('.sala_D14').fadeOut(500);
     $('.sala_D14').css('display', 'none');
     $('.sala_F14').fadeOut(500);
@@ -642,36 +644,26 @@ $(secrBtn).click(function(){
 
     $('.sala_D11').fadeIn(500);
     $('.sala_D11').css("display", "inline");
-  }
 
   setRoomLocation('D', '1', '1');
+
 });
 
 $(gapiBtn).click(function(){
-
-  if ($('.sala_D14').css('display') != 'none'){
-    $('.sala_D14').fadeOut(500);
-    $('.sala_D14').css('display', 'none');
-  } else {
-    $('.sala_D11').fadeOut(500);
+  $('.sala_D11').fadeOut(500);
     $('.sala_D11').css('display', 'none');
     $('.sala_F14').fadeOut(500);
     $('.sala_F14').css('display', 'none');
 
-
     $('.sala_D14').fadeIn(500);
     $('.sala_D14').css("display", "inline");
-  }
 
   setRoomLocation('D', '1', '4');
+
 });
 
 $(cisucBtn).click(function(){
-  if ($('.sala_F14').css('display') != 'none'){
-    $('.sala_F14').fadeOut(500);
-    $('.sala_F14').css('display', 'none');
-  } else {
-    $('.sala_D11').fadeOut(500);
+  $('.sala_D11').fadeOut(500);
     $('.sala_D11').css('display', 'none');
     $('.sala_D14').fadeOut(500);
     $('.sala_D14').css('display', 'none');
@@ -679,7 +671,6 @@ $(cisucBtn).click(function(){
 
     $('.sala_F14').fadeIn(500);
     $('.sala_F14').css("display", "inline");
-  }
 
   setRoomLocation('F', '1', '4');
 });
@@ -934,6 +925,7 @@ return false;
 }*/
 
 function setRoomLocation(tower, floor, block){
+  popInfo.style.display = "none";
   $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
   var rqst = $.ajax({
     type: "POST",
@@ -948,8 +940,25 @@ function setRoomLocation(tower, floor, block){
     setTimeout(function() {
       $('#map-image').animate({left: l, top: t, zoom: z}, 200);
     },
-    600);
+    2000);
+    setTimeout(function(){
+      popInfo.style.display = "block";
+      getInfo(tower, floor, block, popSearchInfo, popResultInfo, popInfoEditable);
+
+    }, 2200);
   });
 }
+
+function getInfo(tower, floor, block, sR, fR, pD){
+  var rqst = $.ajax({
+    type: "POST",
+    url: "./getInfo.php",
+    data: { tower: tower, floor: floor, block: block
+    }
+  }).done(function(msg) {
+    $(pD).html(msg);
+  });
+}
+
 
 });
