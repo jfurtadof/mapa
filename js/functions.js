@@ -21,6 +21,7 @@ $(document).ready(function () {
   evInfBtn = document.getElementById('evInfBtn');
 
   popRoom = document.getElementById('pop-room');
+  popRoomEditable = document.getElementById('pop-room-editable');
   popSearchRoom = document.getElementById('pop-search-room');
   popResultRoom = document.getElementById('pop-result-room');
   popRoomClassroom = document.getElementById('pop-room-classroom');
@@ -94,12 +95,19 @@ $(document).ready(function () {
       $(roomDiv).fadeOut(170);
       $(popRoom).fadeOut(200);
 
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
     } else {
       $(roomDiv).fadeIn(200);
       roomDiv.style.display = "block";
 
       $(popRoom).fadeIn(200);
-
       $(popEventsDes).fadeOut(200);
       $(popEventsInf).fadeOut(200);
       $(popEvents).fadeOut(200);
@@ -109,8 +117,27 @@ $(document).ready(function () {
       $(popRoomLab).fadeOut(200);
       $(popRoomAud).fadeOut(200);
       popRoom.style.display = "block";
-
     }
+
+    var inputValue = '';
+    var inputTower = '';
+    var inputFloor = '';
+
+    $('.pop-choose').click(function(){
+      var typology = "";
+      var sR = $(popSearchRoom).attr('id');
+      var fR = $(popResultRoom).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomEditable);
+    });
   });
 
   $(servBtn).click(function(){
@@ -225,22 +252,25 @@ $(document).ready(function () {
       popRoomClassroom.style.display = "block";
     }
 
-  /*  $('.tower').click(function(){
-      var torreValue = $(this).text();
-      var typology = "classroom";
-      var sR = $(popSearchRoomClassroom).attr('id');
-      var fR = $(popResultRoomClassroom).attr('id');
-      getTower(torreValue, typology, sR, fR, popRoomClassroomEditable);
-    });*/
+    var inputValue = '';
+    var inputTower = '';
+    var inputFloor = '';
 
-    $('.floor').click(function(){
-      var floorValue = $(this).text();
+    $('.pop-choose').click(function(){
       var typology = "classroom";
       var sR = $(popSearchRoomClassroom).attr('id');
       var fR = $(popResultRoomClassroom).attr('id');
-      getFloor(floorValue, typology, sR, fR, popRoomClassroomEditable);
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomClassroomEditable);
     });
-
   });
 
   $(audBtn).click(function(){
@@ -264,12 +294,24 @@ $(document).ready(function () {
       popRoomAud.style.display = "block";
     }
 
-    $('.tower').click(function(){
-      var torreValue = $(this).text();
+    var inputValue = '';
+    var inputTower = '';
+    var inputFloor = '';
+
+    $('.pop-choose').click(function(){
       var typology = "amphitheater";
-      var sR = $(popSearchRoomClassroom).attr('id');
-      var fR = $(popResultRoomClassroom).attr('id');
-      getTower(torreValue, typology, sR, fR, popRoomAudEditable);
+      var sR = $(popSearchRoomAud).attr('id');
+      var fR = $(popResultRoomAud).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomAudEditable);
     });
   });
 
@@ -294,13 +336,26 @@ $(document).ready(function () {
       popRoomLab.style.display = "block";
     }
 
-    $('.tower').click(function(){
-      var torreValue = $(this).text();
+    var inputValue = '';
+    var inputTower = '';
+    var inputFloor = '';
+
+    $('.pop-choose').click(function(){
       var typology = "laboratory";
-      var sR = $(popSearchRoomClassroom).attr('id');
-      var fR = $(popResultRoomClassroom).attr('id');
-      getTower(torreValue, typology, sR, fR, popRoomLabEditable);
+      var sR = $(popSearchRoomLab).attr('id');
+      var fR = $(popResultRoomLab).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomLabEditable);
     });
+
   });
 
 
@@ -394,26 +449,15 @@ $(document).ready(function () {
   });
 
 
-  function getTower(torreValue, typology, sR, fR, pD){
+  function getRoom(towerValue, floorValue, typology, sR, fR, pD){
     var rqst = $.ajax({
-          type: "POST",
-          url: "./getTower.php",
-          data: { torreValue: torreValue, typology: typology, sR: sR, fR: fR
-          }
-        }).done(function(msg) {
-          $(pD).html(msg);
-        });
+      type: "POST",
+      url: "./getRoom.php",
+      data: { towerValue: towerValue, floorValue: floorValue, typology: typology, sR: sR, fR: fR
       }
-
-  function getFloor(floorValue, typology, sR, fR, pD){
-        var rqst = $.ajax({
-          type: "POST",
-          url: "./getFloor.php",
-          data: { floorValue: floorValue, typology: typology, sR: sR, fR: fR
-          }
-        }).done(function(msg) {
-          $(pD).html(msg);
-        });
-      }
-
+    }).done(function(msg) {
+      $(pD).html(msg);
     });
+  }
+
+});

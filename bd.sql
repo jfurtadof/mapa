@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
     `pos_y` varchar(255) NOT NULL,
     `zoom` varchar(255) NOT NULL
 
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=latin1;
 
 --
 -- Data for the table `rooms`
@@ -176,8 +176,38 @@ INSERT INTO `rooms` (`id`, `room`, `floor`, `tower`, `typology`, `name`, `pos_x`
 (133, 'G6.4', 6, 'G', 'services', 'Helpdesk', NULL, NULL, NULL),
 (134, 'G6.5', 6, 'G', 'staff', 'Sala de Servidores', NULL, NULL, NULL),
 (135, 'G6.6', 6, 'G', 'laboratory', 'CISUC-LCT', NULL, NULL, NULL),
-(136, 'G6.7', 6, 'G', 'laboratory', 'CISUC-LCT', NULL, NULL, NULL);
-
+(136, 'G6.7', 6, 'G', 'laboratory', 'CISUC-LCT', NULL, NULL, NULL),
+(137, NULL, NULL, NULL, 'stairs', 'Elevador (Torre E)', NULL, NULL, NULL),
+(138, NULL, NULL, NULL, 'stairs', 'Escadas (Torre G)', NULL, NULL, NULL),
+(139, NULL, NULL, NULL, 'stairs', 'Elevador (Torre G)', NULL, NULL, NULL),
+(140, 'D1.1', 1, 'D', NULL, NULL, NULL, NULL, NULL),
+(141, 'D1.3', 1, 'D', NULL, NULL, NULL, NULL, NULL),
+(142, 'D1.4', 1, 'D', NULL, NULL, NULL, NULL, NULL),
+(143, 'D1', 1, 'D', 'bathroom', 'Casa de Banho (Torre C)', NULL, NULL, NULL),
+(144, 'E1', 1, 'E', 'bathroom', 'Casa de Banho (Torre E)', NULL, NULL, NULL),
+(146, 'D1.16', 1, 'D', NULL, NULL, NULL, NULL, NULL),
+(147, 'F1.3', 1, 'F', NULL, NULL, NULL, NULL, NULL),
+(148, 'F1.4', 1, 'F', 'service', 'Bar SISUC (Piso 1)', NULL, NULL, NULL),
+(149, 'C2', 2, 'C', 'bathroom', 'Casa de Banho (Torre C)', NULL, NULL, NULL),
+(150, 'E2', 2, 'E', 'bathroom', 'Casa de Banho (Torre E)', NULL, NULL, NULL),
+(151, 'C3', 3, 'C', 'bathroom', 'Casa de Banho (Torre C)', NULL, NULL, NULL),
+(152, 'E3', 3, 'E', 'bathroom', 'Casa de Banho (Torre E)', NULL, NULL, NULL),
+(153, 'A4', 4, 'A', 'bathroom', 'Casa de Banho (Torre A)', NULL, NULL, NULL),
+(154, 'A4.4', 4, 'A', 'service', 'Bar (Piso 4)', NULL, NULL, NULL),
+(155, 'C4.3', 4, 'C', 'service', 'NEI (Núcleo de Estudantes de Informática)', NULL, NULL, NULL),
+(156, NULL, NULL, NULL, 'stairs', 'Escadas (Torre A - Acesso Exterior)', NULL, NULL, NULL),
+(157, 'A5.1', 5, 'A', 'service', 'Biblioteca', NULL, NULL, NULL),
+(158, 'A5.2', 5, 'A', 'service', 'Biblioteca', NULL, NULL, NULL),
+(159, 'A5.3', 5, 'A', 'service', 'Biblioteca', NULL, NULL, NULL),
+(160, 'E5.5', 5, 'E', NULL, NULL, NULL, NULL, NULL),
+(161, 'C5', 5, 'C', 'bathroom', 'Casa de Banho (Torre C)', NULL, NULL, NULL),
+(162, 'E5', 5, 'E', 'bathroom', 'Casa de Banho (Torre E)', NULL, NULL, NULL),
+(163, 'G5', 5, 'G', 'bathroom', 'Casa de Banho (Torre G)', NULL, NULL, NULL),
+(164, 'A6', 6, 'A', 'bathroom', 'Casa de Banho (Torre A)', NULL, NULL, NULL),
+(165, 'G6.4', 6, 'G', NULL, NULL, NULL, NULL, NULL),
+(166, 'C6', 6, 'C', 'bathroom', 'Casa de Banho (Torre C)', NULL, NULL, NULL),
+(167, 'E6', 6, 'E', 'bathroom', 'Casa de Banho (Torre E)', NULL, NULL, NULL),
+(168, 'G6', 6, 'G', 'bathroom', 'Casa de Banho (Torre G)', NULL, NULL, NULL);
 -- --------------------------------------------------------
 
 --
