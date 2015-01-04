@@ -53,6 +53,7 @@ require('core.php');
     <!--PROCURA POR 'ROOM' ALL-->
     <div id="pop-room" class="pop" style="display:none;">
       <div id="pop-room-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
         <div id="pop-search-room" class="pop-search">
         </div>
         <div id="pop-result-room" class="pop-result">
@@ -93,6 +94,7 @@ require('core.php');
     <!--PROCURA POR 'CLASSROOM'-->
     <div id="pop-room-classroom" class="pop" style="display:none;">
       <div id="pop-room-classroom-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
         <div id="pop-search-room-classroom" class="pop-search">
         </div>
         <div id="pop-result-room-classroom" class="pop-result">
@@ -133,6 +135,7 @@ require('core.php');
     <!--PROCURA POR 'AMPHITHEATER'-->
     <div id="pop-room-aud" class="pop" style="display:none;">
       <div id="pop-room-aud-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
         <div id="pop-search-room-aud" class="pop-search">
         </div>
         <div id="pop-result-room-aud" class="pop-result">
@@ -176,6 +179,7 @@ require('core.php');
     <!--PROCURA POR 'LABORATORY'-->
     <div id="pop-room-lab" class="pop" style="display:none;">
       <div id="pop-room-lab-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
         <div id="pop-search-room-lab" class="pop-search">
         </div>
         <div id="pop-result-room-lab" class="pop-result">
@@ -220,6 +224,7 @@ require('core.php');
     <!--PROCURA POR 'STUDY'-->
     <div id="pop-room-std" class="pop" style="display:none;">
       <div id="pop-room-std-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
         <div id="pop-search-room-std" class="pop-search">
         </div>
         <div id="pop-result-room-std" class="pop-result">
@@ -263,6 +268,7 @@ require('core.php');
     <!--PROCURA POR 'STAFF'-->
     <div id="pop-room-staff" class="pop" style="display:none;">
       <div id="pop-room-staff-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
         <div id="pop-search-room-staff" class="pop-search">
         </div>
         <div id="pop-result-room-staff" class="pop-result">
@@ -306,6 +312,7 @@ require('core.php');
     <!--PROCURA POR 'PROFS' ALL-->
     <div id="pop-prof" class="pop" style="display:none;">
       <div id="pop-prof-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
         <div id="pop-search-prof" class="pop-search">
         </div>
         <div id="pop-result-prof" class="pop-result">
@@ -353,7 +360,9 @@ require('core.php');
 
     <!--PROCURA POR 'PROFS' DESIGN-->
     <div id="pop-prof-des" class="pop" style="display:none;">
-      <div id="pop-search-prof-des" class="pop-search">
+      <div id="pop-prof-des-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
+        <div id="pop-search-prof-des" class="pop-search">
       </div>
       <div id="pop-result-prof-des" class="pop-result">
         <?php
@@ -367,6 +376,7 @@ require('core.php');
         }
         ?>
       </div>
+    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -399,6 +409,8 @@ require('core.php');
 
     <!--PROCURA POR 'PROFS' INFORMÁTICA-->
     <div id="pop-prof-inf" class="pop" style="display:none;">
+      <div id="pop-prof-inf-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
       <div id="pop-search-prof-inf" class="pop-search">
       </div>
       <div id="pop-result-prof-inf" class="pop-result">
@@ -412,6 +424,7 @@ require('core.php');
         }
         ?>
       </div>
+    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -444,6 +457,8 @@ require('core.php');
 
     <!--PROCURA POR 'EVENTS' ALL-->
     <div id="pop-events" class="pop" style="display:none;">
+      <div id="pop-events-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
       <div id="pop-search-events" class="pop-search">
       </div>
       <div id="pop-result-events" class="pop-result">
@@ -472,6 +487,7 @@ require('core.php');
         }
         ?>
       </div>
+    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -504,6 +520,8 @@ require('core.php');
 
     <!--PROCURA POR 'EVENTS' DESIGN-->
     <div id="pop-events-des" class="pop" style="display:none;">
+      <div id="pop-events-des-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
       <div id="pop-search-events-des" class="pop-search">
       </div>
       <div id="pop-result-events-des" class="pop-result">
@@ -531,6 +549,7 @@ require('core.php');
         }
         ?>
       </div>
+    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -561,8 +580,10 @@ require('core.php');
       </div>
     </div>
 
-    <!--PROCURA POR 'PROFS' INFORMÁTICA-->
+    <!--PROCURA POR 'EVENTS' INFORMÁTICA-->
     <div id="pop-events-inf" class="pop" style="display:none;">
+      <div id="pop-events-inf-editable">
+        <span style="float:right; margin-right: 15px"><img class="pop-search-erase" src="img/back.png"></span>
       <div id="pop-search-events-inf" class="pop-search">
       </div>
       <div id="pop-result-events-inf" class="pop-result">
@@ -590,6 +611,7 @@ require('core.php');
         }
         ?>
       </div>
+    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>

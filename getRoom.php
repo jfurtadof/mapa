@@ -34,7 +34,7 @@ $r = mysql_num_rows($q);
 
 echo "<div id='";
 echo $sR;
-echo "' class='pop-search'><p>";
+echo "' class='pop-search'><p'>";
 echo $towerValue, $floorValue;
 echo "</p></div>";
 

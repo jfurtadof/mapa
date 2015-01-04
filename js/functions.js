@@ -52,9 +52,11 @@ $(document).ready(function () {
   popSearchProf = document.getElementById('pop-search-prof');
   popResultProf = document.getElementById('pop-result-prof');
   popProfDes = document.getElementById('pop-prof-des');
+  popProfDesEditable = document.getElementById('pop-prof-des-editable');
   popSearchProfDes = document.getElementById('pop-search-prof-des');
   popResultProfDes = document.getElementById('pop-result-prof-des');
   popProfInf = document.getElementById('pop-prof-inf');
+  popProfInfEditable = document.getElementById('pop-prof-inf-editable');
   popSearchProfInf = document.getElementById('pop-search-prof-inf');
   popResultProfInf = document.getElementById('pop-result-prof-inf');
 
@@ -471,8 +473,8 @@ $(document).ready(function () {
       $(popRoom).fadeOut(200);
       $(popRoomClassroom).fadeOut(200);
       $(popRoomAud).fadeOut(200);
-      $(popRoomStaff).fadeOut(200);
-      popRoomStd.style.display = "block";
+      $(popRoomStd).fadeOut(200);
+      popRoomStaff.style.display = "block";
     }
 
     var inputValue = '';
@@ -481,8 +483,8 @@ $(document).ready(function () {
 
     $('.pop-choose').click(function(){
       var typology = "laboratory";
-      var sR = $(popSearchRoomStd).attr('id');
-      var fR = $(popResultRoomStd).attr('id');
+      var sR = $(popSearchRoomStaff).attr('id');
+      var fR = $(popResultRoomStaff).attr('id');
 
       inputValue = $(this).text();
       if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
@@ -492,7 +494,7 @@ $(document).ready(function () {
         inputFloor = inputValue;
       }
 
-      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStdEditable);
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStaffEditable);
     });
 
   });
@@ -531,7 +533,7 @@ $(document).ready(function () {
 
       profName += $(this).text();
       profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
-      getProf(profName, courseName, sR, fR, popProfEditable);
+      getProf(profName, courseName, sR, fR, popProfDesEditable);
     });
 
   });
@@ -568,7 +570,7 @@ $(document).ready(function () {
 
       profName += $(this).text();
       profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
-      getProf(profName, courseName, sR, fR, popProfEditable);
+      getProf(profName, courseName, sR, fR, popProfInfEditable);
     });
   });
 

@@ -85,13 +85,15 @@ a{
 }
 
 .pop-search{
+  font-size: 20px;
   margin: 15px;
-  width: 339.557px;
+  width: 300px;
   height: 30px;
   background-color: white;
 }
 
 .pop-result{
+  line-height: 30px;
   font-size: 14px;
   margin: 0px 15px 15px;
   width: 300px;
