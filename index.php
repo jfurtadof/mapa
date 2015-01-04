@@ -53,7 +53,7 @@ require('core.php');
 
 
     <!--PROCURA POR 'ROOM' ALL-->
-    <div id="pop-room" class="pop" style="display:block;">
+    <div id="pop-room" class="pop" style="display:none;">
       <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
       <div id="pop-room-editable">
         <div id="pop-search-room" class="pop-search">
@@ -64,7 +64,7 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo "<p><a class='pop-room-link-all' id='";
+            echo "<p><a class='pop-room-link-all ";
             echo $r["room"];
             echo "'>";
             echo $r["room"];
@@ -641,6 +641,17 @@ require('core.php');
         <span class="pop-choose alphabet" style="cursor:pointer">X</span>
         <span class="pop-choose alphabet" style="cursor:pointer">Y</span>
         <span class="pop-choose alphabet" style="cursor:pointer">Z</span>
+      </div>
+    </div>
+
+    <!--PROCURA POR 'ROOM' ALL-->
+    <div id="pop-info" class="pop" style="display:none;">
+      <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
+      <div id="pop-info-editable">
+        <div id="pop-search-info" class="pop-search">
+        </div>
+        <div id="pop-result-info" class="pop-result">
+        </div>
       </div>
     </div>
 

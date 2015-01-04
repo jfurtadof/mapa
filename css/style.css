@@ -131,14 +131,18 @@ a{
 #map-image{
   position: absolute;
 
+//  left: -1300px;
+//  top: -2300px;
+
+
+/************INICIAL LOCATION***************/
     left: -250px;
     top: -2500px;
-    width: 100%;
-    height: auto;
+
 }
 
-#gabinetes, #servicos, #sala_D11, #sala_D14, #sala_D15, #sala_D16, #sala_D17, #sala_D18,
-#sala_D19, #sala_D110, #sala_D111, #sala_D112, #sala_D113, #sala_D114, #sala_D115,
-#sala_D116, #sala_D17, #sala_D118, #sala_D119{
+.gabinetes, .servicos, .sala_D11, .sala_D14, .sala_D15, .sala_D16, .sala_D17, .sala_D18,
+.sala_D19, .sala_D110, .sala_D111, .sala_D112, .sala_D113, .sala_D114, .sala_D115,
+.sala_D116, .sala_D117, .sala_D118, .sala_D119, .sala_F14, .sala_F11{
   display:none;
 }
