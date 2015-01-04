@@ -40,7 +40,7 @@ if ($r > 0){
       $id[$i] = $dados[$i]["teacher_id"];
 
 
-      echo "<p><a class='pop-prof-";
+      echo "<p><a class='pop-prof-link-";
       if ($course[$i] == '1'){
         echo "inf";
       } else if ($course[$i] == '2'){

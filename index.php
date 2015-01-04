@@ -8,8 +8,10 @@ require('core.php');
   <meta charset="UTF-8" />
   <title>Mapa do DEI</title>
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <script language="JavaScript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script></head>
+  <script language="JavaScript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
   <script src="js/functions.js"></script>
+
+</head>
   <body>
     <nav id="nav">
       <span class="level-one">
@@ -62,9 +64,9 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo "<p><a class='pop-room' id='";
+            echo "<p><a class='pop-room-link-all' id='";
             echo $r["room"];
-            echo "' href='#'>";
+            echo "'>";
             echo $r["room"];
             echo '</a></p>';
           }
@@ -363,20 +365,20 @@ require('core.php');
       <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
       <div id="pop-prof-des-editable">
         <div id="pop-search-prof-des" class="pop-search">
-      </div>
-      <div id="pop-result-prof-des" class="pop-result">
-        <?php
-        $q = "SELECT * FROM teachers WHERE teacher_course='2'";
-        $s = mysql_query($q);
+        </div>
+        <div id="pop-result-prof-des" class="pop-result">
+          <?php
+          $q = "SELECT * FROM teachers WHERE teacher_course='2'";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
-          echo $r["teacher_name"];
-          echo '</p>';
-        }
-        ?>
+          while($r = mysql_fetch_assoc($s)){
+            echo '<p>';
+            echo $r["teacher_name"];
+            echo '</p>';
+          }
+          ?>
+        </div>
       </div>
-    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -411,20 +413,20 @@ require('core.php');
     <div id="pop-prof-inf" class="pop" style="display:none;">
       <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
       <div id="pop-prof-inf-editable">
-      <div id="pop-search-prof-inf" class="pop-search">
+        <div id="pop-search-prof-inf" class="pop-search">
+        </div>
+        <div id="pop-result-prof-inf" class="pop-result">
+          <?php
+          $q = "SELECT * FROM teachers WHERE teacher_course='1'";
+          $s = mysql_query($q);
+          while($r = mysql_fetch_assoc($s)){
+            echo '<p>';
+            echo $r["teacher_name"];
+            echo '</p>';
+          }
+          ?>
+        </div>
       </div>
-      <div id="pop-result-prof-inf" class="pop-result">
-        <?php
-        $q = "SELECT * FROM teachers WHERE teacher_course='1'";
-        $s = mysql_query($q);
-        while($r = mysql_fetch_assoc($s)){
-          echo '<p>';
-          echo $r["teacher_name"];
-          echo '</p>';
-        }
-        ?>
-      </div>
-    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -459,35 +461,35 @@ require('core.php');
     <div id="pop-events" class="pop" style="display:none;">
       <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
       <div id="pop-events-editable">
-      <div id="pop-search-events" class="pop-search">
-      </div>
-      <div id="pop-result-events" class="pop-result">
-        <?php
-        $q = "SELECT * FROM events";
-        $s = mysql_query($q);
+        <div id="pop-search-events" class="pop-search">
+        </div>
+        <div id="pop-result-events" class="pop-result">
+          <?php
+          $q = "SELECT * FROM events";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo "<p><a class='pop-event-";
-          if ($r["event_course"] == '1'){
-            echo "inf";
-          } else if ($r["event_course"] == '2'){
-            echo "des";
-          } else if ($r["event_course"] == '3'){
-            echo "both";
-          } else{
-            echo "all";
+          while($r = mysql_fetch_assoc($s)){
+            echo "<p><a class='pop-event-";
+            if ($r["event_course"] == '1'){
+              echo "inf";
+            } else if ($r["event_course"] == '2'){
+              echo "des";
+            } else if ($r["event_course"] == '3'){
+              echo "both";
+            } else{
+              echo "all";
+            }
+
+
+            echo "' id='event-";
+            echo $r["event_id"];
+            echo "'href='#'>";
+            echo $r["event_name"];
+            echo "</a></p>";
           }
-
-
-          echo "' id='event-";
-          echo $r["event_id"];
-          echo "'href='#'>";
-          echo $r["event_name"];
-          echo "</a></p>";
-        }
-        ?>
+          ?>
+        </div>
       </div>
-    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -522,34 +524,34 @@ require('core.php');
     <div id="pop-events-des" class="pop" style="display:none;">
       <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
       <div id="pop-events-des-editable">
-      <div id="pop-search-events-des" class="pop-search">
-      </div>
-      <div id="pop-result-events-des" class="pop-result">
-        <?php
-        $q = "SELECT * FROM events WHERE event_course='2'";
-        $s = mysql_query($q);
+        <div id="pop-search-events-des" class="pop-search">
+        </div>
+        <div id="pop-result-events-des" class="pop-result">
+          <?php
+          $q = "SELECT * FROM events WHERE event_course='2'";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo "<p><a class='pop-event-";
-          if ($r["event_course"] == '1'){
-            echo "inf";
-          } else if ($r["event_course"] == '2'){
-            echo "des";
-          } else if ($r["event_course"] == '3'){
-            echo "both";
-          } else{
-            echo "all";
+          while($r = mysql_fetch_assoc($s)){
+            echo "<p><a class='pop-event-";
+            if ($r["event_course"] == '1'){
+              echo "inf";
+            } else if ($r["event_course"] == '2'){
+              echo "des";
+            } else if ($r["event_course"] == '3'){
+              echo "both";
+            } else{
+              echo "all";
+            }
+
+            echo "' id='event-";
+            echo $r["event_id"];
+            echo "'href='#'>";
+            echo $r["event_name"];
+            echo "</a></p>";
           }
-
-          echo "' id='event-";
-          echo $r["event_id"];
-          echo "'href='#'>";
-          echo $r["event_name"];
-          echo "</a></p>";
-        }
-        ?>
+          ?>
+        </div>
       </div>
-    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -584,34 +586,34 @@ require('core.php');
     <div id="pop-events-inf" class="pop" style="display:none;">
       <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
       <div id="pop-events-inf-editable">
-      <div id="pop-search-events-inf" class="pop-search">
-      </div>
-      <div id="pop-result-events-inf" class="pop-result">
-        <?php
-        $q = "SELECT * FROM events WHERE event_course='1'";
-        $s = mysql_query($q);
+        <div id="pop-search-events-inf" class="pop-search">
+        </div>
+        <div id="pop-result-events-inf" class="pop-result">
+          <?php
+          $q = "SELECT * FROM events WHERE event_course='1'";
+          $s = mysql_query($q);
 
-        while($r = mysql_fetch_assoc($s)){
-          echo "<p><a class='pop-event-";
-          if ($r["event_course"] == '1'){
-            echo "inf";
-          } else if ($r["event_course"] == '2'){
-            echo "des";
-          } else if ($r["event_course"] == '3'){
-            echo "both";
-          } else{
-            echo "all";
+          while($r = mysql_fetch_assoc($s)){
+            echo "<p><a class='pop-event-";
+            if ($r["event_course"] == '1'){
+              echo "inf";
+            } else if ($r["event_course"] == '2'){
+              echo "des";
+            } else if ($r["event_course"] == '3'){
+              echo "both";
+            } else{
+              echo "all";
+            }
+
+            echo "' id='event-";
+            echo $r["event_id"];
+            echo "'href='#'>";
+            echo $r["event_name"];
+            echo "</a></p>";
           }
-
-          echo "' id='event-";
-          echo $r["event_id"];
-          echo "'href='#'>";
-          echo $r["event_name"];
-          echo "</a></p>";
-        }
-        ?>
+          ?>
+        </div>
       </div>
-    </div>
       <div class="pop-buttons">
         <span class="pop-choose alphabet" style="cursor:pointer">A</span>
         <span class="pop-choose alphabet" style="cursor:pointer">B</span>
@@ -643,9 +645,11 @@ require('core.php');
     </div>
 
     <div id="map">
-      <?php
-      require('./svg.php');
-      ?>
+      <div id="map-image">
+        <?php
+        require('./svg.php');
+        ?>
+      </div>
     </div>
   </body>
   </html>

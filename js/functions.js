@@ -28,26 +28,40 @@ $(document).ready(function () {
   popRoomEditable = document.getElementById('pop-room-editable');
   popSearchRoom = document.getElementById('pop-search-room');
   popResultRoom = document.getElementById('pop-result-room');
+  popRoomLinkAll = document.getElementsByClassName('pop-room-link-all');
+
   popRoomClassroom = document.getElementById('pop-room-classroom');
   popRoomClassroomEditable = document.getElementById('pop-room-classroom-editable');
   popSearchRoomClassroom = document.getElementById('pop-search-room-classroom');
   popResultRoomClassroom = document.getElementById('pop-result-room-classroom');
+
   popRoomAud = document.getElementById('pop-room-aud');
   popRoomAudEditable = document.getElementById('pop-room-aud-editable');
   popSearchRoomAud = document.getElementById('pop-search-room-aud');
   popResultRoomAud = document.getElementById('pop-result-room-aud');
+
   popRoomLab = document.getElementById('pop-room-lab');
   popRoomLabEditable = document.getElementById('pop-room-lab-editable');
   popSearchRoomLab = document.getElementById('pop-search-room-lab');
   popResultRoomLab = document.getElementById('pop-result-room-lab');
+
   popRoomStd = document.getElementById('pop-room-std');
   popRoomStdEditable = document.getElementById('pop-room-std-editable');
   popSearchRoomStd = document.getElementById('pop-search-room-std');
   popResultRoomStd = document.getElementById('pop-result-room-std');
+
   popRoomStaff = document.getElementById('pop-room-staff');
   popRoomStaffEditable = document.getElementById('pop-room-staff-editable');
   popSearchRoomStaff = document.getElementById('pop-search-room-staff');
   popResultRoomStaff = document.getElementById('pop-result-room-staff');
+
+  secrBtn = document.getElementById('secrBtn');
+  secretaria = document.getElementById('secretaria');
+  barBtn = document.getElementById('barBtn');
+  helpBtn = document.getElementById('helpBtn');
+  cisucBtn = document.getElementById('cisucBtn');
+  gapiBtn = document.getElementById('gapiBtn');
+  neiBtn = document.getElementById('neiBtn');
 
   popProf = document.getElementById('pop-prof');
   popProfEditable = document.getElementById('pop-prof-editable');
@@ -61,7 +75,6 @@ $(document).ready(function () {
   popProfInfEditable = document.getElementById('pop-prof-inf-editable');
   popSearchProfInf = document.getElementById('pop-search-prof-inf');
   popResultProfInf = document.getElementById('pop-result-prof-inf');
-
 
   popEvents = document.getElementById('pop-events');
   popEventsEditable = document.getElementById('pop-events-editable');
@@ -180,6 +193,13 @@ $(document).ready(function () {
 
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomEditable);
     });
+
+/*    var inputLink = '';
+    $(popRoomLinkAll).click(function(){
+      inputLink = $(this).attr('id');
+      alert("CLIQUE");
+      alert(inputLink);
+    });*/
   });
 
   $(servBtn).click(function(){
@@ -320,6 +340,8 @@ $(document).ready(function () {
   });
 
   /************ LEVEL-THREE BTNS  ***************/
+
+  /************ INSIDE ROOM BTN  ***************/
 
         /************ ROOMIN BTNS  ***************/
 
@@ -605,6 +627,20 @@ $(document).ready(function () {
 
   });
 
+  /************ INSIDE SERV BTN  ***************/
+
+  $(secrBtn).click(function(){
+    if ($('#secretaria').css('display') != 'none'){
+      $('#secretaria').fadeOut(200);
+      $('#secretaria').css('display', 'none');
+    } else {
+      $('#secretaria').fadeIn(200);
+      $('#secretaria').css("display", "inline");
+     }
+  });
+
+
+  /************ INSIDE PROF BTN  ***************/
 
   /************ PROFDES BTNS  ***************/
 
@@ -698,6 +734,9 @@ $(document).ready(function () {
     });
 
   });
+
+
+  /************ INSIDE EVENTS BTN  ***************/
 
   /************ EVDES BTNS  ***************/
 

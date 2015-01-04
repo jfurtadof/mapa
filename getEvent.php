@@ -41,7 +41,7 @@ if ($r > 0){
       $id[$i] = $dados[$i]["event_id"];
 
 
-      echo "<p><a class='pop-event-";
+      echo "<p><a class='pop-event-link-";
       if ($course[$i] == '1'){
         echo "inf";
       } else if ($course[$i] == '2'){
