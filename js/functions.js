@@ -56,7 +56,6 @@ $(document).ready(function () {
   popResultRoomStaff = document.getElementById('pop-result-room-staff');
 
   secrBtn = document.getElementById('secrBtn');
-  secretaria = document.getElementById('secretaria');
   barBtn = document.getElementById('barBtn');
   helpBtn = document.getElementById('helpBtn');
   cisucBtn = document.getElementById('cisucBtn');
@@ -630,13 +629,15 @@ $(document).ready(function () {
   /************ INSIDE SERV BTN  ***************/
 
   $(secrBtn).click(function(){
-    if ($('#secretaria').css('display') != 'none'){
-      $('#secretaria').fadeOut(200);
-      $('#secretaria').css('display', 'none');
+    if ($('#sala_D11').css('display') != 'none'){
+      $('#sala_D11').fadeOut(200);
+      $('#sala_D11').css('display', 'none');
     } else {
-      $('#secretaria').fadeIn(200);
-      $('#secretaria').css("display", "inline");
+      $('#sala_D11').fadeIn(200);
+      $('#sala_D11').css("display", "inline");
      }
+
+     setRoomLocation('D', '1', '1');
   });
 
 
@@ -859,6 +860,24 @@ $(document).ready(function () {
       }
     }).done(function(msg) {
       $(pD).html(msg);
+    });
+  }
+
+  function setRoomLocation(tower, floor, block){
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./setRoomLocation.php",
+      data: {tower: tower, floor: floor, block: block
+      }
+    }).done(function(data) {
+      var array_data = String(data).split(",");
+      var l = array_data[0];
+      var t = array_data[1];
+      var z = array_data[2];
+
+      $('#map-image').animate({left: l});
+      $('#map-image').animate({top: t});
+      $('#map-image').animate({zoom: z});
     });
   }
 

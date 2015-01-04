@@ -130,17 +130,15 @@ a{
 
 #map-image{
   position: absolute;
+
     left: -250px;
     top: -2500px;
     width: 100%;
     height: auto;
 }
 
-/*#gabinetes, #servicos, #barcisuc,
-#f11, #d119, #d118, #d116,#d115, #phdlounge,
-#cisucinvestigadoresexternos, #d113,
-#d112, #d111,#d19, #d18, #secretaria,
-#salafuncionarios, #gapi, #videoconferencia1,
-#videoconferencia2, #saladereunioes{
+#gabinetes, #servicos, #sala_D11, #sala_D14, #sala_D15, #sala_D16, #sala_D17, #sala_D18,
+#sala_D19, #sala_D110, #sala_D111, #sala_D112, #sala_D113, #sala_D114, #sala_D115,
+#sala_D116, #sala_D17, #sala_D118, #sala_D119{
   display:none;
-}*/
+}

@@ -31,9 +31,9 @@ CREATE TABLE IF NOT EXISTS `rooms` (
     `name` varchar(255) NULL,
     `pos_x` varchar(255) NOT NULL,
     `pos_y` varchar(255) NOT NULL,
-    `zoom` varchar(255) NOT NULL
-
-) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=latin1;
+    `zoom` varchar(255) NOT NULL,
+    CONSTRAINT id PRIMARY KEY(id)
+)
 
 --
 -- Data for the table `rooms`

@@ -53,7 +53,7 @@ require('core.php');
 
 
     <!--PROCURA POR 'ROOM' ALL-->
-    <div id="pop-room" class="pop" style="display:none;">
+    <div id="pop-room" class="pop" style="display:block;">
       <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
       <div id="pop-room-editable">
         <div id="pop-search-room" class="pop-search">

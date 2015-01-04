@@ -1,54 +1,30 @@
 <?php
 require('core.php');
 
-$towerValue = $_POST["towerValue"];
-$floorValue = $_POST["floorValue"];
-$typology = $_POST["typology"];
-$searchResult = $_POST["sR"];
-$filterResult = $_POST["fR"];
+$tower = $_POST["tower"];
+$floor = $_POST["floor"];
+$block = $_POST["block"];
 
 
-if ($towerValue != '' && $floorValue != '' && $typology != ''){
-  $s = "SELECT * FROM rooms WHERE typology = '$typology' AND floor = '$floorValue' AND tower = '$towerValue'";
-}
-
-if ($towerValue != '' && $floorValue == '' && $typology != ''){
-  $s = "SELECT * FROM rooms WHERE typology = '$typology' AND tower = '$towerValue'";
-}
-
-if ($towerValue == '' && $floorValue != '' && $typology != ''){
-  $s = "SELECT * FROM rooms WHERE typology = '$typology' AND floor = '$floorValue'";
-}
-
-if ($towerValue == '' && $floorValue != '' && $typology == ''){
-  $s = "SELECT * FROM rooms WHERE floor = '$floorValue'";
-}
-
-if ($towerValue != '' && $floorValue == '' && $typology == ''){
-  $s = "SELECT * FROM rooms WHERE tower = '$towerValue'";
-}
-
-if ($towerValue == '' && $floorValue == '' && $typology == ''){
-  $s = "SELECT * FROM rooms";
-}
-
-if ($typology == ''){
-  $typology = 'all';
-}
-
+$s = "SELECT * FROM rooms WHERE tower = '$tower' AND floor = '$floor' AND block = '$block'";
 $q = mysql_query($s);
 $r = mysql_num_rows($q);
+$dados = mysql_fetch_assoc($q);
 
 
-echo "<div id='";
-echo $sR;
-echo "' class='pop-search'><p'>";
-echo $towerValue, $floorValue;
-echo "</p></div>";
+//echo $dados["pos_x"];
+//echo $dados["pos_y"];
+//echo $dados["zoom"];
 
-echo "<div id='";
-echo $fR;
-echo "' class='pop-result'>";
+
+echo $dados["pos_x"];
+echo ",";
+echo $dados["pos_y"];
+echo ",";
+echo $dados["zoom"];
+
+
+/*
 if ($r > 0){
   for ($i = 0; $i < $r; $i++){
       $dados[$i] = mysql_fetch_assoc($q);
@@ -80,5 +56,5 @@ if ($r > 0){
   echo "<p>Sem resultados</p>";
 }
 echo "</div>";
-
+*/
 ?>
