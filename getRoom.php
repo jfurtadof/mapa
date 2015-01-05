@@ -50,32 +50,29 @@ echo "<div id='";
 echo $fR;
 echo "' class='pop-result'>";
 if ($r > 0){
+
   for ($i = 0; $i < $r; $i++){
       $dados[$i] = mysql_fetch_assoc($q);
       $nome[$i] = $dados[$i]["name"];
       $room[$i] = $dados[$i]["room"];
 
       if ($typology == 'classroom'){
-        echo "<p><a class='pop-room-link-";
-        echo $typology;
-        echo "' id='";
+        echo "<p><a class='pop-room-link' id='";
         echo $room[$i];
-        echo "'href='#'>";
+        echo "'>";
         echo $room[$i];
         echo "</a></p>";
       } else {
-        echo "<p><a class='pop-room-link-";
-        echo $typology;
-        echo "' id='";
+        echo "<p><a class='pop-room-link' id='";
         echo $room[$i];
-        echo "'href='#'>";
+        echo "'>";
         echo $room[$i];
         echo " (";
         echo $nome[$i];
         echo ")";
-        echo "</p>";
+        echo "</a></p>";
       }
-    }
+    }*/
 } else {
   echo "<p>Sem resultados</p>";
 }

@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Piso2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1551px" height="1280px" viewBox="0 0 1551 1280" enable-background="new 0 0 1551 1280" xml:space="preserve">
+	 width="4653px" height="3840px" viewBox="0 0 1551 1280" enable-background="new 0 0 1551 1280" xml:space="preserve">
 <g id="p2">
 	<g id="divisãosalas_1_">
 		<g>

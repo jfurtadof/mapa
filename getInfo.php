@@ -1,13 +1,11 @@
 <?php
 require('core.php');
 
-$tower = $_POST["tower"];
-$floor = $_POST["floor"];
-$block = $_POST["block"];
+$room = $_POST["room"];
 $searchResult = $_POST["sR"];
 $filterResult = $_POST["fR"];
 
-$s = "SELECT * FROM rooms WHERE tower = '$tower' AND floor = '$floor' AND block = '$block'";
+$s = "SELECT * FROM rooms WHERE room = '$room'";
 
 $q = mysql_query($s);
 $r = mysql_num_rows($q);

@@ -28,6 +28,7 @@ $(document).ready(function () {
   popRoomEditable = document.getElementById('pop-room-editable');
   popSearchRoom = document.getElementById('pop-search-room');
   popResultRoom = document.getElementById('pop-result-room');
+  popRoomLinkAll = document.getElementsByClassName('pop-room-link-all');
 
   popRoomClassroom = document.getElementById('pop-room-classroom');
   popRoomClassroomEditable = document.getElementById('pop-room-classroom-editable');
@@ -200,10 +201,17 @@ $(document).ready(function () {
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomEditable);
     });
 
+    /*    var inputLink = '';
+    $(popRoomLinkAll).click(function(){
+    inputLink = $(this).attr('id');
+    alert("CLIQUE");
+    alert(inputLink);
+  });*/
 });
 
 $(servBtn).click(function(){
-    popInfo.style.display = "none";
+  $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
+  popInfo.style.display = "none";
 
   if (servDiv.style.display != 'none'){
     $(servDiv).fadeOut(170);
@@ -213,10 +221,6 @@ $(servBtn).click(function(){
     $(profBtn).css("visibility", "visible");
     $(eventsBtn).css("visibility", "visible");
     $('.over').css("display", "none");
-
-    $('#map-image').animate({left: "-250px", zoom: "100%", top: "-2500px"}, 200);
-    $('#servicos').fadeOut(500);
-    $('#servicos').css("display", "none");
   } else {
     $(servBtn).css("margin-left", "-540px");
     $(quickBtn).animate({marginLeft: $(servBtn).offset().left + 713 +"px"}, 200);
@@ -225,10 +229,6 @@ $(servBtn).click(function(){
     $(eventsBtn).css("visibility", "hidden");
     $(servDiv).fadeIn(200);
     servDiv.style.display = "block";
-
-    $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
-    $('#servicos').fadeIn(500);
-    $('#servicos').css("display", "inline");
   }
 });
 
@@ -242,10 +242,6 @@ $(profBtn).click(function(){
     $(eventsBtn).css("visibility", "visible");
 
     $(popProf).fadeOut(200);
-
-    $('#map-image').animate({left: "-250px", zoom: "100%", top: "-2500px"}, 200);
-    $('#gabinetes').fadeOut(500);
-    $('#gabinetes').css("display", "none");
   } else {
 
     $(profBtn).css("margin-left", "-283px");
@@ -270,10 +266,6 @@ $(profBtn).click(function(){
     $(popRoomStaff).fadeOut(200);
     $(popRoomStd).fadeOut(200);
     popProf.style.display = "block";
-
-    $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
-    $('#gabinetes').fadeIn(500);
-    $('#gabinetes').css("display", "inline");
   }
 
   var profName = '';
@@ -650,31 +642,42 @@ $(staffBtn).click(function(){
 
 $(secrBtn).click(function(){
     popInfo.style.display = "block";
-    $('#servicos').css('display', 'none');
-    //$('#sala_D11').fadeIn(500);
-    $('#sala_D11').css('display', 'inline');
+    $('.sala_D14').fadeOut(500);
+    $('.sala_D14').css('display', 'none');
+    $('.sala_F14').fadeOut(500);
+    $('.sala_F14').css('display', 'none');
 
-  setRoomLocation('D1.1');
+    $('.sala_D11').fadeIn(500);
+    $('.sala_D11').css("display", "inline");
+
+  setRoomLocation('D', '1', '1');
 
 });
 
 $(gapiBtn).click(function(){
-  $('#sala_D11').fadeOut(500);
-    $('#sala_D11').css('display', 'none');
-    $('#sala_F14').fadeOut(500);
-    $('#sala_F14').css('display', 'none');
+  $('.sala_D11').fadeOut(500);
+    $('.sala_D11').css('display', 'none');
+    $('.sala_F14').fadeOut(500);
+    $('.sala_F14').css('display', 'none');
 
-  setRoomLocation('D1.4');
+    $('.sala_D14').fadeIn(500);
+    $('.sala_D14').css("display", "inline");
+
+  setRoomLocation('D', '1', '4');
 
 });
 
 $(cisucBtn).click(function(){
-  $('#sala_D11').fadeOut(500);
-    $('#sala_D11').css('display', 'none');
-    $('#sala_D14').fadeOut(500);
-    $('#sala_D14').css('display', 'none');
+  $('.sala_D11').fadeOut(500);
+    $('.sala_D11').css('display', 'none');
+    $('.sala_D14').fadeOut(500);
+    $('.sala_D14').css('display', 'none');
 
-  setRoomLocation('F1.4');
+
+    $('.sala_F14').fadeIn(500);
+    $('.sala_F14').css("display", "inline");
+
+  setRoomLocation('F', '1', '4');
 });
 
 /************ INSIDE PROF BTN  ***************/
@@ -866,11 +869,6 @@ $(evInfBtn).click(function(){
 
 });
 
-$('.pop-prof-link').click(function(){
-  //alert(this.id);
-  setProfLocation(this.id);
-});
-
 function getRoom(towerValue, floorValue, typology, sR, fR, pD){
   var rqst = $.ajax({
     type: "POST",
@@ -904,23 +902,47 @@ function getEvent(eventName, eventCourse, sR, fR, pD){
   });
 }
 
-function setRoomLocation(room){
+/*function getCurrentLocation(tower, floor, block){
+var pos_x = $('#map-image').css("left");
+var pos_y = $('#map-image').css("top");
+var zoom = $('#map-image').css("zoom");
+zoom = zoom*100 + "%";
+
+var rqst = $.ajax({
+type: "POST",
+url: "./roomLocation.php",
+data: {tower: tower, floor: floor, block: block
+}
+}).done(function(data) {
+var array_data = String(data).split(",");
+var l = array_data[0];
+var t = array_data[1];
+var z = array_data[2];
+
+alert("PX: " + l + "L: " + t + "zoom: " + z);
+
+if (pos_x != l && pos_y != t && zoom != z){
+return true;
+} else {
+return false;
+}
+});
+}*/
+
+function setRoomLocation(tower, floor, block){
   popInfo.style.display = "none";
   $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
   var rqst = $.ajax({
     type: "POST",
     url: "./roomLocation.php",
-    data: { room:room
+    data: {tower: tower, floor: floor, block: block
     }
   }).done(function(data) {
-  var array_data = String(data).split(",");
+    var array_data = String(data).split(",");
     var l = array_data[0];
     var t = array_data[1];
     var z = array_data[2];
-    var tower = array_data[3];
-    var floor = array_data[4];
-    var n = array_data[5];
-
+    var n = array_data[3];
     $('#x').text("X: Torre " + tower + " / ");
     $('#y').text("Y: Piso " + floor + " / ");
     $('#z').text("Z: "+ n);
@@ -930,68 +952,20 @@ function setRoomLocation(room){
     2000);
     setTimeout(function(){
       popInfo.style.display = "block";
-      getInfo(room, popSearchInfo, popResultInfo, popInfoEditable);
+      getInfo(tower, floor, block, popSearchInfo, popResultInfo, popInfoEditable);
 
     }, 2200);
   });
 }
 
-function setProfLocation(id){
-  popInfo.style.display = "none";
-  $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./profLocation.php",
-    data: { id:id
-    }
-  }).done(function(data) {
-
-    var array_data = String(data).split(",");
-    var l = array_data[0];
-    var t = array_data[1];
-    var z = array_data[2];
-    var tower = array_data[3];
-    var floor = array_data[4];
-    var rm = array_data[5];
-    var tid = array_data[6];
-    $('#x').text("X: Torre " + tower + " / ");
-    $('#y').text("Y: Piso " + floor + " / ");
-    $('#z').text("Z: "+ rm);
-    setTimeout(function() {
-      $('#map-image').animate({left: l, top: t, zoom: z}, 200);
-    },
-    1500);
-    setTimeout(function(){
-      popInfo.style.display = "block";
-      getInfoProf(tid, popSearchInfo, popResultInfo, popInfoEditable);
-    }, 2200);
-  });
-}
-
-function getInfo(room, sR, fR, pD){
+function getInfo(tower, floor, block, sR, fR, pD){
   var rqst = $.ajax({
     type: "POST",
     url: "./getInfo.php",
-    data: { room:room
+    data: { tower: tower, floor: floor, block: block
     }
   }).done(function(msg) {
-    (pD).html(msg);
-  });
-}
-
-function getInfoProf(tid, sR, fR, pD){
-  alert(sR.id);
-  alert(fR.id);
-  alert(pD.id);
-
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./getInfoProf.php",
-    data: { tid:tid
-    }
-  }).done(function(msg) {
-    alert(msg);
-    //(pD).html(msg);
+    $(pD).html(msg);
   });
 }
 

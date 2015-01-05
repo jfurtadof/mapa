@@ -74,7 +74,7 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo "<p><a class='pop-room-link-all ";
+            echo "<p><a class='pop-room-link' id='";
             echo $r["room"];
             echo "'>";
             echo $r["room"];
@@ -115,7 +115,7 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo "<p><a class='pop-room-classroom' id='";
+            echo "<p><a class='pop-room-link' id='";
             echo $r["room"];
             echo "' href='#'>";
             echo $r["room"];
@@ -156,7 +156,7 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo "<p><a class='pop-room-aud' id='";
+            echo "<p><a class='pop-room-link' id='";
             echo $r["room"];
             echo "' href='#'>";
             echo $r["room"];
@@ -200,7 +200,7 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo "<p><a class='pop-room-lab' id='";
+            echo "<p><a class='pop-room-link' id='";
             echo $r["room"];
             echo "' href='#'>";
             echo $r["room"];
@@ -245,7 +245,7 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo "<p><a class='pop-room-std' id='";
+            echo "<p><a class='pop-room-link' id='";
             echo $r["room"];
             echo "' href='#'>";
             echo $r["room"];
@@ -289,7 +289,7 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo "<p><a class='pop-room-staff' id='";
+            echo "<p><a class='pop-room-link' id='";
             echo $r["room"];
             echo "' href='#'>";
             echo $r["room"];
@@ -333,9 +333,11 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo '<p>';
+            echo "<p><a class='pop-prof-link' id='";
+            echo $r["teacher_id"];
+            echo "'>";
             echo $r["teacher_name"];
-            echo '</p>';
+            echo "</a></p>";
           }
           ?>
         </div>
@@ -382,9 +384,11 @@ require('core.php');
           $s = mysql_query($q);
 
           while($r = mysql_fetch_assoc($s)){
-            echo '<p>';
+            echo "<p><a class='pop-prof-link' id='";
+            echo $r["teacher_id"];
+            echo "'>";
             echo $r["teacher_name"];
-            echo '</p>';
+            echo "</a></p>";
           }
           ?>
         </div>
@@ -430,9 +434,11 @@ require('core.php');
           $q = "SELECT * FROM teachers WHERE teacher_course='1'";
           $s = mysql_query($q);
           while($r = mysql_fetch_assoc($s)){
-            echo '<p>';
+            echo "<p><a class='pop-prof-link' id='";
+            echo $r["teacher_id"];
+            echo "'>";
             echo $r["teacher_name"];
-            echo '</p>';
+            echo "</a></p>";
           }
           ?>
         </div>
@@ -667,7 +673,7 @@ require('core.php');
     <div id="map">
       <div id="map-image">
         <?php
-        include('./svgImage.php');
+        include('./svgImage1.php');
         ?>
       </div>
     </div>

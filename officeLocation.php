@@ -1,10 +1,10 @@
 <?php
 require('core.php');
 
-$room = $_POST["room"];
+$id = $_POST["id"];
 
 
-$s = "SELECT * FROM rooms WHERE room = '$room'";
+$s = "SELECT * FROM office_hours WHERE teacher_id = '$id'";
 $q = mysql_query($s);
 $r = mysql_num_rows($q);
 $dados = mysql_fetch_assoc($q);

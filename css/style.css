@@ -131,19 +131,17 @@ a{
 #map-image{
   position: absolute;
 
-//  left: -1300px;
-//  top: -2300px;
+  //left: -2800px;
+  //top: -1700px;
 
 
 /************INICIAL LOCATION***************/
     left: -250px;
     top: -2500px;
-
 }
 
 #location {
   text-align: center;
-  z-index: 1000;
   position: absolute;
   left: 0;
   right: 0;
@@ -154,10 +152,8 @@ a{
   padding: 10px;
 }
 
-#Piso1:not(#p1){
-  display:inline;
-}
 
-#Piso2{
+#sala_D11, #sala_D14, #sala_D15, #sala_D16, #sala_D17, #sala_D18, #sala_D19, #sala_D110, #sala_D111, #sala_D112, #sala_D113, #sala_D114, #sala_D115,
+#sala_D116, #sala_D117, #sala_D118, #sala_D119, #sala_F11, #sala_F12, #sala_F14, #servicos, #gabinetes {
   display:none;
 }
