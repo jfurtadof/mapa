@@ -2,8 +2,8 @@
 require('core.php');
 
 $room = $_POST["room"];
-$searchResult = $_POST["sR"];
-$filterResult = $_POST["fR"];
+$sR = $_POST["sR"];
+$fR = $_POST["fR"];
 
 $s = "SELECT * FROM rooms WHERE room = '$room'";
 
@@ -17,12 +17,12 @@ $ns = "SELECT * FROM service_hours WHERE id = '$nid'";
 $nq = mysql_query($ns);
 $nf = mysql_fetch_assoc($nq);
 
-
 echo "<div id='";
 echo $sR;
 echo "' style='width: 339px;' class='pop-search'><p'>";
 echo $f["name"];
 echo "</p></div>";
+
 
 echo "<div id='";
 echo $fR;
@@ -67,5 +67,4 @@ if ($nf["contact"] != NULL){
 }
 
 echo "</div>";
-
 ?>

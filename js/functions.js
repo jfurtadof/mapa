@@ -200,799 +200,810 @@ $(document).ready(function () {
       getRoom(inputTower, inputFloor, typology, sR, fR, popRoomEditable);
     });
 
-});
+  });
 
-$(servBtn).click(function(){
+  $(servBtn).click(function(){
     popInfo.style.display = "none";
 
-  if (servDiv.style.display != 'none'){
-    $(servDiv).fadeOut(170);
-    $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
-    $(servBtn).css("margin-left", "0px");
-    $(roomBtn).css("visibility", "visible");
-    $(profBtn).css("visibility", "visible");
-    $(eventsBtn).css("visibility", "visible");
-    $('.over').css("display", "none");
+    if (servDiv.style.display != 'none'){
+      $(servDiv).fadeOut(170);
+      $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
+      $(servBtn).css("margin-left", "0px");
+      $(roomBtn).css("visibility", "visible");
+      $(profBtn).css("visibility", "visible");
+      $(eventsBtn).css("visibility", "visible");
+      $('.over').css("display", "none");
 
-    $('#map-image').animate({left: "-250px", zoom: "100%", top: "-2500px"}, 200);
-    $('#servicos').fadeOut(500);
-    $('#servicos').css("display", "none");
-  } else {
-    $(servBtn).css("margin-left", "-540px");
-    $(quickBtn).animate({marginLeft: $(servBtn).offset().left + 713 +"px"}, 200);
-    $(roomBtn).css("visibility", "hidden");
-    $(profBtn).css("visibility", "hidden");
-    $(eventsBtn).css("visibility", "hidden");
-    $(servDiv).fadeIn(200);
-    servDiv.style.display = "block";
+      $('#map-image').animate({left: "-250px", zoom: "100%", top: "-2500px"}, 200);
+      $('#servicos').fadeOut(500);
+      $('#servicos').css("display", "none");
+    } else {
+      $(servBtn).css("margin-left", "-540px");
+      $(quickBtn).animate({marginLeft: $(servBtn).offset().left + 713 +"px"}, 200);
+      $(roomBtn).css("visibility", "hidden");
+      $(profBtn).css("visibility", "hidden");
+      $(eventsBtn).css("visibility", "hidden");
+      $(servDiv).fadeIn(200);
+      servDiv.style.display = "block";
 
-    $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
-    $('#servicos').fadeIn(500);
-    $('#servicos').css("display", "inline");
-  }
-});
-
-$(profBtn).click(function(){
-  if (profDiv.style.display != 'none'){
-    $(profBtn).css("margin-left", "0px");
-    $(profDiv).fadeOut(170);
-    $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
-    $(roomBtn).css("visibility", "visible");
-    $(servBtn).css("visibility", "visible");
-    $(eventsBtn).css("visibility", "visible");
-
-    $(popProf).fadeOut(200);
-
-    $('#map-image').animate({left: "-250px", zoom: "100%", top: "-2500px"}, 200);
-    $('#gabinetes').fadeOut(500);
-    $('#gabinetes').css("display", "none");
-  } else {
-
-    $(profBtn).css("margin-left", "-283px");
-    $(quickBtn).animate({marginLeft: 390 +"px"}, 200);
-    $(roomBtn).css("visibility", "hidden");
-    $(servBtn).css("visibility", "hidden");
-    $(eventsBtn).css("visibility", "hidden");
-    $(profDiv).fadeIn(200);
-    profDiv.style.display = "block";
-
-    $(popProf).fadeIn(200);
-
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomLab).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomStaff).fadeOut(200);
-    $(popRoomStd).fadeOut(200);
-    popProf.style.display = "block";
-
-    $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
-    $('#gabinetes').fadeIn(500);
-    $('#gabinetes').css("display", "inline");
-  }
-
-  var profName = '';
-  var courseName = '';
-
-  $('.pop-choose').click(function(){
-    var sR = $(popSearchProf).attr('id');
-    var fR = $(popResultProf).attr('id');
-
-    profName += $(this).text();
-    profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
-    getProf(profName, courseName, sR, fR, popProfEditable);
+      $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
+      $('#servicos').fadeIn(500);
+      $('#servicos').css("display", "inline");
+    }
   });
 
-  $(delBtn).click(function(){
+  $(profBtn).click(function(){
+    if (profDiv.style.display != 'none'){
+      $(profBtn).css("margin-left", "0px");
+      $(profDiv).fadeOut(170);
+      $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
+      $(roomBtn).css("visibility", "visible");
+      $(servBtn).css("visibility", "visible");
+      $(eventsBtn).css("visibility", "visible");
+
+      $(popProf).fadeOut(200);
+
+      $('#map-image').animate({left: "-250px", zoom: "100%", top: "-2500px"}, 200);
+      $('#gabinetes').fadeOut(500);
+      $('#gabinetes').css("display", "none");
+    } else {
+
+      $(profBtn).css("margin-left", "-283px");
+      $(quickBtn).animate({marginLeft: 390 +"px"}, 200);
+      $(roomBtn).css("visibility", "hidden");
+      $(servBtn).css("visibility", "hidden");
+      $(eventsBtn).css("visibility", "hidden");
+      $(profDiv).fadeIn(200);
+      profDiv.style.display = "block";
+
+      $(popProf).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
+      popProf.style.display = "block";
+
+      $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
+      $('#gabinetes').fadeIn(500);
+      $('#gabinetes').css("display", "inline");
+    }
+
     var profName = '';
     var courseName = '';
-    var sR = $(popSearchProf).attr('id');
-    var fR = $(popResultProf).attr('id');
 
-    getProf(profName, courseName, sR, fR, popProfEditable);
-  });
-});
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchProf).attr('id');
+      var fR = $(popResultProf).attr('id');
 
-$(eventsBtn).click(function(){
-  if (eventsDiv.style.display != 'none'){
-    $(eventsBtn).css("margin-left", "0px");
-    $(eventsDiv).fadeOut(170);
-    $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
-    $(roomBtn).css("visibility", "visible");
-    $(servBtn).css("visibility", "visible");
-    $(profBtn).css("visibility", "visible");
+      profName += $(this).text();
+      profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
+      getProf(profName, courseName, sR, fR, popProfEditable);
+    });
 
-    $(popEvents).fadeOut(200);
-  } else {
-    $(eventsBtn).css("margin-left", "-543px");
-    $(quickBtn).animate({marginLeft: 390 +"px"}, 200);
-    $(roomBtn).css("visibility", "hidden");
-    $(servBtn).css("visibility", "hidden");
-    $(profBtn).css("visibility", "hidden");
-    $(eventsDiv).fadeIn(200);
-    eventsDiv.style.display = "block";
+    $(delBtn).click(function(){
+      var profName = '';
+      var courseName = '';
+      var sR = $(popSearchProf).attr('id');
+      var fR = $(popResultProf).attr('id');
 
-    $(popEvents).fadeIn(200);
-
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomLab).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomStaff).fadeOut(200);
-    $(popRoomStd).fadeOut(200);
-    popEvents.style.display = "block";
-  }
-
-  var eventName = '';
-  var eventCourse = '';
-
-  $('.pop-choose').click(function(){
-    var sR = $(popSearchEvents).attr('id');
-    var fR = $(popResultEvents).attr('id');
-
-    eventName += $(this).text();
-    eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
-    getEvent(eventName, eventCourse, sR, fR, popEventsEditable);
+      getProf(profName, courseName, sR, fR, popProfEditable);
+    });
   });
 
-  $(delBtn).click(function(){
+  $(eventsBtn).click(function(){
+    if (eventsDiv.style.display != 'none'){
+      $(eventsBtn).css("margin-left", "0px");
+      $(eventsDiv).fadeOut(170);
+      $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
+      $(roomBtn).css("visibility", "visible");
+      $(servBtn).css("visibility", "visible");
+      $(profBtn).css("visibility", "visible");
+
+      $(popEvents).fadeOut(200);
+    } else {
+      $(eventsBtn).css("margin-left", "-543px");
+      $(quickBtn).animate({marginLeft: 390 +"px"}, 200);
+      $(roomBtn).css("visibility", "hidden");
+      $(servBtn).css("visibility", "hidden");
+      $(profBtn).css("visibility", "hidden");
+      $(eventsDiv).fadeIn(200);
+      eventsDiv.style.display = "block";
+
+      $(popEvents).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
+      popEvents.style.display = "block";
+    }
+
     var eventName = '';
     var eventCourse = '';
-    var sR = $(popSearchEvents).attr('id');
-    var fR = $(popResultEvents).attr('id');
 
-    getEvent(eventName, eventCourse, sR, fR, popEventsEditable);
-    alert(eventName);
-    alert(eventName);
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchEvents).attr('id');
+      var fR = $(popResultEvents).attr('id');
+
+      eventName += $(this).text();
+      eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditable);
+    });
+
+    $(delBtn).click(function(){
+      var eventName = '';
+      var eventCourse = '';
+      var sR = $(popSearchEvents).attr('id');
+      var fR = $(popResultEvents).attr('id');
+
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditable);
+      alert(eventName);
+      alert(eventName);
+    });
+
   });
 
-});
+  /************ LEVEL-THREE BTNS  ***************/
 
-/************ LEVEL-THREE BTNS  ***************/
+  /************ INSIDE ROOM BTN  ***************/
 
-/************ INSIDE ROOM BTN  ***************/
+  /************ ROOMIN BTNS  ***************/
 
-/************ ROOMIN BTNS  ***************/
+  $(roomInBtn).click(function(){
+    if (popRoomClassroom.style.display != 'none'){
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoom).fadeIn(200);
+      $(roomInBtn).css("background-color", "yellow");
+    } else {
+      $(roomInBtn).css("background-color", "pink");
+      $(popRoomClassroom).fadeIn(200);
 
-$(roomInBtn).click(function(){
-  if (popRoomClassroom.style.display != 'none'){
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoom).fadeIn(200);
-    $(roomInBtn).css("background-color", "yellow");
-  } else {
-    $(roomInBtn).css("background-color", "pink");
-    $(popRoomClassroom).fadeIn(200);
-
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomLab).fadeOut(200);
-    $(popRoomStaff).fadeOut(200);
-    $(popRoomStd).fadeOut(200);
-    popRoomClassroom.style.display = "block";
-  }
-
-  var inputValue = '';
-  var inputTower = '';
-  var inputFloor = '';
-
-  $('.pop-choose').click(function(){
-    var typology = "classroom";
-    var sR = $(popSearchRoomClassroom).attr('id');
-    var fR = $(popResultRoomClassroom).attr('id');
-
-    inputValue = $(this).text();
-    if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
-      inputTower = inputValue;
-    }
-    if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
-      inputFloor = inputValue;
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
+      popRoomClassroom.style.display = "block";
     }
 
-    getRoom(inputTower, inputFloor, typology, sR, fR, popRoomClassroomEditable);
-  });
-
-  $(delBtn).click(function(){
     var inputValue = '';
     var inputTower = '';
-    var typology = '';
-    var sR = $(popSearchRoomClassroom).attr('id');
-    var fR = $(popResultRoomClassroom).attr('id');
+    var inputFloor = '';
 
-    getRoom(inputValue, inputTower, typology, sR, fR, popRoomClassroomEditable);
+    $('.pop-choose').click(function(){
+      var typology = "classroom";
+      var sR = $(popSearchRoomClassroom).attr('id');
+      var fR = $(popResultRoomClassroom).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomClassroomEditable);
+    });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomClassroom).attr('id');
+      var fR = $(popResultRoomClassroom).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomClassroomEditable);
+    });
+
   });
 
-});
+  /************ AUD BTNS  ***************/
 
-/************ AUD BTNS  ***************/
+  $(audBtn).click(function(){
+    if (popRoomAud.style.display != 'none'){
+      $(popRoomAud).fadeOut(200);
+      $(popRoom).fadeIn(200);
+      $(audBtn).css("background-color", "yellow");
+    } else {
+      $(audBtn).css("background-color", "pink");
+      $(popRoomAud).fadeIn(200);
 
-$(audBtn).click(function(){
-  if (popRoomAud.style.display != 'none'){
-    $(popRoomAud).fadeOut(200);
-    $(popRoom).fadeIn(200);
-    $(audBtn).css("background-color", "yellow");
-  } else {
-    $(audBtn).css("background-color", "pink");
-    $(popRoomAud).fadeIn(200);
-
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomLab).fadeOut(200);
-    $(popRoomStaff).fadeOut(200);
-    $(popRoomStd).fadeOut(200);
-    popRoomAud.style.display = "block";
-  }
-
-  var inputValue = '';
-  var inputTower = '';
-  var inputFloor = '';
-
-  $('.pop-choose').click(function(){
-    var typology = "amphitheater";
-    var sR = $(popSearchRoomAud).attr('id');
-    var fR = $(popResultRoomAud).attr('id');
-
-    inputValue = $(this).text();
-    if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
-      inputTower = inputValue;
-    }
-    if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
-      inputFloor = inputValue;
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
+      popRoomAud.style.display = "block";
     }
 
-    getRoom(inputTower, inputFloor, typology, sR, fR, popRoomAudEditable);
-  });
-
-  $(delBtn).click(function(){
     var inputValue = '';
     var inputTower = '';
-    var typology = '';
-    var sR = $(popSearchRoomAud).attr('id');
-    var fR = $(popResultRoomAud).attr('id');
+    var inputFloor = '';
 
-    getRoom(inputValue, inputTower, typology, sR, fR, popRoomAudEditable);
+    $('.pop-choose').click(function(){
+      var typology = "amphitheater";
+      var sR = $(popSearchRoomAud).attr('id');
+      var fR = $(popResultRoomAud).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomAudEditable);
+    });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomAud).attr('id');
+      var fR = $(popResultRoomAud).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomAudEditable);
+    });
+
   });
 
-});
+  /************ LAB BTNS  ***************/
 
-/************ LAB BTNS  ***************/
+  $(labBtn).click(function(){
+    if (popRoomLab.style.display != 'none'){
+      $(popRoomLab).fadeOut(200);
+      $(popRoom).fadeIn(200);
+      $(labBtn).css("background-color", "yellow");
+    } else {
+      $(labBtn).css("background-color", "pink");
+      $(popRoomLab).fadeIn(200);
 
-$(labBtn).click(function(){
-  if (popRoomLab.style.display != 'none'){
-    $(popRoomLab).fadeOut(200);
-    $(popRoom).fadeIn(200);
-    $(labBtn).css("background-color", "yellow");
-  } else {
-    $(labBtn).css("background-color", "pink");
-    $(popRoomLab).fadeIn(200);
-
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomStaff).fadeOut(200);
-    $(popRoomStd).fadeOut(200);
-    popRoomLab.style.display = "block";
-  }
-
-  var inputValue = '';
-  var inputTower = '';
-  var inputFloor = '';
-
-  $('.pop-choose').click(function(){
-    var typology = "laboratory";
-    var sR = $(popSearchRoomLab).attr('id');
-    var fR = $(popResultRoomLab).attr('id');
-
-    inputValue = $(this).text();
-    if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
-      inputTower = inputValue;
-    }
-    if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
-      inputFloor = inputValue;
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
+      popRoomLab.style.display = "block";
     }
 
-    getRoom(inputTower, inputFloor, typology, sR, fR, popRoomLabEditable);
-  });
-
-  $(delBtn).click(function(){
     var inputValue = '';
     var inputTower = '';
-    var typology = '';
-    var sR = $(popSearchRoomLab).attr('id');
-    var fR = $(popResultRoomLab).attr('id');
+    var inputFloor = '';
 
-    getRoom(inputValue, inputTower, typology, sR, fR, popRoomLabEditable);
+    $('.pop-choose').click(function(){
+      var typology = "laboratory";
+      var sR = $(popSearchRoomLab).attr('id');
+      var fR = $(popResultRoomLab).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomLabEditable);
+    });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomLab).attr('id');
+      var fR = $(popResultRoomLab).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomLabEditable);
+    });
+
   });
 
-});
 
+  /************ STUDY BTNS  ***************/
 
-/************ STUDY BTNS  ***************/
+  $(stdBtn).click(function(){
+    if (popRoomStd.style.display != 'none'){
+      $(popRoomStd).fadeOut(200);
+      $(popRoom).fadeIn(200);
+      $(stdBtn).css("background-color", "yellow");
+    } else {
+      $(stdBtn).css("background-color", "pink");
+      $(popRoomStd).fadeIn(200);
 
-$(stdBtn).click(function(){
-  if (popRoomStd.style.display != 'none'){
-    $(popRoomStd).fadeOut(200);
-    $(popRoom).fadeIn(200);
-    $(stdBtn).css("background-color", "yellow");
-  } else {
-    $(stdBtn).css("background-color", "pink");
-    $(popRoomStd).fadeIn(200);
-
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomStaff).fadeOut(200);
-    popRoomStd.style.display = "block";
-  }
-
-  var inputValue = '';
-  var inputTower = '';
-  var inputFloor = '';
-
-  $('.pop-choose').click(function(){
-    var typology = "study room";
-    var sR = $(popSearchRoomStd).attr('id');
-    var fR = $(popResultRoomStd).attr('id');
-
-    inputValue = $(this).text();
-    if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
-      inputTower = inputValue;
-    }
-    if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
-      inputFloor = inputValue;
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomStaff).fadeOut(200);
+      popRoomStd.style.display = "block";
     }
 
-    getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStdEditable);
-  });
-
-  $(delBtn).click(function(){
     var inputValue = '';
     var inputTower = '';
-    var typology = '';
-    var sR = $(popSearchRoomStd).attr('id');
-    var fR = $(popResultRoomStd).attr('id');
+    var inputFloor = '';
 
-    getRoom(inputValue, inputTower, typology, sR, fR, popRoomStdEditable);
+    $('.pop-choose').click(function(){
+      var typology = "study room";
+      var sR = $(popSearchRoomStd).attr('id');
+      var fR = $(popResultRoomStd).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStdEditable);
+    });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomStd).attr('id');
+      var fR = $(popResultRoomStd).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomStdEditable);
+    });
+
   });
 
-});
+  /************ STAFF BTNS  ***************/
 
-/************ STAFF BTNS  ***************/
+  $(staffBtn).click(function(){
+    if (popRoomStaff.style.display != 'none'){
+      $(popRoomStaff).fadeOut(200);
+      $(popRoom).fadeIn(200);
+      $(staffBtn).css("background-color", "yellow");
+    } else {
+      $(staffBtn).css("background-color", "pink");
+      $(popRoomStaff).fadeIn(200);
 
-$(staffBtn).click(function(){
-  if (popRoomStaff.style.display != 'none'){
-    $(popRoomStaff).fadeOut(200);
-    $(popRoom).fadeIn(200);
-    $(staffBtn).css("background-color", "yellow");
-  } else {
-    $(staffBtn).css("background-color", "pink");
-    $(popRoomStaff).fadeIn(200);
-
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomStd).fadeOut(200);
-    popRoomStaff.style.display = "block";
-  }
-
-  var inputValue = '';
-  var inputTower = '';
-  var inputFloor = '';
-
-  $('.pop-choose').click(function(){
-    var typology = "staff";
-    var sR = $(popSearchRoomStaff).attr('id');
-    var fR = $(popResultRoomStaff).attr('id');
-
-    inputValue = $(this).text();
-    if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
-      inputTower = inputValue;
-    }
-    if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
-      inputFloor = inputValue;
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomStd).fadeOut(200);
+      popRoomStaff.style.display = "block";
     }
 
-    getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStaffEditable);
-  });
-
-  $(delBtn).click(function(){
     var inputValue = '';
     var inputTower = '';
-    var typology = '';
-    var sR = $(popSearchRoomStaff).attr('id');
-    var fR = $(popResultRoomStaff).attr('id');
+    var inputFloor = '';
 
-    getRoom(inputValue, inputTower, typology, sR, fR, popRoomStaffEditable);
+    $('.pop-choose').click(function(){
+      var typology = "staff";
+      var sR = $(popSearchRoomStaff).attr('id');
+      var fR = $(popResultRoomStaff).attr('id');
+
+      inputValue = $(this).text();
+      if (inputValue == 'A' || inputValue == 'B' || inputValue == 'C' || inputValue == 'D' || inputValue == 'E' || inputValue == 'F' || inputValue == 'G'){
+        inputTower = inputValue;
+      }
+      if (inputValue == '0' || inputValue == '1' || inputValue == '2' || inputValue == '3' || inputValue == '4' || inputValue == '5' || inputValue == '6'){
+        inputFloor = inputValue;
+      }
+
+      getRoom(inputTower, inputFloor, typology, sR, fR, popRoomStaffEditable);
+    });
+
+    $(delBtn).click(function(){
+      var inputValue = '';
+      var inputTower = '';
+      var typology = '';
+      var sR = $(popSearchRoomStaff).attr('id');
+      var fR = $(popResultRoomStaff).attr('id');
+
+      getRoom(inputValue, inputTower, typology, sR, fR, popRoomStaffEditable);
+    });
+
   });
 
-});
+  /************ INSIDE SERV BTN  ***************/
 
-/************ INSIDE SERV BTN  ***************/
-
-$(secrBtn).click(function(){
+  $(secrBtn).click(function(){
     popInfo.style.display = "block";
     $('#servicos').css('display', 'none');
     $('#sala_D11').css('display', 'inline');
-
-  setRoomLocation('D1.1');
-});
-
-$(gapiBtn).click(function(){
-  $('#sala_D11').fadeOut(500);
-    $('#sala_D11').css('display', 'none');
-    $('#sala_F14').fadeOut(500);
+    $('#sala_D14').css('display', 'none');
     $('#sala_F14').css('display', 'none');
 
-  setRoomLocation('D1.4');
 
-});
+    setRoomLocation('D1.1');
+  });
 
-$(cisucBtn).click(function(){
-  $('#sala_D11').fadeOut(500);
+  $(gapiBtn).click(function(){
+    popInfo.style.display = "block";
+    $('#servicos').css('display', 'none');
+    $('#sala_D14').css('display', 'inline');
     $('#sala_D11').css('display', 'none');
-    $('#sala_D14').fadeOut(500);
+    $('#sala_F14').css('display', 'none');
+
+    setRoomLocation('D1.4');
+  });
+
+  $(cisucBtn).click(function(){
+    popInfo.style.display = "block";
+    $('#servicos').css('display', 'none');
+    $('#sala_F14').css('display', 'inline');
+    $('#sala_D11').css('display', 'none');
     $('#sala_D14').css('display', 'none');
 
-  setRoomLocation('F1.4');
-});
 
-/************ INSIDE PROF BTN  ***************/
-
-/************ PROFDES BTNS  ***************/
-
-
-$(profDesBtn).click(function(){
-  if (popProfDes.style.display != 'none'){
-    $(popProfDes).fadeOut(200);
-    $(popProf).fadeIn(200);
-    $(profDesBtn).css("background-color", "yellow");
-  } else {
-    $(profDesBtn).css("background-color", "pink");
-    $(popProfDes).fadeIn(200);
-
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomLab).fadeOut(200);
-    popProfDes.style.display = "block";
-  }
-
-  var profName = '';
-  var courseName = '2';
-
-  $('.pop-choose').click(function(){
-    var sR = $(popSearchProfDes).attr('id');
-    var fR = $(popResultProfDes).attr('id');
-
-    profName += $(this).text();
-    profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
-    getProf(profName, courseName, sR, fR, popProfDesEditable);
+    setRoomLocation('F1.4');
   });
 
-  $(delBtn).click(function(){
+  /************ INSIDE PROF BTN  ***************/
+
+  /************ PROFDES BTNS  ***************/
+
+
+  $(profDesBtn).click(function(){
+    if (popProfDes.style.display != 'none'){
+      $(popProfDes).fadeOut(200);
+      $(popProf).fadeIn(200);
+      $(profDesBtn).css("background-color", "yellow");
+    } else {
+      $(profDesBtn).css("background-color", "pink");
+      $(popProfDes).fadeIn(200);
+
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popProfDes.style.display = "block";
+    }
+
     var profName = '';
-    var courseName = '';
-    var sR = $(popSearchProfDes).attr('id');
-    var fR = $(popResultProfDes).attr('id');
+    var courseName = '2';
 
-    getProf(profName, courseName, sR, fR, popProfDesEditable);
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchProfDes).attr('id');
+      var fR = $(popResultProfDes).attr('id');
+
+      profName += $(this).text();
+      profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
+      getProf(profName, courseName, sR, fR, popProfDesEditable);
+    });
+
+    $(delBtn).click(function(){
+      var profName = '';
+      var courseName = '';
+      var sR = $(popSearchProfDes).attr('id');
+      var fR = $(popResultProfDes).attr('id');
+
+      getProf(profName, courseName, sR, fR, popProfDesEditable);
+    });
+
   });
 
-});
+  /************ PROFINF BTNS  ***************/
 
-/************ PROFINF BTNS  ***************/
+  $(profInfBtn).click(function(){
+    if (popProfInf.style.display != 'none'){
+      $(popProfInf).fadeOut(200);
+      $(popProf).fadeIn(200);
+      $(profInfBtn).css("background-color", "yellow");
+    } else {
+      $(profInfBtn).css("background-color", "pink");
+      $(popProfInf).fadeIn(200);
 
-$(profInfBtn).click(function(){
-  if (popProfInf.style.display != 'none'){
-    $(popProfInf).fadeOut(200);
-    $(popProf).fadeIn(200);
-    $(profInfBtn).css("background-color", "yellow");
-  } else {
-    $(profInfBtn).css("background-color", "pink");
-    $(popProfInf).fadeIn(200);
+      $(popEventsDes).fadeOut(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popProfInf.style.display = "block";
+    }
 
-    $(popEventsDes).fadeOut(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomLab).fadeOut(200);
-    popProfInf.style.display = "block";
-  }
-
-  var profName = '';
-  var courseName = '1';
-
-  $('.pop-choose').click(function(){
-    var sR = $(popSearchProfInf).attr('id');
-    var fR = $(popResultProfInf).attr('id');
-
-    profName += $(this).text();
-    profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
-    getProf(profName, courseName, sR, fR, popProfInfEditable);
-  });
-
-  $(delBtn).click(function(){
     var profName = '';
-    var courseName = '';
-    var sR = $(popSearchProfInf).attr('id');
-    var fR = $(popResultProfInf).attr('id');
+    var courseName = '1';
 
-    getProf(profName, courseName, sR, fR, popProfInfEditable);
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchProfInf).attr('id');
+      var fR = $(popResultProfInf).attr('id');
+
+      profName += $(this).text();
+      profName = profName.charAt(0).toUpperCase() + profName.substr(1).toLowerCase();
+      getProf(profName, courseName, sR, fR, popProfInfEditable);
+    });
+
+    $(delBtn).click(function(){
+      var profName = '';
+      var courseName = '';
+      var sR = $(popSearchProfInf).attr('id');
+      var fR = $(popResultProfInf).attr('id');
+
+      getProf(profName, courseName, sR, fR, popProfInfEditable);
+    });
+
   });
 
-});
+
+  /************ INSIDE EVENTS BTN  ***************/
+
+  /************ EVDES BTNS  ***************/
+
+  $(evDesBtn).click(function(){
+    if (popEventsDes.style.display != 'none'){
+      $(popEventsDes).fadeOut(200);
+      $(popEvents).fadeIn(200);
+      $(evDesBtn).css("background-color", "yellow");
+    } else {
+      $(evDesBtn).css("background-color", "pink");
+      $(popEventsDes).fadeIn(200);
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popEventsDes.style.display = "block";
+    }
 
 
-/************ INSIDE EVENTS BTN  ***************/
+    var eventName = '';
+    var eventCourse = '2';
 
-/************ EVDES BTNS  ***************/
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchEventsDes).attr('id');
+      var fR = $(popResultEventsDes).attr('id');
 
-$(evDesBtn).click(function(){
-  if (popEventsDes.style.display != 'none'){
-    $(popEventsDes).fadeOut(200);
-    $(popEvents).fadeIn(200);
-    $(evDesBtn).css("background-color", "yellow");
-  } else {
-    $(evDesBtn).css("background-color", "pink");
-    $(popEventsDes).fadeIn(200);
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomLab).fadeOut(200);
-    popEventsDes.style.display = "block";
+      eventName += $(this).text();
+      eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditableDes);
+    });
+
+    $(delBtn).click(function(){
+      var eventName = '';
+      var eventCourse = '';
+      var sR = $(popSearchEventsDes).attr('id');
+      var fR = $(popResultEventsDes).attr('id');
+
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditableDes);
+    });
+  });
+
+  /************ EVINF BTNS  ***************/
+
+  $(evInfBtn).click(function(){
+    if (popEventsInf.style.display != 'none'){
+      $(popEventsInf).fadeOut(200);
+      $(popEvents).fadeIn(200);
+      $(evInfBtn).css("background-color", "yellow");
+    } else {
+      $(evInfBtn).css("background-color", "pink");
+      $(popEventsInf).fadeIn(200);
+      $(popEventsDes).fadeOut(200);
+      $(popEvents).fadeOut(200);
+      $(popProf).fadeOut(200);
+      $(popProfInf).fadeOut(200);
+      $(popProfDes).fadeOut(200);
+      $(popRoom).fadeOut(200);
+      $(popRoomClassroom).fadeOut(200);
+      $(popRoomAud).fadeOut(200);
+      $(popRoomLab).fadeOut(200);
+      popEventsInf.style.display = "block";
+    }
+
+
+    var eventName = '';
+    var eventCourse = '1';
+
+    $('.pop-choose').click(function(){
+      var sR = $(popSearchEventsInf).attr('id');
+      var fR = $(popResultEventsInf).attr('id');
+
+      eventName += $(this).text();
+      eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditableInf);
+    });
+
+    $(delBtn).click(function(){
+      var eventName = '';
+      var eventCourse = '';
+      var sR = $(popSearchEventsInf).attr('id');
+      var fR = $(popResultEventsInf).attr('id');
+
+      getEvent(eventName, eventCourse, sR, fR, popEventsEditableInf);
+    });
+
+  });
+
+  $('.pop-prof-link').click(function(){
+    //alert(this.id);
+    setProfLocation(this.id);
+  });
+
+  function getRoom(towerValue, floorValue, typology, sR, fR, pD){
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./getRoom.php",
+      data: { towerValue: towerValue, floorValue: floorValue, typology: typology, sR: sR, fR: fR
+      }
+    }).done(function(msg) {
+      $(pD).html(msg);
+    });
+  }
+
+  function getProf(profName, courseName, sR, fR, pD){
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./getProf.php",
+      data: { profName: profName, courseName: courseName, sR: sR, fR: fR
+      }
+    }).done(function(msg) {
+      $(pD).html(msg);
+    });
+  }
+
+  function getEvent(eventName, eventCourse, sR, fR, pD){
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./getEvent.php",
+      data: { eventName: eventName, eventCourse: eventCourse, sR: sR, fR: fR
+      }
+    }).done(function(msg) {
+      $(pD).html(msg);
+    });
+  }
+
+  function setRoomLocation(room){
+    popInfo.style.display = "none";
+    $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./roomLocation.php",
+      data: { room:room
+      }
+    }).done(function(data) {
+      var array_data = String(data).split(",");
+      var l = array_data[0];
+      var t = array_data[1];
+      var z = array_data[2];
+      var tower = array_data[3];
+      var floor = array_data[4];
+      var n = array_data[5];
+
+      $('#x').text("X: Torre " + tower + " / ");
+      $('#y').text("Y: Piso " + floor + " / ");
+      $('#z').text("Z: "+ n);
+      setTimeout(function() {
+        $('#map-image').animate({left: l, top: t, zoom: z}, 200);
+      },
+      1000);
+      setTimeout(function(){
+        popInfo.style.display = "block";
+        var sR = $(popSearchInfo).attr('id');
+        var fR = $(popResultInfo).attr('id');
+        //var pD = $(popInfoEditable).attr('id');
+
+        getInfo(room, sR, fR, popInfoEditable);
+
+      }, 1200);
+    });
+  }
+
+  function getInfo(room, sR, fR, pD){
+
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./getInfo.php",
+      data: { room:room, sR: sR, fR: fR
+      }
+    }).done(function(msg) {
+      $(popInfoEditable).html(msg);
+    });
   }
 
 
-  var eventName = '';
-  var eventCourse = '2';
+  function setProfLocation(id){
+    popInfo.style.display = "none";
+    $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./profLocation.php",
+      data: { id:id
+      }
+    }).done(function(data) {
 
-  $('.pop-choose').click(function(){
-    var sR = $(popSearchEventsDes).attr('id');
-    var fR = $(popResultEventsDes).attr('id');
-
-    eventName += $(this).text();
-    eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
-    getEvent(eventName, eventCourse, sR, fR, popEventsEditableDes);
-  });
-
-  $(delBtn).click(function(){
-    var eventName = '';
-    var eventCourse = '';
-    var sR = $(popSearchEventsDes).attr('id');
-    var fR = $(popResultEventsDes).attr('id');
-
-    getEvent(eventName, eventCourse, sR, fR, popEventsEditableDes);
-  });
-});
-
-/************ EVINF BTNS  ***************/
-
-$(evInfBtn).click(function(){
-  if (popEventsInf.style.display != 'none'){
-    $(popEventsInf).fadeOut(200);
-    $(popEvents).fadeIn(200);
-    $(evInfBtn).css("background-color", "yellow");
-  } else {
-    $(evInfBtn).css("background-color", "pink");
-    $(popEventsInf).fadeIn(200);
-    $(popEventsDes).fadeOut(200);
-    $(popEvents).fadeOut(200);
-    $(popProf).fadeOut(200);
-    $(popProfInf).fadeOut(200);
-    $(popProfDes).fadeOut(200);
-    $(popRoom).fadeOut(200);
-    $(popRoomClassroom).fadeOut(200);
-    $(popRoomAud).fadeOut(200);
-    $(popRoomLab).fadeOut(200);
-    popEventsInf.style.display = "block";
+      var array_data = String(data).split(",");
+      var l = array_data[0];
+      var t = array_data[1];
+      var z = array_data[2];
+      var tower = array_data[3];
+      var floor = array_data[4];
+      var rm = array_data[5];
+      var tid = array_data[6];
+      $('#x').text("X: Torre " + tower + " / ");
+      $('#y').text("Y: Piso " + floor + " / ");
+      $('#z').text("Z: "+ rm);
+      setTimeout(function() {
+        $('#map-image').animate({left: l, top: t, zoom: z}, 200);
+      },
+      1500);
+      setTimeout(function(){
+        popInfo.style.display = "block";
+        getInfoProf(tid, popSearchInfo, popResultInfo, popInfoEditable);
+      }, 2200);
+    });
   }
 
 
-  var eventName = '';
-  var eventCourse = '1';
+  function getInfoProf(tid, sR, fR, pD){
+    //alert(sR.id);
+    //alert(fR.id);
+    //  alert(pD.id);
 
-  $('.pop-choose').click(function(){
-    var sR = $(popSearchEventsInf).attr('id');
-    var fR = $(popResultEventsInf).attr('id');
-
-    eventName += $(this).text();
-    eventName = eventName.charAt(0).toUpperCase() + eventName.substr(1).toLowerCase();
-    getEvent(eventName, eventCourse, sR, fR, popEventsEditableInf);
-  });
-
-  $(delBtn).click(function(){
-    var eventName = '';
-    var eventCourse = '';
-    var sR = $(popSearchEventsInf).attr('id');
-    var fR = $(popResultEventsInf).attr('id');
-
-    getEvent(eventName, eventCourse, sR, fR, popEventsEditableInf);
-  });
-
-});
-
-$('.pop-prof-link').click(function(){
-  //alert(this.id);
-  setProfLocation(this.id);
-});
-
-function getRoom(towerValue, floorValue, typology, sR, fR, pD){
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./getRoom.php",
-    data: { towerValue: towerValue, floorValue: floorValue, typology: typology, sR: sR, fR: fR
-    }
-  }).done(function(msg) {
-    $(pD).html(msg);
-  });
-}
-
-function getProf(profName, courseName, sR, fR, pD){
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./getProf.php",
-    data: { profName: profName, courseName: courseName, sR: sR, fR: fR
-    }
-  }).done(function(msg) {
-    $(pD).html(msg);
-  });
-}
-
-function getEvent(eventName, eventCourse, sR, fR, pD){
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./getEvent.php",
-    data: { eventName: eventName, eventCourse: eventCourse, sR: sR, fR: fR
-    }
-  }).done(function(msg) {
-    $(pD).html(msg);
-  });
-}
-
-function setRoomLocation(room){
-  popInfo.style.display = "none";
-  $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./roomLocation.php",
-    data: { room:room
-    }
-  }).done(function(data) {
-  var array_data = String(data).split(",");
-    var l = array_data[0];
-    var t = array_data[1];
-    var z = array_data[2];
-    var tower = array_data[3];
-    var floor = array_data[4];
-    var n = array_data[5];
-
-    $('#x').text("X: Torre " + tower + " / ");
-    $('#y').text("Y: Piso " + floor + " / ");
-    $('#z').text("Z: "+ n);
-    setTimeout(function() {
-      $('#map-image').animate({left: l, top: t, zoom: z}, 200);
-    },
-    2000);
-    setTimeout(function(){
-      popInfo.style.display = "block";
-      alert(room);
-      //getInfo(room, popSearchInfo, popResultInfo, popInfoEditable);
-
-    }, 2200);
-  });
-}
-
-function setProfLocation(id){
-  popInfo.style.display = "none";
-  $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./profLocation.php",
-    data: { id:id
-    }
-  }).done(function(data) {
-
-    var array_data = String(data).split(",");
-    var l = array_data[0];
-    var t = array_data[1];
-    var z = array_data[2];
-    var tower = array_data[3];
-    var floor = array_data[4];
-    var rm = array_data[5];
-    var tid = array_data[6];
-    $('#x').text("X: Torre " + tower + " / ");
-    $('#y').text("Y: Piso " + floor + " / ");
-    $('#z').text("Z: "+ rm);
-    setTimeout(function() {
-      $('#map-image').animate({left: l, top: t, zoom: z}, 200);
-    },
-    1500);
-    setTimeout(function(){
-      popInfo.style.display = "block";
-      getInfoProf(tid, popSearchInfo, popResultInfo, popInfoEditable);
-    }, 2200);
-  });
-}
-
-function getInfo(room, sR, fR, pD){
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./getInfo.php",
-    data: { room:room
-    }
-  }).done(function(msg) {
-    (pD).html(msg);
-  });
-}
-
-function getInfoProf(tid, sR, fR, pD){
-  alert(sR.id);
-  alert(fR.id);
-  alert(pD.id);
-
-  var rqst = $.ajax({
-    type: "POST",
-    url: "./getInfoProf.php",
-    data: { tid:tid
-    }
-  }).done(function(msg) {
-    alert(msg);
-    //(pD).html(msg);
-  });
-}
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./getInfoProf.php",
+      data: { tid:tid
+      }
+    }).done(function(msg) {
+      alert(msg);
+      //(pD).html(msg);
+    });
+  }
 
 
 });
