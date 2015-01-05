@@ -651,11 +651,9 @@ $(staffBtn).click(function(){
 $(secrBtn).click(function(){
     popInfo.style.display = "block";
     $('#servicos').css('display', 'none');
-    //$('#sala_D11').fadeIn(500);
     $('#sala_D11').css('display', 'inline');
 
   setRoomLocation('D1.1');
-
 });
 
 $(gapiBtn).click(function(){
@@ -930,7 +928,8 @@ function setRoomLocation(room){
     2000);
     setTimeout(function(){
       popInfo.style.display = "block";
-      getInfo(room, popSearchInfo, popResultInfo, popInfoEditable);
+      alert(room);
+      //getInfo(room, popSearchInfo, popResultInfo, popInfoEditable);
 
     }, 2200);
   });
