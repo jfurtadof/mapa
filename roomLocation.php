@@ -16,5 +16,7 @@ echo ",";
 echo $dados["pos_y"];
 echo ",";
 echo $dados["zoom"];
+echo ",";
+echo $dados["name"];
 
 ?>

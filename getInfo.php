@@ -13,6 +13,12 @@ $q = mysql_query($s);
 $r = mysql_num_rows($q);
 $f = mysql_fetch_assoc($q);
 
+$nid = $f["id"];
+
+$ns = "SELECT * FROM service_hours WHERE id = '$nid'";
+$nq = mysql_query($ns);
+$nf = mysql_fetch_assoc($nq);
+
 
 echo "<div id='";
 echo $sR;
@@ -22,7 +28,7 @@ echo "</p></div>";
 
 echo "<div id='";
 echo $fR;
-echo "' style='width: 339px;' class='pop-result'>";
+echo "' style='width: 339px; height: 460px;' class='pop-result'>";
 
 if ($f["secondname"] != NULL){
   echo "<p>";
@@ -30,21 +36,37 @@ if ($f["secondname"] != NULL){
   echo "</p>";
 }
 
-echo "<p>Sala: ";
-echo $f["room"];
+echo "<p>Sala ";
+echo $nf["room"];
 echo "</p>";
 
-if ($f["open_time"] != NULL && $f["close_time"] != NULL){
+if ($nf["hours"] != NULL && $nf["days"] != NULL){
   echo "<p>Horário de Funcionamento:</p><p>";
-  echo $f["open_time"];
-  echo " - ";
-  echo $f["close_time"];
+  echo $nf["hours"];
+  echo "</p><p>";
+  echo $nf["days"];
   echo "</p>";
-} else {
-  echo "Aberto a todas as horas";
 }
 
+echo "<p>Contacto: </p>";
 
+if ($nf["email"] != NULL){
+  echo "<p>";
+  echo $nf["email"];
+  echo "</p>";
+}
+
+if ($nf["phone"] != NULL){
+  echo "<p>";
+  echo $nf["phone"];
+  echo "</p>";
+}
+
+if ($nf["contact"] != NULL){
+  echo "<p>";
+  echo $nf["contact"];
+  echo "</p>";
+}
 
 echo "</div>";
 

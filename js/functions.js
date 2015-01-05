@@ -91,7 +91,10 @@ $(document).ready(function () {
   popInfo = document.getElementById('pop-info');
   popInfoEditable = document.getElementById('pop-info-editable');
   popSearchInfo = document.getElementById('pop-search-info');
-  popResultInfo = document.getElementById('pop-result-info')
+  popResultInfo = document.getElementById('pop-result-info');
+
+  piso1 = document.getElementById('Piso1');
+  piso2 = document.getElementById('Piso2');
 
   levelTwo = document.getElementsByClassName('level-two');
   levelThree = document.getElementsByClassName('level-three');
@@ -208,6 +211,7 @@ $(document).ready(function () {
 
 $(servBtn).click(function(){
   $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
+  popInfo.style.display = "none";
 
   if (servDiv.style.display != 'none'){
     $(servDiv).fadeOut(170);
@@ -216,6 +220,7 @@ $(servBtn).click(function(){
     $(roomBtn).css("visibility", "visible");
     $(profBtn).css("visibility", "visible");
     $(eventsBtn).css("visibility", "visible");
+    $('.over').css("display", "none");
   } else {
     $(servBtn).css("margin-left", "-540px");
     $(quickBtn).animate({marginLeft: $(servBtn).offset().left + 713 +"px"}, 200);
@@ -937,6 +942,10 @@ function setRoomLocation(tower, floor, block){
     var l = array_data[0];
     var t = array_data[1];
     var z = array_data[2];
+    var n = array_data[3];
+    $('#x').text("X: Torre " + tower + " / ");
+    $('#y').text("Y: Piso " + floor + " / ");
+    $('#z').text("Z: "+ n);
     setTimeout(function() {
       $('#map-image').animate({left: l, top: t, zoom: z}, 200);
     },

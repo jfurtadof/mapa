@@ -141,8 +141,23 @@ a{
 
 }
 
-.gabinetes, .servicos, .sala_D11, .sala_D14, .sala_D15, .sala_D16, .sala_D17, .sala_D18,
-.sala_D19, .sala_D110, .sala_D111, .sala_D112, .sala_D113, .sala_D114, .sala_D115,
-.sala_D116, .sala_D117, .sala_D118, .sala_D119, .sala_F14, .sala_F11{
+#location {
+  text-align: center;
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+#location span{
+  background-color:white;
+  padding: 10px;
+}
+
+#Piso1:not(#p1){
+  display:inline;
+}
+
+#Piso2{
   display:none;
 }

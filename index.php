@@ -52,6 +52,16 @@ require('core.php');
     </nav>
 
 
+
+    <div id="location">
+      <br>
+      <p>
+      <span id="x">X: Torre D /  </span>
+      <span id="y">Y: Piso 1 /  </span>
+      <span id="z">Z: Corredor Principal</span>
+      </p>
+    </div>
+
     <!--PROCURA POR 'ROOM' ALL-->
     <div id="pop-room" class="pop" style="display:none;">
       <span style="float:right; margin-right: 15px; margin-top: 15px; cursor: pointer;"><img class="delBtn" src="img/back.png"></span>
@@ -657,7 +667,7 @@ require('core.php');
     <div id="map">
       <div id="map-image">
         <?php
-        require('./svg.php');
+        include('./svgImage.php');
         ?>
       </div>
     </div>
