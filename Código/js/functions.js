@@ -127,6 +127,7 @@ $(document).ready(function () {
   /************ LEVEL-TWO BTNS  ***************/
 
   $(roomBtn).click(function(){
+    popInfo.style.display = 'none';
     if (roomDiv.style.display != 'none'){
       $(servBtn).animate({marginLeft: "0px"}, 200);
       $(quickBtn).animate({marginLeft: 513 +"px"}, 200);
@@ -233,6 +234,8 @@ $(document).ready(function () {
   });
 
   $(profBtn).click(function(){
+    popInfo.style.display = 'none';
+
     if (profDiv.style.display != 'none'){
       $(profBtn).css("margin-left", "0px");
       $(profDiv).fadeOut(170);
@@ -352,8 +355,8 @@ $(document).ready(function () {
       var fR = $(popResultEvents).attr('id');
 
       getEvent(eventName, eventCourse, sR, fR, popEventsEditable);
-      alert(eventName);
-      alert(eventName);
+      // alert(eventName);
+      // alert(eventName);
     });
 
   });
@@ -368,9 +371,9 @@ $(document).ready(function () {
     if (popRoomClassroom.style.display != 'none'){
       $(popRoomClassroom).fadeOut(200);
       $(popRoom).fadeIn(200);
-      $(roomInBtn).css("background-color", "yellow");
+    //  $(roomInBtn).css("background-color", "yellow");
     } else {
-      $(roomInBtn).css("background-color", "pink");
+    //  $(roomInBtn).css("background-color", "pink");
       $(popRoomClassroom).fadeIn(200);
 
       $(popEventsDes).fadeOut(200);
@@ -425,9 +428,9 @@ $(document).ready(function () {
     if (popRoomAud.style.display != 'none'){
       $(popRoomAud).fadeOut(200);
       $(popRoom).fadeIn(200);
-      $(audBtn).css("background-color", "yellow");
+    //  $(audBtn).css("background-color", "yellow");
     } else {
-      $(audBtn).css("background-color", "pink");
+    //  $(audBtn).css("background-color", "pink");
       $(popRoomAud).fadeIn(200);
 
       $(popEventsDes).fadeOut(200);
@@ -482,9 +485,9 @@ $(document).ready(function () {
     if (popRoomLab.style.display != 'none'){
       $(popRoomLab).fadeOut(200);
       $(popRoom).fadeIn(200);
-      $(labBtn).css("background-color", "yellow");
+      //$(labBtn).css("background-color", "yellow");
     } else {
-      $(labBtn).css("background-color", "pink");
+    //  $(labBtn).css("background-color", "pink");
       $(popRoomLab).fadeIn(200);
 
       $(popEventsDes).fadeOut(200);
@@ -540,9 +543,9 @@ $(document).ready(function () {
     if (popRoomStd.style.display != 'none'){
       $(popRoomStd).fadeOut(200);
       $(popRoom).fadeIn(200);
-      $(stdBtn).css("background-color", "yellow");
+    //  $(stdBtn).css("background-color", "yellow");
     } else {
-      $(stdBtn).css("background-color", "pink");
+    //  $(stdBtn).css("background-color", "pink");
       $(popRoomStd).fadeIn(200);
 
       $(popEventsDes).fadeOut(200);
@@ -596,9 +599,9 @@ $(document).ready(function () {
     if (popRoomStaff.style.display != 'none'){
       $(popRoomStaff).fadeOut(200);
       $(popRoom).fadeIn(200);
-      $(staffBtn).css("background-color", "yellow");
+    //  $(staffBtn).css("background-color", "yellow");
     } else {
-      $(staffBtn).css("background-color", "pink");
+    //  $(staffBtn).css("background-color", "pink");
       $(popRoomStaff).fadeIn(200);
 
       $(popEventsDes).fadeOut(200);
@@ -723,9 +726,9 @@ $(document).ready(function () {
     if (popProfDes.style.display != 'none'){
       $(popProfDes).fadeOut(200);
       $(popProf).fadeIn(200);
-      $(profDesBtn).css("background-color", "yellow");
+    //  $(profDesBtn).css("background-color", "yellow");
     } else {
-      $(profDesBtn).css("background-color", "pink");
+    //  $(profDesBtn).css("background-color", "pink");
       $(popProfDes).fadeIn(200);
 
       $(popEventsDes).fadeOut(200);
@@ -769,9 +772,9 @@ $(document).ready(function () {
     if (popProfInf.style.display != 'none'){
       $(popProfInf).fadeOut(200);
       $(popProf).fadeIn(200);
-      $(profInfBtn).css("background-color", "yellow");
+    //  $(profInfBtn).css("background-color", "yellow");
     } else {
-      $(profInfBtn).css("background-color", "pink");
+    //  $(profInfBtn).css("background-color", "pink");
       $(popProfInf).fadeIn(200);
 
       $(popEventsDes).fadeOut(200);
@@ -818,9 +821,9 @@ $(document).ready(function () {
     if (popEventsDes.style.display != 'none'){
       $(popEventsDes).fadeOut(200);
       $(popEvents).fadeIn(200);
-      $(evDesBtn).css("background-color", "yellow");
+    //  $(evDesBtn).css("background-color", "yellow");
     } else {
-      $(evDesBtn).css("background-color", "pink");
+    //  $(evDesBtn).css("background-color", "pink");
       $(popEventsDes).fadeIn(200);
       $(popEventsInf).fadeOut(200);
       $(popEvents).fadeOut(200);
@@ -863,9 +866,9 @@ $(document).ready(function () {
     if (popEventsInf.style.display != 'none'){
       $(popEventsInf).fadeOut(200);
       $(popEvents).fadeIn(200);
-      $(evInfBtn).css("background-color", "yellow");
+    //  $(evInfBtn).css("background-color", "yellow");
     } else {
-      $(evInfBtn).css("background-color", "pink");
+    //  $(evInfBtn).css("background-color", "pink");
       $(popEventsInf).fadeIn(200);
       $(popEventsDes).fadeOut(200);
       $(popEvents).fadeOut(200);
@@ -905,7 +908,7 @@ $(document).ready(function () {
 
   $('.pop-prof-link').click(function(){
     var profName = $(this).text();
-    alert(profName);
+    // alert(profName);
     var courseName = " ";
     var sR = $(popSearchProf).attr('id');
     var fR = $(popResultProf).attr('id');
@@ -962,7 +965,7 @@ $(document).ready(function () {
       data: { room:room
       }
     }).done(function(data) {
-    //  alert(data);
+    //  // alert(data);
       var array_data = String(data).split(",");
       var l = array_data[0];
       var t = array_data[1];
@@ -978,7 +981,7 @@ $(document).ready(function () {
       setTimeout(function() {
         $('#map-image').animate({left: l, top: t, zoom: z}, 200);
       },
-      1000);
+      600);
 
       if (type == "offices" || type == "services"){
       setTimeout(function(){
@@ -988,7 +991,7 @@ $(document).ready(function () {
 
         getInfo(room, sR, fR, popInfoEditable);
 
-      }, 1200);
+      }, 700);
     }
     });
   }
@@ -1006,7 +1009,7 @@ $(document).ready(function () {
 
 
   function setProfLocation(id2){
-    alert(id2);
+    // alert(id2);
     popInfo.style.display = "none";
     $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
     console.log ("id"+id2);
@@ -1015,13 +1018,13 @@ $(document).ready(function () {
       url: "./profLocation.php",
       data: { id2:id2 }
     }).done(function(data) {
-      alert(data);
+      // alert(data);
       var array_data = String(data).split(",");
 
       var arr_length = array_data.length-1;
       var arr_length_half = arr_length/2;
       var arr_length_desired = arr_length/arr_length_half;
-      alert(arr_length_desired);
+      // alert(arr_length_desired);
 
       var a = 0;
 
@@ -1044,7 +1047,7 @@ $(document).ready(function () {
 
 
       var tid = array_data[arr_length];
-      alert(tid);
+      // alert(tid);
 
       $('#x').text("X: Torre " + tower[0] + " / ");
       $('#y').text("Y: Piso " + floor[0] + " / ");
@@ -1052,7 +1055,7 @@ $(document).ready(function () {
       setTimeout(function() {
         $('#map-image').animate({left: l[0], top: t[0], zoom: z[0]}, 200);
       },
-      1500);
+      600);
       setTimeout(function(){
         popInfo.style.display = "block";
         var sR = $(popSearchInfo).attr('id');
@@ -1060,7 +1063,7 @@ $(document).ready(function () {
 
         getInfoProf(tid, sR, fR, popInfoEditable);
 
-      }, 2200);
+      }, 700);
     });
   }
 
@@ -1084,7 +1087,7 @@ $(document).ready(function () {
       }
     }).done(function(msg) {
       var s = "P" + msg;
-      alert(s);
+      // alert(s);
       img = document.getElementById(s);
       $(img).show();
 
