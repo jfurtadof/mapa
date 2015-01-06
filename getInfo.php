@@ -61,14 +61,14 @@ if ($nr > 0){
     echo $nf["phone"];
     echo "</p>";
   }
-  
+
   if ($nf["contact"] != NULL){
     echo "<p>";
     echo $nf["contact"];
     echo "</p>";
   }
 } else {
-  echo "Aberto a todas as horas";
+  echo "<p>Aberto a todas as horas</p>";
 }
 
 echo "</div>";

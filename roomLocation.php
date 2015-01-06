@@ -3,7 +3,6 @@ require('core.php');
 
 $room = $_POST["room"];
 
-
 $s = "SELECT * FROM rooms WHERE room = '$room'";
 $q = mysql_query($s);
 $r = mysql_num_rows($q);
@@ -21,4 +20,6 @@ echo ",";
 echo $dados["floor"];
 echo ",";
 echo $dados["name"];
+echo ",";
+echo $dados["typology"];
 ?>

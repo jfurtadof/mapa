@@ -655,8 +655,30 @@ $(document).ready(function () {
     $('#sala_D14').css('display', 'none');
     $('#sala_F14').css('display', 'none');
 
-
+    setSvgImage('D1.1');
     setRoomLocation('D1.1');
+  });
+
+  $(barBtn).click(function(){
+    popInfo.style.display = "block";
+    $('#servicos').css('display', 'none');
+    $('#sala_A43').css('display', 'inline');
+    $('#sala_D14').css('display', 'none');
+    $('#sala_F14').css('display', 'none');
+
+    setSvgImage('A4.3');
+    setRoomLocation('A4.3');
+  });
+
+  $(helpBtn).click(function(){
+    popInfo.style.display = "block";
+    $('#servicos').css('display', 'none');
+    $('#sala_G64').css('display', 'inline');
+    $('#sala_D14').css('display', 'none');
+    $('#sala_F14').css('display', 'none');
+
+    setSvgImage('G6.4');
+    setRoomLocation('G6.4');
   });
 
   $(gapiBtn).click(function(){
@@ -666,6 +688,7 @@ $(document).ready(function () {
     $('#sala_D11').css('display', 'none');
     $('#sala_F14').css('display', 'none');
 
+    setSvgImage('D1.4');
     setRoomLocation('D1.4');
   });
 
@@ -676,7 +699,19 @@ $(document).ready(function () {
     $('#sala_D11').css('display', 'none');
     $('#sala_D14').css('display', 'none');
 
+    setSvgImage('F1.4');
     setRoomLocation('F1.4');
+  });
+
+  $(neiBtn).click(function(){
+    popInfo.style.display = "block";
+    $('#servicos').css('display', 'none');
+    $('#sala_C43').css('display', 'inline');
+    $('#sala_D11').css('display', 'none');
+    $('#sala_D14').css('display', 'none');
+
+    setSvgImage('C4.3');
+    setRoomLocation('C4.3');
   });
 
   /************ INSIDE PROF BTN  ***************/
@@ -869,8 +904,20 @@ $(document).ready(function () {
   });
 
   $('.pop-prof-link').click(function(){
-    //alert(this.id);
+    var profName = $(this).text();
+    alert(profName);
+    var courseName = " ";
+    var sR = $(popSearchProf).attr('id');
+    var fR = $(popResultProf).attr('id');
+
+    getProf(profName, courseName, sR, fR, popProfEditable);
     setProfLocation(this.id);
+  });
+
+  $('.pop-room-link').click(function(){
+    var r = this.id;
+    setSvgImage(r);
+    setRoomLocation(r);
   });
 
   function getRoom(towerValue, floorValue, typology, sR, fR, pD){
@@ -915,6 +962,7 @@ $(document).ready(function () {
       data: { room:room
       }
     }).done(function(data) {
+    //  alert(data);
       var array_data = String(data).split(",");
       var l = array_data[0];
       var t = array_data[1];
@@ -922,6 +970,7 @@ $(document).ready(function () {
       var tower = array_data[3];
       var floor = array_data[4];
       var n = array_data[5];
+      var type = array_data[6];
 
       $('#x').text("X: Torre " + tower + " / ");
       $('#y').text("Y: Piso " + floor + " / ");
@@ -930,15 +979,17 @@ $(document).ready(function () {
         $('#map-image').animate({left: l, top: t, zoom: z}, 200);
       },
       1000);
+
+      if (type == "offices" || type == "services"){
       setTimeout(function(){
         popInfo.style.display = "block";
         var sR = $(popSearchInfo).attr('id');
         var fR = $(popResultInfo).attr('id');
-        //var pD = $(popInfoEditable).attr('id');
 
         getInfo(room, sR, fR, popInfoEditable);
 
       }, 1200);
+    }
     });
   }
 
@@ -954,29 +1005,52 @@ $(document).ready(function () {
   }
 
 
-  function setProfLocation(id){
+  function setProfLocation(id2){
+    alert(id2);
     popInfo.style.display = "none";
     $('#map-image').animate({top: "-100px", zoom: "25%", left: "200px"}, 200);
+    console.log ("id"+id2);
     var rqst = $.ajax({
       type: "POST",
       url: "./profLocation.php",
-      data: { id:id
-      }
+      data: { id2:id2 }
     }).done(function(data) {
-
+      alert(data);
       var array_data = String(data).split(",");
-      var l = array_data[0];
-      var t = array_data[1];
-      var z = array_data[2];
-      var tower = array_data[3];
-      var floor = array_data[4];
-      var rm = array_data[5];
-      var tid = array_data[6];
-      $('#x').text("X: Torre " + tower + " / ");
-      $('#y').text("Y: Piso " + floor + " / ");
-      $('#z').text("Z: "+ rm);
+
+      var arr_length = array_data.length-1;
+      var arr_length_half = arr_length/2;
+      var arr_length_desired = arr_length/arr_length_half;
+      alert(arr_length_desired);
+
+      var a = 0;
+
+      var l = new Array();
+      var t = new Array();
+      var z = new Array();
+      var tower = new Array();
+      var floor = new Array();
+      var rm = new Array();
+
+      while (a < arr_length){
+         l[a] = array_data[0];
+         t[a] = array_data[1];
+         z[a] = array_data[2];
+         tower[a] = array_data[3];
+         floor[a] = array_data[4];
+         rm[a] = array_data[5];
+        a++;
+      }
+
+
+      var tid = array_data[arr_length];
+      alert(tid);
+
+      $('#x').text("X: Torre " + tower[0] + " / ");
+      $('#y').text("Y: Piso " + floor[0] + " / ");
+      $('#z').text("Z: "+ rm[0]);
       setTimeout(function() {
-        $('#map-image').animate({left: l, top: t, zoom: z}, 200);
+        $('#map-image').animate({left: l[0], top: t[0], zoom: z[0]}, 200);
       },
       1500);
       setTimeout(function(){
@@ -1002,5 +1076,20 @@ $(document).ready(function () {
     });
   }
 
+  function setSvgImage(room){
+    var rqst = $.ajax({
+      type: "POST",
+      url: "./getImage.php",
+      data: { room:room
+      }
+    }).done(function(msg) {
+      var s = "P" + msg;
+      alert(s);
+      img = document.getElementById(s);
+      $(img).show();
+
+      $('.map-image-floor').not(img).css("display", "none");
+    });
+  }
 
 });
