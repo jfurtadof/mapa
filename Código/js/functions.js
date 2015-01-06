@@ -127,6 +127,8 @@ $(document).ready(function () {
   /************ LEVEL-TWO BTNS  ***************/
 
   $(roomBtn).click(function(){
+    setSvgImage('D1.1');
+
     popInfo.style.display = 'none';
     if (roomDiv.style.display != 'none'){
       $(servBtn).animate({marginLeft: "0px"}, 200);
@@ -204,7 +206,11 @@ $(document).ready(function () {
   });
 
   $(servBtn).click(function(){
+    $('#x').text("X: Torre D / ");
+    $('#y').text("Y: Piso 1 / ");
+    $('#z').text("Z: Corredor Principal");
     popInfo.style.display = "none";
+    setSvgImage('D1.1');
 
     if (servDiv.style.display != 'none'){
       $(servDiv).fadeOut(170);
@@ -234,6 +240,8 @@ $(document).ready(function () {
   });
 
   $(profBtn).click(function(){
+    setSvgImage('D1.1');
+
     popInfo.style.display = 'none';
 
     if (profDiv.style.display != 'none'){
@@ -302,6 +310,9 @@ $(document).ready(function () {
   });
 
   $(eventsBtn).click(function(){
+    setSvgImage('D1.1');
+
+
     if (eventsDiv.style.display != 'none'){
       $(eventsBtn).css("margin-left", "0px");
       $(eventsDiv).fadeOut(170);
@@ -482,6 +493,7 @@ $(document).ready(function () {
   /************ LAB BTNS  ***************/
 
   $(labBtn).click(function(){
+
     if (popRoomLab.style.display != 'none'){
       $(popRoomLab).fadeOut(200);
       $(popRoom).fadeIn(200);
@@ -655,7 +667,10 @@ $(document).ready(function () {
     popInfo.style.display = "block";
     $('#servicos').css('display', 'none');
     $('#sala_D11').css('display', 'inline');
+    $('#sala_A43').css('display', 'none');
     $('#sala_D14').css('display', 'none');
+    $('#sala_G64').css('display', 'none');
+    $('#sala_C43').css('display', 'none');
     $('#sala_F14').css('display', 'none');
 
     setSvgImage('D1.1');
@@ -666,7 +681,10 @@ $(document).ready(function () {
     popInfo.style.display = "block";
     $('#servicos').css('display', 'none');
     $('#sala_A43').css('display', 'inline');
+    $('#sala_D11').css('display', 'none');
     $('#sala_D14').css('display', 'none');
+    $('#sala_G64').css('display', 'none');
+    $('#sala_C43').css('display', 'none');
     $('#sala_F14').css('display', 'none');
 
     setSvgImage('A4.3');
@@ -677,9 +695,11 @@ $(document).ready(function () {
     popInfo.style.display = "block";
     $('#servicos').css('display', 'none');
     $('#sala_G64').css('display', 'inline');
+    $('#sala_D11').css('display', 'none');
     $('#sala_D14').css('display', 'none');
+    $('#sala_A43').css('display', 'none');
+    $('#sala_C43').css('display', 'none');
     $('#sala_F14').css('display', 'none');
-
     setSvgImage('G6.4');
     setRoomLocation('G6.4');
   });
@@ -689,6 +709,9 @@ $(document).ready(function () {
     $('#servicos').css('display', 'none');
     $('#sala_D14').css('display', 'inline');
     $('#sala_D11').css('display', 'none');
+    $('#sala_G64').css('display', 'none');
+    $('#sala_A43').css('display', 'none');
+    $('#sala_C43').css('display', 'none');
     $('#sala_F14').css('display', 'none');
 
     setSvgImage('D1.4');
@@ -700,6 +723,9 @@ $(document).ready(function () {
     $('#servicos').css('display', 'none');
     $('#sala_F14').css('display', 'inline');
     $('#sala_D11').css('display', 'none');
+    $('#sala_G64').css('display', 'none');
+    $('#sala_A43').css('display', 'none');
+    $('#sala_C43').css('display', 'none');
     $('#sala_D14').css('display', 'none');
 
     setSvgImage('F1.4');
@@ -711,8 +737,10 @@ $(document).ready(function () {
     $('#servicos').css('display', 'none');
     $('#sala_C43').css('display', 'inline');
     $('#sala_D11').css('display', 'none');
+    $('#sala_G64').css('display', 'none');
+    $('#sala_A43').css('display', 'none');
+    $('#sala_F14').css('display', 'none');
     $('#sala_D14').css('display', 'none');
-
     setSvgImage('C4.3');
     setRoomLocation('C4.3');
   });
@@ -907,6 +935,10 @@ $(document).ready(function () {
   });
 
   $('.pop-prof-link').click(function(){
+    $('#sala_D113').css('display', 'inline');
+
+    $('#gabinetes').css('display', 'none');
+
     var profName = $(this).text();
     // alert(profName);
     var courseName = " ";
@@ -915,10 +947,14 @@ $(document).ready(function () {
 
     getProf(profName, courseName, sR, fR, popProfEditable);
     setProfLocation(this.id);
+
   });
 
   $('.pop-room-link').click(function(){
     var r = this.id;
+    var sR = $(popSearchProf).attr('id');
+    var fR = $(popResultProf).attr('id');
+
     setSvgImage(r);
     setRoomLocation(r);
   });

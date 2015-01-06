@@ -49,6 +49,7 @@ require('core.php');
       <a class="nav-a"><img class="nav-a-img three" id="evDesBtn" src="img/design.png"></a>
       <a class="nav-a"><img class="nav-a-img three" id="evInfBtn" src="img/informatics.png"></a>
     </span>
+
   </nav>
 
 

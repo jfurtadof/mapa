@@ -67,8 +67,9 @@ if ($nr > 0){
     echo $nf["contact"];
     echo "</p>";
   }
-} else {
-  echo "<p>Aberto a todas as horas</p>";
+  if ($nf["hours"] == NULL && $nf["days"] == NULL){
+      echo "<p>Aberto a todas as horas</p>";
+    }
 }
 
 echo "</div>";

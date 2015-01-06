@@ -80,7 +80,7 @@ a{
   top: 131px;
   background-color: #0B66FE;
   width: 372.8px;
-  height: 553px;
+  height: 570px;
   z-index: 4;
 }
 
@@ -103,19 +103,19 @@ a{
 }
 
 .pop-buttons{
-  margin: 0px 15px 15px;
+  margin: 0px 15px 5px;
   width: 339.557px;
   height: 110px;
   color:white;
 }
 
 .pop-choose{
-  font-size:24px;
+  font-size:20px;
   margin: 0px 15px 15px 0px;
 }
 
 .tower, .floor{
-  line-height: 24px;
+  line-height: 18px;
 }
 
 .alphabet{
@@ -131,6 +131,9 @@ a{
 #map-image{
   position: absolute;
 
+  //left: -850px;
+  //top: -2100px;
+
 /************INICIAL LOCATION***************/
     left: -250px;
     top: -2500px;
@@ -138,9 +141,9 @@ a{
 
 #location {
   text-align: center;
+  font-size: 16px;
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 15%;
   z-index: 1000;
 
 }
