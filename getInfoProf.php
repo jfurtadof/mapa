@@ -2,8 +2,8 @@
 require('core.php');
 
 $tid = $_POST["tid"];
-$searchResult = $_POST["sR"];
-$filterResult = $_POST["fR"];
+$sR = $_POST["sR"];
+$fR = $_POST["fR"];
 
 $s = "SELECT * FROM teachers WHERE teacher_id = '$tid'";
 $q = mysql_query($s);
@@ -27,15 +27,24 @@ for ($i = 0; $i < $nr; $i++){
 
 /*********  ATÉ AQUI OK ******/
 
-echo $sR;
+$a = explode(" ", $n);
+$arr_length = count($a);
 
-/*echo "<div id='";
+echo $n;
+for ($i = 0; $i <= $arr_length; $i++){
+  //list($n[$i]) = split(" ", $n);
+  //echo $n[$i];
+}
+
+
+/*
+echo "<div id='";
 echo $sR;
 echo "' style='width: 339px;' class='pop-search'><p'>";
 echo $n;
 echo "</p></div>";
 
-
+/*
 
 echo "<div id='";
 echo $fR;

@@ -131,13 +131,13 @@ a{
 #map-image{
   position: absolute;
 
-  //left: -2800px;
-  //top: -1700px;
+  left: -2800px;
+  top: -1700px;
 
 
 /************INICIAL LOCATION***************/
-    left: -250px;
-    top: -2500px;
+    //left: -250px;
+    //top: -2500px;
 }
 
 #location {
@@ -145,6 +145,8 @@ a{
   position: absolute;
   left: 0;
   right: 0;
+  z-index: 1000;
+
 }
 
 #location span{

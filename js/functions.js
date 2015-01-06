@@ -676,7 +676,6 @@ $(document).ready(function () {
     $('#sala_D11').css('display', 'none');
     $('#sala_D14').css('display', 'none');
 
-
     setRoomLocation('F1.4');
   });
 
@@ -944,7 +943,6 @@ $(document).ready(function () {
   }
 
   function getInfo(room, sR, fR, pD){
-
     var rqst = $.ajax({
       type: "POST",
       url: "./getInfo.php",
@@ -983,25 +981,25 @@ $(document).ready(function () {
       1500);
       setTimeout(function(){
         popInfo.style.display = "block";
-        getInfoProf(tid, popSearchInfo, popResultInfo, popInfoEditable);
+        alert(tid);
+        var sR = $(popSearchInfo).attr('id');
+        var fR = $(popResultInfo).attr('id');
+
+        getInfoProf(tid, sR, fR, popInfoEditable);
+
       }, 2200);
     });
   }
 
 
   function getInfoProf(tid, sR, fR, pD){
-    //alert(sR.id);
-    //alert(fR.id);
-    //  alert(pD.id);
-
     var rqst = $.ajax({
       type: "POST",
       url: "./getInfoProf.php",
-      data: { tid:tid
+      data: { tid:tid, sR: sR, fR: fR
       }
     }).done(function(msg) {
-      alert(msg);
-      //(pD).html(msg);
+      $(popInfoEditable).html(msg);
     });
   }
 

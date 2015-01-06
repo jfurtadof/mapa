@@ -662,7 +662,7 @@ require('core.php');
 
     <div id="pop-info" class="pop" style="display:none;">
       <div id="pop-info-editable">
-        <<div id="pop-search-info" style="width: 339px;"class="pop-search">
+        <div id="pop-search-info" style="width: 339px;"class="pop-search">
         </div>
         <div id="pop-result-info" style="width: 339px;" class="pop-result">
         </div>
