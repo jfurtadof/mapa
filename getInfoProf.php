@@ -5,6 +5,7 @@ $tid = $_POST["tid"];
 $sR = $_POST["sR"];
 $fR = $_POST["fR"];
 
+
 $s = "SELECT * FROM teachers WHERE teacher_id = '$tid'";
 $q = mysql_query($s);
 $f = mysql_fetch_assoc($q);
@@ -16,41 +17,34 @@ $c = $f["teacher_course"];
 
 $ns = "SELECT * FROM office_hours WHERE teacher_id = '$tid'";
 $nq = mysql_query($ns);
-$nf = mysql_fetch_assoc($nq);
 $nr = mysql_num_rows($nq);
 
-for ($i = 0; $i < $nr; $i++){
+//for ($i = 0; $i < $nr; $i++){
+$i = 0;
+while($nf = mysql_fetch_assoc($nq)){
   $wk[$i] = $nf["weekday"];
   $hb[$i] = $nf["hour_begin"];
   $he[$i] = $nf["hour_end"];
+$i++;
 }
 
-/*********  ATÉ AQUI OK ******/
+/********* ATÉ AQUI OK ******/
 
 $a = explode(" ", $n);
-$arr_length = count($a);
 
-echo $n;
-for ($i = 0; $i <= $arr_length; $i++){
-  //list($n[$i]) = split(" ", $n);
-  //echo $n[$i];
-}
-
-
-/*
 echo "<div id='";
 echo $sR;
-echo "' style='width: 339px;' class='pop-search'><p'>";
-echo $n;
+echo "' style='width: 339px;' class='pop-search'><p>";
+echo $a[0];
+echo " ";
+echo end($a);
 echo "</p></div>";
-
-/*
 
 echo "<div id='";
 echo $fR;
 echo "' style='width: 339px; height: 460px;' class='pop-result'>";
 
-
+echo $n;
 
 
 if ($c == '1'){
@@ -58,15 +52,14 @@ if ($c == '1'){
 } else if ($c == '2'){
   echo "<p>Design e Multimédia</p>";
 } else {
-  echo "<p>EI / DM</p>";
+  echo "<p>Engenharia Informática / Design e Multimédia</p>";
 }
-
 
 echo "<p>Horário de Atendimento: </p>";
 
-for ($i = 0; $i < $nr, $i++){
+for ($i = 0; $i < $nr; $i++){
   echo "<p>";
-  echo $wk[$i]
+    echo $wk[$i];
   echo ", ";
   echo $hb[$i];
   echo " - ";
@@ -82,6 +75,6 @@ if ($e != NULL){
   echo "</p>";
 }
 
-echo "</div>";*/
+echo "</div>";
 
 ?>

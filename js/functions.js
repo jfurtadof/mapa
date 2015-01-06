@@ -981,7 +981,6 @@ $(document).ready(function () {
       1500);
       setTimeout(function(){
         popInfo.style.display = "block";
-        alert(tid);
         var sR = $(popSearchInfo).attr('id');
         var fR = $(popResultInfo).attr('id');
 
