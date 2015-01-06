@@ -660,7 +660,7 @@ require('core.php');
       </div>
     </div>
 
-    <div id="pop-info" class="pop" style="display:none;">
+    <div id="pop-info" class="pop" style="display:block;">
       <div id="pop-info-editable">
         <div id="pop-search-info" style="width: 339px;"class="pop-search">
         </div>
@@ -672,7 +672,7 @@ require('core.php');
     <div id="map">
       <div id="map-image">
         <?php
-        include('./svgImage1.php');
+        include('./svgImage2.php');
         ?>
       </div>
     </div>

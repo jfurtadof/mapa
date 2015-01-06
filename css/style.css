@@ -131,13 +131,13 @@ a{
 #map-image{
   position: absolute;
 
-  left: -2800px;
-  top: -1700px;
+  left: -500px;
+  top: -2500px;
 
 
 /************INICIAL LOCATION***************/
-    //left: -250px;
-    //top: -2500px;
+    //left: -2500px;
+    //top: -800px;
 }
 
 #location {
